@@ -490,6 +490,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
+  ////////////////////////////////////////
+  GPIO_InitStruct.Pin = SD_CD_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /////////////////////////////////////////
+
   /*Configure GPIO pins : Key_temper_Pin Key2_Pin RMII_INT_Pin */
   GPIO_InitStruct.Pin = Key_temper_Pin|Key2_Pin|RMII_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -503,7 +512,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : Key_Pin SD_CD_Pin */
-  GPIO_InitStruct.Pin = Key_Pin|SD_CD_Pin;
+  GPIO_InitStruct.Pin = Key_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -583,6 +592,7 @@ void StartDefaultTask(void const * argument)
   // GUI_Clear();
   // GUI_DispStringAt("101Hello World!", 30, 10);
   GUI_SetFont(&GUI_Font8x16);
+
 GUI_SetBkColor(GUI_BLUE);
 GUI_Clear();
 GUI_SetPenSize(10);

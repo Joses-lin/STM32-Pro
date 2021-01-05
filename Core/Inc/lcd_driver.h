@@ -3,6 +3,7 @@
  typedef unsigned char   u8;
  typedef unsigned short  u16; 
  typedef unsigned int    u32;   
+ typedef signed short    s16;
 
 
  //void Lcd_Configuration(void);
@@ -27,5 +28,7 @@ u16 ili9320_ReadData(void);
 u16 ili9320_ReadRegister(u16 index);
 
 u16 GUI_Color565(u32 RGB);  
+
+void GUI_Line(u16 x0, u16 y0, u16 x1, u16 y1,u16 color);
 
 #endif 

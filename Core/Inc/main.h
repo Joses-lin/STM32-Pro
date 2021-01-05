@@ -136,8 +136,8 @@ void Error_Handler(void);
 #define Clr_Cs  HAL_GPIO_WritePin(LCD_CS_GPIO_Port, LCD_CS_Pin, GPIO_PIN_RESET);
  
 
-#define Set_nWr  HAL_GPIO_WritePin(LCD_WR_GPIO_Port, LCD_WR_Pin, GPIO_PIN_SET);
-#define Clr_nWr  HAL_GPIO_WritePin(LCD_WR_GPIO_Port, LCD_WR_Pin, GPIO_PIN_RESET);
+#define Set_nWr  HAL_GPIO_WritePin(SD_CD_GPIO_Port, SD_CD_Pin, GPIO_PIN_SET);
+#define Clr_nWr  HAL_GPIO_WritePin(SD_CD_GPIO_Port, SD_CD_Pin, GPIO_PIN_RESET);
 
 #define Set_Rs   HAL_GPIO_WritePin(LCD_RS_GPIO_Port, LCD_RS_Pin, GPIO_PIN_SET);
 #define Clr_Rs   HAL_GPIO_WritePin(LCD_RS_GPIO_Port, LCD_RS_Pin, GPIO_PIN_RESET);

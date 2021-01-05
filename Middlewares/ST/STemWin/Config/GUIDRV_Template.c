@@ -49,9 +49,9 @@ Purpose     : Template driver, could be used as starting point for new
 
 #include <stddef.h>
 
-//#include "LCD_Private.h"
+#include "LCD_Private.h"
 #include "GUI_Private.h"
-//#include "LCD_ConfDefaults.h"
+#include "LCD_ConfDefaults.h"
 #include "lcd_driver.h"
 
 /*********************************************************************
@@ -193,10 +193,9 @@ static unsigned int _GetPixelIndex(GUI_DEVICE * pDevice, int x, int y) {
       //
       // Write into hardware ... Adapt to your system
       //
-      ili9320_GetPoint(x, y);
+      PixelIndex = ili9320_GetPoint(x, y);
       // TBD by customer...
       //
-      PixelIndex = 0;
     }
     #if (LCD_MIRROR_X == 0) && (LCD_MIRROR_Y == 0) && (LCD_SWAP_XY == 0)
       #undef xPhys

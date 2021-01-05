@@ -181,27 +181,19 @@ void LCD_DisplayWelcomeStr(u8 Line)
 void ili9320_Initializtion()
 { 
   
-  delay(1); /* delay 50 ms */
+  ///delay(1); /* delay 50 ms */
   ili9320_WriteRegister(0x0000,0x0001);          //start internal osc
   delay(1); /* delay 50 ms */			
-  LCD_DB_AS_InPut();
-  delay(1); /* delay 50 ms */
+  ///LCD_DB_AS_InPut();
+  ///delay(1); /* delay 50 ms */
   DeviceCode = ili9320_ReadRegister(0x0000);
   if(( 0 == DeviceCode) || (1 == DeviceCode))
   {
   	DeviceCode = ili9320_ReadRegister(0x0000);
   }
-  //printf("\n\r ###### www.armjishu.com DeviceCode = 0x%x ###### ", DeviceCode);
-  //printf("\n\r ###### DeviceCode = LCD_ReadReg(0x0000) = 0x%x ###### ", LCD_ReadReg(0x0000));
-  //printf("\n\r ###### DeviceCode = LCD_ReadSta(0x0000) = 0x%x ###### ", LCD_ReadSta());
-//
-//  Devicestr[15] = ((DeviceCode >> 12) & 0xF) + 0x30;
-//  Devicestr[16] = ((DeviceCode >> 8) & 0xF) + 0x30;
-//  Devicestr[17] = ((DeviceCode >> 4) & 0xF) + 0x30;
-//  Devicestr[18] = ((DeviceCode >> 0) & 0xF) + 0x30;
   
-  LCD_DB_AS_OutPut();
-  delay(1); /* delay 50 ms */			//start internal osc
+  ///LCD_DB_AS_OutPut();
+  ///delay(1); /* delay 50 ms */			
 
   if(DeviceCode == 0)
   {
@@ -217,7 +209,6 @@ void ili9320_Initializtion()
   {
       // printf("\n\r This LCD is ili9325 ");
   }
-  
 	if(DeviceCode==0x9325||DeviceCode==0x9328)
 	{
     	ili9320_WriteRegister(0x00e3,0x3008);
@@ -601,7 +592,7 @@ void ili9320_Initializtion()
 */
     
     //ili9320_Clear(0x001F);
- 
+    GUI_Line(1, 1, 50, 50, 0x001f); // debug
 }
 
 __inline void ili9320_SetCursor(u16 x,u16 y)
@@ -889,7 +880,7 @@ __inline void ili9320_WriteRegister(u16 index,u16 dat)
   ** DB[0:15]  ---------[index]----------[data]-----------------------  **
   **                                                                    **
   ************************************************************************/
-    Clr_Cs;
+  Clr_Cs;
 	ili9320_WriteIndex(index);      
 	ili9320_WriteData(dat);    
 	Set_Cs; 
@@ -898,4 +889,179 @@ __inline void ili9320_WriteRegister(u16 index,u16 dat)
 void ili9320_Delay(u32 nCount)
 {
   for(; nCount != 0; nCount--);
+}
+
+void GUI_Line(u16 x0, u16 y0, u16 x1, u16 y1,u16 color)
+{
+ 	u16 x,y;
+ 	u16 dx;// = abs(x1 - x0);
+ 	u16 dy;// = abs(y1 - y0);
+
+	if(y0==y1)
+	{
+		if(x0<=x1)
+		{
+			x=x0;
+		}
+		else
+		{
+			x=x1;
+			x1=x0;
+		}
+  		while(x <= x1)
+  		{
+   			ili9320_SetPoint(x,y0,color);
+   			x++;
+  		}
+  		return;
+	}
+	else if(y0>y1)
+	{
+		dy=y0-y1;
+	}
+	else
+	{
+		dy=y1-y0;
+	}
+ 
+ 	if(x0==x1)
+	{
+		if(y0<=y1)
+		{
+			y=y0;
+		}
+		else
+		{
+			y=y1;
+			y1=y0;
+		}
+  		while(y <= y1)
+  		{
+   			ili9320_SetPoint(x0,y,color);
+   			y++;
+  		}
+  		return;
+	}
+	else if(x0 > x1)
+ 	{
+		dx=x0-x1;
+  		x = x1;
+  		x1 = x0;
+  		y = y1;
+  		y1 = y0;
+ 	}
+ 	else
+ 	{
+		dx=x1-x0;
+  		x = x0;
+  		y = y0;
+ 	}
+
+ 	if(dx == dy)
+ 	{
+  		while(x <= x1)
+  		{
+
+   			x++;
+			if(y>y1)
+			{
+				y--;
+			}
+			else
+			{
+   				y++;
+			}
+   			ili9320_SetPoint(x,y,color);
+  		}
+ 	}
+ 	else
+ 	{
+ 		ili9320_SetPoint(x, y, color);
+  		if(y < y1)
+  		{
+   			if(dx > dy)
+   			{
+    			s16 p = dy * 2 - dx;
+    			s16 twoDy = 2 * dy;
+    			s16 twoDyMinusDx = 2 * (dy - dx);
+    			while(x < x1)
+    			{
+     				x++;
+     				if(p < 0)
+     				{
+      					p += twoDy;
+     				}
+     				else
+     				{
+      					y++;
+      					p += twoDyMinusDx;
+     				}
+     				ili9320_SetPoint(x, y,color);
+    			}
+   			}
+   			else
+   			{
+    			s16 p = dx * 2 - dy;
+    			s16 twoDx = 2 * dx;
+    			s16 twoDxMinusDy = 2 * (dx - dy);
+    			while(y < y1)
+    			{
+     				y++;
+     				if(p < 0)
+     				{
+      					p += twoDx;
+     				}
+     				else
+     				{
+      					x++;
+      					p+= twoDxMinusDy;
+     				}
+     				ili9320_SetPoint(x, y, color);
+    			}
+   			}
+  		}
+  		else
+  		{
+   			if(dx > dy)
+   			{
+    			s16 p = dy * 2 - dx;
+    			s16 twoDy = 2 * dy;
+	    		s16 twoDyMinusDx = 2 * (dy - dx);
+    			while(x < x1)
+    			{
+     				x++;
+     				if(p < 0)
+	     			{
+    	  				p += twoDy;
+     				}
+     				else
+     				{
+      					y--;
+	      				p += twoDyMinusDx;
+    	 			}
+     				ili9320_SetPoint(x, y,color);
+    			}
+   			}
+	   		else
+   			{
+    			s16 p = dx * 2 - dy;
+    			s16 twoDx = 2 * dx;
+	    		s16 twoDxMinusDy = 2 * (dx - dy);
+    			while(y1 < y)
+    			{
+     				y--;
+     				if(p < 0)
+	     			{
+    	  				p += twoDx;
+     				}
+     				else
+     				{
+      					x++;
+	      				p+= twoDxMinusDy;
+    	 			}
+     				ili9320_SetPoint(x, y,color);
+    			}
+   			}
+  		}
+ 	}
 }
