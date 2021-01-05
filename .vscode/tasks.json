@@ -1,0 +1,63 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+          // 编译
+          {
+            "type": "shell",
+            "label": "build all",
+            "command": "make -j8",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        // 清除编译
+        {
+            "type": "shell",
+            "label": "clear all",
+            "command": "make clean",
+            "problemMatcher": []
+        },
+        // 全部重新编译
+        {
+            "type": "shell",
+            "label": "rebuild all",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "clear all",
+                "build all"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        // 仅下载
+        {
+            "type": "shell",
+            "label": "flash it",
+            "command": "make flash",
+            "dependsOn":[
+                "build all"
+            ],
+            "problemMatcher": []
+        },
+        // 编译并下载
+        {
+            "type": "shell",
+            "label": "build and flash",
+            "dependsOrder": "sequence",
+            "dependsOn" :[
+                "build all",
+                "flash it"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+        }
+    ]
+}

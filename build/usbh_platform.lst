@@ -1,0 +1,147 @@
+ARM GAS  /tmp/ccdyqX1F.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"usbh_platform.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.MX_DriverVbusFS,"ax",%progbits
+  16              		.align	1
+  17              		.global	MX_DriverVbusFS
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	MX_DriverVbusFS:
+  25              	.LVL0:
+  26              	.LFB65:
+  27              		.file 1 "USB_HOST/Target/usbh_platform.c"
+   1:USB_HOST/Target/usbh_platform.c **** /* USER CODE BEGIN Header */
+   2:USB_HOST/Target/usbh_platform.c **** /**
+   3:USB_HOST/Target/usbh_platform.c ****   ******************************************************************************
+   4:USB_HOST/Target/usbh_platform.c ****   * @file           : usbh_platform.c
+   5:USB_HOST/Target/usbh_platform.c **** 
+   6:USB_HOST/Target/usbh_platform.c ****   * @brief          : This file implements the USB platform
+   7:USB_HOST/Target/usbh_platform.c ****   ******************************************************************************
+   8:USB_HOST/Target/usbh_platform.c ****   * @attention
+   9:USB_HOST/Target/usbh_platform.c ****   *
+  10:USB_HOST/Target/usbh_platform.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  11:USB_HOST/Target/usbh_platform.c ****   * All rights reserved.</center></h2>
+  12:USB_HOST/Target/usbh_platform.c ****   *
+  13:USB_HOST/Target/usbh_platform.c ****   * This software component is licensed by ST under Ultimate Liberty license
+  14:USB_HOST/Target/usbh_platform.c ****   * SLA0044, the "License"; You may not use this file except in compliance with
+  15:USB_HOST/Target/usbh_platform.c ****   * the License. You may obtain a copy of the License at:
+  16:USB_HOST/Target/usbh_platform.c ****   *                             www.st.com/SLA0044
+  17:USB_HOST/Target/usbh_platform.c ****   *
+  18:USB_HOST/Target/usbh_platform.c ****   ******************************************************************************
+  19:USB_HOST/Target/usbh_platform.c ****   */
+  20:USB_HOST/Target/usbh_platform.c **** /* USER CODE END Header */
+  21:USB_HOST/Target/usbh_platform.c **** 
+  22:USB_HOST/Target/usbh_platform.c **** /* Includes ------------------------------------------------------------------*/
+  23:USB_HOST/Target/usbh_platform.c **** #include "usbh_platform.h"
+  24:USB_HOST/Target/usbh_platform.c **** 
+  25:USB_HOST/Target/usbh_platform.c **** /* USER CODE BEGIN INCLUDE */
+  26:USB_HOST/Target/usbh_platform.c **** 
+  27:USB_HOST/Target/usbh_platform.c **** /* USER CODE END INCLUDE */
+  28:USB_HOST/Target/usbh_platform.c **** 
+  29:USB_HOST/Target/usbh_platform.c **** /**
+  30:USB_HOST/Target/usbh_platform.c ****   * @brief  Drive VBUS.
+  31:USB_HOST/Target/usbh_platform.c ****   * @param  state : VBUS state
+ARM GAS  /tmp/ccdyqX1F.s 			page 2
+
+
+  32:USB_HOST/Target/usbh_platform.c ****   *          This parameter can be one of the these values:
+  33:USB_HOST/Target/usbh_platform.c ****   *           - 1 : VBUS Active
+  34:USB_HOST/Target/usbh_platform.c ****   *           - 0 : VBUS Inactive
+  35:USB_HOST/Target/usbh_platform.c ****   */
+  36:USB_HOST/Target/usbh_platform.c **** void MX_DriverVbusFS(uint8_t state)
+  37:USB_HOST/Target/usbh_platform.c **** {
+  28              		.loc 1 37 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 37 1 is_stmt 0 view .LVU1
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  38:USB_HOST/Target/usbh_platform.c ****   uint8_t data = state;
+  38              		.loc 1 38 3 is_stmt 1 view .LVU2
+  39              	.LVL1:
+  39:USB_HOST/Target/usbh_platform.c ****   /* USER CODE BEGIN PREPARE_GPIO_DATA_VBUS_FS */
+  40:USB_HOST/Target/usbh_platform.c ****   if(state == 0)
+  40              		.loc 1 40 3 view .LVU3
+  41              		.loc 1 40 5 is_stmt 0 view .LVU4
+  42 0002 30B9     		cbnz	r0, .L3
+  41:USB_HOST/Target/usbh_platform.c ****   {
+  42:USB_HOST/Target/usbh_platform.c ****     /* Drive high Charge pump */
+  43:USB_HOST/Target/usbh_platform.c ****     data = GPIO_PIN_SET;
+  43              		.loc 1 43 10 view .LVU5
+  44 0004 0122     		movs	r2, #1
+  45              	.L2:
+  46              	.LVL2:
+  44:USB_HOST/Target/usbh_platform.c ****   }
+  45:USB_HOST/Target/usbh_platform.c ****   else
+  46:USB_HOST/Target/usbh_platform.c ****   {
+  47:USB_HOST/Target/usbh_platform.c ****     /* Drive low Charge pump */
+  48:USB_HOST/Target/usbh_platform.c ****     data = GPIO_PIN_RESET;
+  49:USB_HOST/Target/usbh_platform.c ****   }
+  50:USB_HOST/Target/usbh_platform.c ****   /* USER CODE END PREPARE_GPIO_DATA_VBUS_FS */
+  51:USB_HOST/Target/usbh_platform.c ****   HAL_GPIO_WritePin(GPIOB,GPIO_PIN_8,(GPIO_PinState)data);
+  47              		.loc 1 51 3 is_stmt 1 view .LVU6
+  48 0006 4FF48071 		mov	r1, #256
+  49 000a 0348     		ldr	r0, .L5
+  50              	.LVL3:
+  51              		.loc 1 51 3 is_stmt 0 view .LVU7
+  52 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  53              	.LVL4:
+  52:USB_HOST/Target/usbh_platform.c **** }
+  54              		.loc 1 52 1 view .LVU8
+  55 0010 08BD     		pop	{r3, pc}
+  56              	.LVL5:
+  57              	.L3:
+  48:USB_HOST/Target/usbh_platform.c ****   }
+  58              		.loc 1 48 10 view .LVU9
+  59 0012 0022     		movs	r2, #0
+  60 0014 F7E7     		b	.L2
+  61              	.L6:
+  62 0016 00BF     		.align	2
+ARM GAS  /tmp/ccdyqX1F.s 			page 3
+
+
+  63              	.L5:
+  64 0018 000C0140 		.word	1073810432
+  65              		.cfi_endproc
+  66              	.LFE65:
+  68              		.text
+  69              	.Letext0:
+  70              		.file 2 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h"
+  71              		.file 3 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_stdint.h"
+  72              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+  73              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+  74              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h"
+  75              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+  76              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ARM GAS  /tmp/ccdyqX1F.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbh_platform.c
+     /tmp/ccdyqX1F.s:16     .text.MX_DriverVbusFS:0000000000000000 $t
+     /tmp/ccdyqX1F.s:24     .text.MX_DriverVbusFS:0000000000000000 MX_DriverVbusFS
+     /tmp/ccdyqX1F.s:64     .text.MX_DriverVbusFS:0000000000000018 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin

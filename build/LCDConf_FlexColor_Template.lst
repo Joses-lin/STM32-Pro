@@ -1,0 +1,801 @@
+ARM GAS  /tmp/ccdY68XZ.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"LCDConf_FlexColor_Template.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.LcdReadDataMultiple,"ax",%progbits
+  16              		.align	1
+  17              		.arch armv7-m
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	LcdReadDataMultiple:
+  24              	.LVL0:
+  25              	.LFB68:
+  26              		.file 1 "Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c"
+   1:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+   2:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *        Solutions for real time microcontroller applications        *
+   4:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** **********************************************************************
+   5:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *                                                                    *
+   6:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *                                                                    *
+   8:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *                                                                    *
+  10:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** **********************************************************************
+  11:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  12:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** ** emWin V5.44 - Graphical user interface for embedded applications **
+  13:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** source code may not be used to write a similar product.  This file may
+  16:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** only be used in accordance with the following terms:
+  17:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  18:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** The  software has  been licensed  to STMicroelectronics International
+  19:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** N.V. a Dutch company with a Swiss branch and its headquarters in Plan-
+  20:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** les-Ouates, Geneva, 39 Chemin du Champ des Filles, Switzerland for the
+  21:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** purposes of creating libraries for ARM Cortex-M-based 32-bit microcon_
+  22:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** troller products commercialized by Licensee only, sublicensed and dis_
+  23:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** tributed under the terms and conditions of the End User License Agree_
+  24:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** ment supplied by STMicroelectronics International N.V.
+  25:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** Full source code is available at: www.segger.com
+  26:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  27:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** We appreciate your understanding and fairness.
+  28:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** ----------------------------------------------------------------------
+  29:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** File        : LCDConf_FlexColor_Template.c
+  30:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** Purpose     : Display controller configuration (single layer)
+  31:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** ---------------------------END-OF-HEADER------------------------------
+  32:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ARM GAS  /tmp/ccdY68XZ.s 			page 2
+
+
+  33:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  34:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /**
+  35:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ******************************************************************************
+  36:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   * @attention
+  37:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   *
+  38:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   * <h2><center>&copy; Copyright (c) 2018 STMicroelectronics. 
+  39:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   * All rights reserved.</center></h2>
+  40:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   *
+  41:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   * This software component is licensed by ST under Ultimate Liberty license SLA0044,
+  42:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   * the "License"; You may not use this file except in compliance with the License.
+  43:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   * You may obtain a copy of the License at:
+  44:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   *                      http://www.st.com/SLA0044
+  45:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   *
+  46:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ******************************************************************************
+  47:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   */
+  48:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  49:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #include "GUI.h"
+  50:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #include "GUIDRV_FlexColor.h"
+  51:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #include "lcd_driver.h"
+  52:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #include "main.h"
+  53:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  54:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+  55:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+  56:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       Layer configuration (to be modified)
+  57:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+  58:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** **********************************************************************
+  59:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+  60:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  61:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** //
+  62:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** // Physical display size
+  63:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** //
+  64:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #define XSIZE_PHYS  320 // To be adapted to x-screen size
+  65:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #define YSIZE_PHYS  240 // To be adapted to y-screen size
+  66:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  67:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+  68:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+  69:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       Configuration checking
+  70:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+  71:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** **********************************************************************
+  72:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+  73:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #ifndef   VXSIZE_PHYS
+  74:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   #define VXSIZE_PHYS XSIZE_PHYS
+  75:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #endif
+  76:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #ifndef   VYSIZE_PHYS
+  77:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   #define VYSIZE_PHYS YSIZE_PHYS
+  78:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #endif
+  79:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #ifndef   XSIZE_PHYS
+  80:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   #error Physical X size of display is not defined!
+  81:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #endif
+  82:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #ifndef   YSIZE_PHYS
+  83:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   #error Physical Y size of display is not defined!
+  84:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #endif
+  85:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #ifndef   GUICC_565
+  86:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   #error Color conversion not defined!
+  87:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #endif
+  88:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #ifndef   GUIDRV_FLEXCOLOR
+  89:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   #error No display driver defined!
+ARM GAS  /tmp/ccdY68XZ.s 			page 3
+
+
+  90:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** #endif
+  91:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+  92:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+  93:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+  94:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       Local functions
+  95:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+  96:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** **********************************************************************
+  97:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+  98:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /********************************************************************
+  99:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 100:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       LcdWriteReg
+ 101:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 102:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Function description:
+ 103:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   Sets display register
+ 104:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 105:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** static void LcdWriteReg(U16 Data) {
+ 106:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ... TBD by user
+ 107:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Clr_Cs
+ 108:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteIndex(Data);
+ 109:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Set_Cs
+ 110:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 111:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 112:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /********************************************************************
+ 113:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 114:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       LcdWriteData
+ 115:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 116:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Function description:
+ 117:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   Writes a value to a display register
+ 118:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 119:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** static void LcdWriteData(U16 Data) {
+ 120:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ... TBD by user
+ 121:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Clr_Cs;
+ 122:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteData(Data);
+ 123:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Set_Cs;
+ 124:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 125:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 126:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /********************************************************************
+ 127:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 128:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       LcdWriteDataMultiple
+ 129:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 130:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Function description:
+ 131:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   Writes multiple values to a display register.
+ 132:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 133:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** static void LcdWriteDataMultiple(U16 * pData, int NumItems) {
+ 134:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Clr_Cs;
+ 135:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+ 136:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 137:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     ili9320_WriteData(*pData);
+ 138:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     pData++;
+ 139:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   }
+ 140:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Set_Cs;
+ 141:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 142:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 143:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /********************************************************************
+ 144:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 145:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       LcdReadDataMultiple
+ 146:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ARM GAS  /tmp/ccdY68XZ.s 			page 4
+
+
+ 147:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Function description:
+ 148:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   Reads multiple values from a display register.
+ 149:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 150:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** static void LcdReadDataMultiple(U16 * pData, int NumItems) {
+  27              		.loc 1 150 60 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		.loc 1 150 60 is_stmt 0 view .LVU1
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  39 0002 0546     		mov	r5, r0
+  40 0004 0C46     		mov	r4, r1
+ 151:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Clr_Cs;
+  41              		.loc 1 151 3 is_stmt 1 view .LVU2
+  42 0006 0022     		movs	r2, #0
+  43 0008 4FF48071 		mov	r1, #256
+  44              	.LVL1:
+  45              		.loc 1 151 3 is_stmt 0 view .LVU3
+  46 000c 0848     		ldr	r0, .L6
+  47              	.LVL2:
+  48              		.loc 1 151 3 view .LVU4
+  49 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  50              	.LVL3:
+  51              		.loc 1 151 9 is_stmt 1 view .LVU5
+ 152:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+  52              		.loc 1 152 3 view .LVU6
+  53              	.L2:
+  54              		.loc 1 152 9 view .LVU7
+  55              		.loc 1 152 18 is_stmt 0 view .LVU8
+  56 0012 661E     		subs	r6, r4, #1
+  57              	.LVL4:
+  58              		.loc 1 152 9 view .LVU9
+  59 0014 2CB1     		cbz	r4, .L5
+ 153:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 154:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     *pData = ili9320_ReadData();
+  60              		.loc 1 154 5 is_stmt 1 view .LVU10
+  61              		.loc 1 154 14 is_stmt 0 view .LVU11
+  62 0016 FFF7FEFF 		bl	ili9320_ReadData
+  63              	.LVL5:
+  64              		.loc 1 154 12 view .LVU12
+  65 001a 25F8020B 		strh	r0, [r5], #2	@ movhi
+  66              	.LVL6:
+ 155:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     pData++;
+  67              		.loc 1 155 5 is_stmt 1 view .LVU13
+ 152:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+  68              		.loc 1 152 18 is_stmt 0 view .LVU14
+  69 001e 3446     		mov	r4, r6
+  70 0020 F7E7     		b	.L2
+  71              	.L5:
+ 156:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   }
+ 157:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Set_Cs;
+ARM GAS  /tmp/ccdY68XZ.s 			page 5
+
+
+  72              		.loc 1 157 3 is_stmt 1 view .LVU15
+  73 0022 0122     		movs	r2, #1
+  74 0024 4FF48071 		mov	r1, #256
+  75 0028 0148     		ldr	r0, .L6
+  76 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  77              	.LVL7:
+  78              		.loc 1 157 9 view .LVU16
+ 158:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+  79              		.loc 1 158 1 is_stmt 0 view .LVU17
+  80 002e 70BD     		pop	{r4, r5, r6, pc}
+  81              	.LVL8:
+  82              	.L7:
+  83              		.loc 1 158 1 view .LVU18
+  84              		.align	2
+  85              	.L6:
+  86 0030 00100140 		.word	1073811456
+  87              		.cfi_endproc
+  88              	.LFE68:
+  90              		.section	.text.LcdWriteDataMultiple,"ax",%progbits
+  91              		.align	1
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  95              		.fpu softvfp
+  97              	LcdWriteDataMultiple:
+  98              	.LVL9:
+  99              	.LFB67:
+ 133:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Clr_Cs;
+ 100              		.loc 1 133 61 is_stmt 1 view -0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Clr_Cs;
+ 104              		.loc 1 133 61 is_stmt 0 view .LVU20
+ 105 0000 70B5     		push	{r4, r5, r6, lr}
+ 106              	.LCFI1:
+ 107              		.cfi_def_cfa_offset 16
+ 108              		.cfi_offset 4, -16
+ 109              		.cfi_offset 5, -12
+ 110              		.cfi_offset 6, -8
+ 111              		.cfi_offset 14, -4
+ 112 0002 0546     		mov	r5, r0
+ 113 0004 0C46     		mov	r4, r1
+ 134:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+ 114              		.loc 1 134 3 is_stmt 1 view .LVU21
+ 115 0006 0022     		movs	r2, #0
+ 116 0008 4FF48071 		mov	r1, #256
+ 117              	.LVL10:
+ 134:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+ 118              		.loc 1 134 3 is_stmt 0 view .LVU22
+ 119 000c 0848     		ldr	r0, .L13
+ 120              	.LVL11:
+ 134:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+ 121              		.loc 1 134 3 view .LVU23
+ 122 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 123              	.LVL12:
+ 134:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   while (NumItems--) {
+ARM GAS  /tmp/ccdY68XZ.s 			page 6
+
+
+ 124              		.loc 1 134 9 is_stmt 1 view .LVU24
+ 135:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 125              		.loc 1 135 3 view .LVU25
+ 126              	.L9:
+ 135:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 127              		.loc 1 135 9 view .LVU26
+ 135:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 128              		.loc 1 135 18 is_stmt 0 view .LVU27
+ 129 0012 661E     		subs	r6, r4, #1
+ 130              	.LVL13:
+ 135:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 131              		.loc 1 135 9 view .LVU28
+ 132 0014 2CB1     		cbz	r4, .L12
+ 137:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     pData++;
+ 133              		.loc 1 137 5 is_stmt 1 view .LVU29
+ 134 0016 35F8020B 		ldrh	r0, [r5], #2
+ 135              	.LVL14:
+ 137:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     pData++;
+ 136              		.loc 1 137 5 is_stmt 0 view .LVU30
+ 137 001a FFF7FEFF 		bl	ili9320_WriteData
+ 138              	.LVL15:
+ 138:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   }
+ 139              		.loc 1 138 5 is_stmt 1 view .LVU31
+ 135:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ... TBD by user
+ 140              		.loc 1 135 18 is_stmt 0 view .LVU32
+ 141 001e 3446     		mov	r4, r6
+ 142 0020 F7E7     		b	.L9
+ 143              	.L12:
+ 140:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 144              		.loc 1 140 3 is_stmt 1 view .LVU33
+ 145 0022 0122     		movs	r2, #1
+ 146 0024 4FF48071 		mov	r1, #256
+ 147 0028 0148     		ldr	r0, .L13
+ 148 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 149              	.LVL16:
+ 140:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 150              		.loc 1 140 9 view .LVU34
+ 141:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 151              		.loc 1 141 1 is_stmt 0 view .LVU35
+ 152 002e 70BD     		pop	{r4, r5, r6, pc}
+ 153              	.LVL17:
+ 154              	.L14:
+ 141:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 155              		.loc 1 141 1 view .LVU36
+ 156              		.align	2
+ 157              	.L13:
+ 158 0030 00100140 		.word	1073811456
+ 159              		.cfi_endproc
+ 160              	.LFE67:
+ 162              		.section	.text.LcdWriteData,"ax",%progbits
+ 163              		.align	1
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 167              		.fpu softvfp
+ 169              	LcdWriteData:
+ 170              	.LVL18:
+ARM GAS  /tmp/ccdY68XZ.s 			page 7
+
+
+ 171              	.LFB66:
+ 119:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ... TBD by user
+ 172              		.loc 1 119 36 is_stmt 1 view -0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ... TBD by user
+ 176              		.loc 1 119 36 is_stmt 0 view .LVU38
+ 177 0000 38B5     		push	{r3, r4, r5, lr}
+ 178              	.LCFI2:
+ 179              		.cfi_def_cfa_offset 16
+ 180              		.cfi_offset 3, -16
+ 181              		.cfi_offset 4, -12
+ 182              		.cfi_offset 5, -8
+ 183              		.cfi_offset 14, -4
+ 184 0002 0446     		mov	r4, r0
+ 121:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteData(Data);
+ 185              		.loc 1 121 3 is_stmt 1 view .LVU39
+ 186 0004 084D     		ldr	r5, .L17
+ 187 0006 0022     		movs	r2, #0
+ 188 0008 4FF48071 		mov	r1, #256
+ 189 000c 2846     		mov	r0, r5
+ 190              	.LVL19:
+ 121:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteData(Data);
+ 191              		.loc 1 121 3 is_stmt 0 view .LVU40
+ 192 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 193              	.LVL20:
+ 121:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteData(Data);
+ 194              		.loc 1 121 9 is_stmt 1 view .LVU41
+ 122:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Set_Cs;
+ 195              		.loc 1 122 3 view .LVU42
+ 196 0012 2046     		mov	r0, r4
+ 197 0014 FFF7FEFF 		bl	ili9320_WriteData
+ 198              	.LVL21:
+ 123:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 199              		.loc 1 123 3 view .LVU43
+ 200 0018 0122     		movs	r2, #1
+ 201 001a 4FF48071 		mov	r1, #256
+ 202 001e 2846     		mov	r0, r5
+ 203 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 204              	.LVL22:
+ 123:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 205              		.loc 1 123 9 view .LVU44
+ 124:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 206              		.loc 1 124 1 is_stmt 0 view .LVU45
+ 207 0024 38BD     		pop	{r3, r4, r5, pc}
+ 208              	.L18:
+ 209 0026 00BF     		.align	2
+ 210              	.L17:
+ 211 0028 00100140 		.word	1073811456
+ 212              		.cfi_endproc
+ 213              	.LFE66:
+ 215              		.section	.text.LcdWriteReg,"ax",%progbits
+ 216              		.align	1
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ARM GAS  /tmp/ccdY68XZ.s 			page 8
+
+
+ 220              		.fpu softvfp
+ 222              	LcdWriteReg:
+ 223              	.LVL23:
+ 224              	.LFB65:
+ 105:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ... TBD by user
+ 225              		.loc 1 105 35 is_stmt 1 view -0
+ 226              		.cfi_startproc
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ... TBD by user
+ 229              		.loc 1 105 35 is_stmt 0 view .LVU47
+ 230 0000 38B5     		push	{r3, r4, r5, lr}
+ 231              	.LCFI3:
+ 232              		.cfi_def_cfa_offset 16
+ 233              		.cfi_offset 3, -16
+ 234              		.cfi_offset 4, -12
+ 235              		.cfi_offset 5, -8
+ 236              		.cfi_offset 14, -4
+ 237 0002 0446     		mov	r4, r0
+ 107:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteIndex(Data);
+ 238              		.loc 1 107 3 is_stmt 1 view .LVU48
+ 239 0004 084D     		ldr	r5, .L21
+ 240 0006 0022     		movs	r2, #0
+ 241 0008 4FF48071 		mov	r1, #256
+ 242 000c 2846     		mov	r0, r5
+ 243              	.LVL24:
+ 107:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   ili9320_WriteIndex(Data);
+ 244              		.loc 1 107 3 is_stmt 0 view .LVU49
+ 245 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 246              	.LVL25:
+ 108:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Set_Cs
+ 247              		.loc 1 108 3 is_stmt 1 view .LVU50
+ 248 0012 2046     		mov	r0, r4
+ 249 0014 FFF7FEFF 		bl	ili9320_WriteIndex
+ 250              	.LVL26:
+ 109:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 251              		.loc 1 109 3 view .LVU51
+ 252 0018 0122     		movs	r2, #1
+ 253 001a 4FF48071 		mov	r1, #256
+ 254 001e 2846     		mov	r0, r5
+ 255 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 256              	.LVL27:
+ 110:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 257              		.loc 1 110 1 is_stmt 0 view .LVU52
+ 258 0024 38BD     		pop	{r3, r4, r5, pc}
+ 259              	.L22:
+ 260 0026 00BF     		.align	2
+ 261              	.L21:
+ 262 0028 00100140 		.word	1073811456
+ 263              		.cfi_endproc
+ 264              	.LFE65:
+ 266              		.section	.text.LCD_X_Config,"ax",%progbits
+ 267              		.align	1
+ 268              		.global	LCD_X_Config
+ 269              		.syntax unified
+ 270              		.thumb
+ 271              		.thumb_func
+ARM GAS  /tmp/ccdY68XZ.s 			page 9
+
+
+ 272              		.fpu softvfp
+ 274              	LCD_X_Config:
+ 275              	.LFB69:
+ 159:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 160:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+ 161:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 162:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       Public functions
+ 163:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 164:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** **********************************************************************
+ 165:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 166:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+ 167:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 168:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       LCD_X_Config
+ 169:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 170:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Function description:
+ 171:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   Called during the initialization process in order to set up the
+ 172:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   display driver configuration.
+ 173:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 174:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 175:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** void LCD_X_Config(void) {
+ 276              		.loc 1 175 25 is_stmt 1 view -0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 128
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280 0000 30B5     		push	{r4, r5, lr}
+ 281              	.LCFI4:
+ 282              		.cfi_def_cfa_offset 12
+ 283              		.cfi_offset 4, -12
+ 284              		.cfi_offset 5, -8
+ 285              		.cfi_offset 14, -4
+ 286 0002 A1B0     		sub	sp, sp, #132
+ 287              	.LCFI5:
+ 288              		.cfi_def_cfa_offset 144
+ 176:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   GUI_DEVICE * pDevice;
+ 289              		.loc 1 176 3 view .LVU54
+ 177:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   CONFIG_FLEXCOLOR Config = {0};
+ 290              		.loc 1 177 3 view .LVU55
+ 291              		.loc 1 177 20 is_stmt 0 view .LVU56
+ 292 0004 0024     		movs	r4, #0
+ 293 0006 1B94     		str	r4, [sp, #108]
+ 294 0008 1C94     		str	r4, [sp, #112]
+ 295 000a 1D94     		str	r4, [sp, #116]
+ 296 000c 1E94     		str	r4, [sp, #120]
+ 297 000e 1F94     		str	r4, [sp, #124]
+ 178:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   GUI_PORT_API PortAPI = {0};
+ 298              		.loc 1 178 3 is_stmt 1 view .LVU57
+ 299              		.loc 1 178 16 is_stmt 0 view .LVU58
+ 300 0010 6822     		movs	r2, #104
+ 301 0012 2146     		mov	r1, r4
+ 302 0014 01A8     		add	r0, sp, #4
+ 303 0016 FFF7FEFF 		bl	memset
+ 304              	.LVL28:
+ 179:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 180:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Set display driver and color conversion
+ 181:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 182:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   pDevice = GUI_DEVICE_CreateAndLink(GUIDRV_FLEXCOLOR, GUICC_565, 0, 0); //BGR--5 6 5
+ 305              		.loc 1 182 3 is_stmt 1 view .LVU59
+ARM GAS  /tmp/ccdY68XZ.s 			page 10
+
+
+ 306              		.loc 1 182 13 is_stmt 0 view .LVU60
+ 307 001a 2346     		mov	r3, r4
+ 308 001c 2246     		mov	r2, r4
+ 309 001e 1349     		ldr	r1, .L25
+ 310 0020 1348     		ldr	r0, .L25+4
+ 311 0022 FFF7FEFF 		bl	GUI_DEVICE_CreateAndLink
+ 312              	.LVL29:
+ 313 0026 0546     		mov	r5, r0
+ 314              	.LVL30:
+ 183:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 184:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Display driver configuration, required for Lin-driver
+ 185:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 186:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   LCD_SetSizeEx (0, XSIZE_PHYS , YSIZE_PHYS);
+ 315              		.loc 1 186 3 is_stmt 1 view .LVU61
+ 316 0028 F022     		movs	r2, #240
+ 317 002a 4FF4A071 		mov	r1, #320
+ 318 002e 2046     		mov	r0, r4
+ 319              	.LVL31:
+ 320              		.loc 1 186 3 is_stmt 0 view .LVU62
+ 321 0030 FFF7FEFF 		bl	LCD_SetSizeEx
+ 322              	.LVL32:
+ 187:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   LCD_SetVSizeEx(0, VXSIZE_PHYS, VYSIZE_PHYS);
+ 323              		.loc 1 187 3 is_stmt 1 view .LVU63
+ 324 0034 F022     		movs	r2, #240
+ 325 0036 4FF4A071 		mov	r1, #320
+ 326 003a 2046     		mov	r0, r4
+ 327 003c FFF7FEFF 		bl	LCD_SetVSizeEx
+ 328              	.LVL33:
+ 188:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 189:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Orientation
+ 190:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 191:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   Config.Orientation = GUI_SWAP_XY | GUI_MIRROR_Y;
+ 329              		.loc 1 191 3 view .LVU64
+ 330              		.loc 1 191 22 is_stmt 0 view .LVU65
+ 331 0040 0623     		movs	r3, #6
+ 332 0042 1D93     		str	r3, [sp, #116]
+ 192:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 193:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Config.FirstCOM = 0; //modify by fire
+ 194:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Config.FirstSEG = 0; //modify by fire
+ 195:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // ///Config.Orientation = GUI_MIRROR_Y|GUI_MIRROR_X;//modify by fire 
+ 196:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Config.NumDummyReads = 2; //modify by fire 
+ 197:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 198:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 199:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   GUIDRV_FlexColor_Config(pDevice, &Config);
+ 333              		.loc 1 199 3 is_stmt 1 view .LVU66
+ 334 0044 1BA9     		add	r1, sp, #108
+ 335 0046 2846     		mov	r0, r5
+ 336 0048 FFF7FEFF 		bl	GUIDRV_FlexColor_Config
+ 337              	.LVL34:
+ 200:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 201:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   // Set controller and operation mode
+ 202:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   //
+ 203:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   PortAPI.pfWrite16_A0  = LcdWriteReg;
+ 338              		.loc 1 203 3 view .LVU67
+ 339              		.loc 1 203 25 is_stmt 0 view .LVU68
+ 340 004c 094B     		ldr	r3, .L25+8
+ 341 004e 0993     		str	r3, [sp, #36]
+ARM GAS  /tmp/ccdY68XZ.s 			page 11
+
+
+ 204:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   PortAPI.pfWrite16_A1  = LcdWriteData;
+ 342              		.loc 1 204 3 is_stmt 1 view .LVU69
+ 343              		.loc 1 204 25 is_stmt 0 view .LVU70
+ 344 0050 094B     		ldr	r3, .L25+12
+ 345 0052 0A93     		str	r3, [sp, #40]
+ 205:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   PortAPI.pfWriteM16_A1 = LcdWriteDataMultiple;
+ 346              		.loc 1 205 3 is_stmt 1 view .LVU71
+ 347              		.loc 1 205 25 is_stmt 0 view .LVU72
+ 348 0054 094B     		ldr	r3, .L25+16
+ 349 0056 0C93     		str	r3, [sp, #48]
+ 206:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   PortAPI.pfReadM16_A1  = LcdReadDataMultiple;
+ 350              		.loc 1 206 3 is_stmt 1 view .LVU73
+ 351              		.loc 1 206 25 is_stmt 0 view .LVU74
+ 352 0058 094B     		ldr	r3, .L25+20
+ 353 005a 1093     		str	r3, [sp, #64]
+ 207:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   GUIDRV_FlexColor_SetFunc(pDevice, &PortAPI, GUIDRV_FLEXCOLOR_F66708, GUIDRV_FLEXCOLOR_M16C0B16); 
+ 354              		.loc 1 207 3 is_stmt 1 view .LVU75
+ 355 005c 094B     		ldr	r3, .L25+24
+ 356 005e 0A4A     		ldr	r2, .L25+28
+ 357 0060 01A9     		add	r1, sp, #4
+ 358 0062 2846     		mov	r0, r5
+ 359 0064 FFF7FEFF 		bl	GUIDRV_FlexColor_SetFunc
+ 360              	.LVL35:
+ 208:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 361              		.loc 1 208 1 is_stmt 0 view .LVU76
+ 362 0068 21B0     		add	sp, sp, #132
+ 363              	.LCFI6:
+ 364              		.cfi_def_cfa_offset 12
+ 365              		@ sp needed
+ 366 006a 30BD     		pop	{r4, r5, pc}
+ 367              	.LVL36:
+ 368              	.L26:
+ 369              		.loc 1 208 1 view .LVU77
+ 370              		.align	2
+ 371              	.L25:
+ 372 006c 00000000 		.word	LCD_API_ColorConv_565
+ 373 0070 00000000 		.word	GUIDRV_FlexColor_API
+ 374 0074 00000000 		.word	LcdWriteReg
+ 375 0078 00000000 		.word	LcdWriteData
+ 376 007c 00000000 		.word	LcdWriteDataMultiple
+ 377 0080 00000000 		.word	LcdReadDataMultiple
+ 378 0084 00000000 		.word	GUIDRV_FlexColor_SetMode16bppC0B16
+ 379 0088 00000000 		.word	GUIDRV_FlexColor_SetFunc66708
+ 380              		.cfi_endproc
+ 381              	.LFE69:
+ 383              		.section	.text.LCD_X_DisplayDriver,"ax",%progbits
+ 384              		.align	1
+ 385              		.global	LCD_X_DisplayDriver
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 389              		.fpu softvfp
+ 391              	LCD_X_DisplayDriver:
+ 392              	.LVL37:
+ 393              	.LFB70:
+ 209:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** 
+ 210:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** /*********************************************************************
+ARM GAS  /tmp/ccdY68XZ.s 			page 12
+
+
+ 211:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 212:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *       LCD_X_DisplayDriver
+ 213:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 214:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Function description:
+ 215:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   This function is called by the display driver for several purposes.
+ 216:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   To support the according task the routine needs to be adapted to
+ 217:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   the display controller. Please note that the commands marked with
+ 218:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   'optional' are not cogently required and should only be adapted if
+ 219:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   the display controller supports these features.
+ 220:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 221:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Parameter:
+ 222:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   LayerIndex - Index of layer to be configured
+ 223:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   Cmd        - Please refer to the details in the switch statement below
+ 224:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   pData      - Pointer to a LCD_X_DATA structure
+ 225:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *
+ 226:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** * Return Value:
+ 227:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *   < -1 - Error
+ 228:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *     -1 - Command not handled
+ 229:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** *      0 - Ok
+ 230:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** */
+ 231:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
+ 394              		.loc 1 231 74 is_stmt 1 view -0
+ 395              		.cfi_startproc
+ 396              		@ args = 0, pretend = 0, frame = 0
+ 397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   int r;
+ 398              		.loc 1 232 3 view .LVU79
+ 233:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   (void) LayerIndex;
+ 399              		.loc 1 233 3 view .LVU80
+ 234:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   (void) pData;
+ 400              		.loc 1 234 3 view .LVU81
+ 235:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   
+ 236:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   switch (Cmd) {
+ 401              		.loc 1 236 3 view .LVU82
+ 402 0000 0129     		cmp	r1, #1
+ 403 0002 04D1     		bne	.L29
+ 231:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   int r;
+ 404              		.loc 1 231 74 is_stmt 0 view .LVU83
+ 405 0004 08B5     		push	{r3, lr}
+ 406              	.LCFI7:
+ 407              		.cfi_def_cfa_offset 8
+ 408              		.cfi_offset 3, -8
+ 409              		.cfi_offset 14, -4
+ 237:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   case LCD_X_INITCONTROLLER: {
+ 238:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     //
+ 239:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // Called during the initialization process in order to set up the
+ 240:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // display controller and put it into operation. If the display
+ 241:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // controller is not initialized by any external routine this needs
+ 242:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // to be adapted by the customer...
+ 243:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     //
+ 244:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     // ...
+ 245:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     ili9320_Initializtion();
+ 410              		.loc 1 245 5 is_stmt 1 view .LVU84
+ 411 0006 FFF7FEFF 		bl	ili9320_Initializtion
+ 412              	.LVL38:
+ 246:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     return 0;
+ 413              		.loc 1 246 5 view .LVU85
+ARM GAS  /tmp/ccdY68XZ.s 			page 13
+
+
+ 414              		.loc 1 246 12 is_stmt 0 view .LVU86
+ 415 000a 0020     		movs	r0, #0
+ 247:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   }
+ 248:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   default:
+ 249:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****     r = -1;
+ 250:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   }
+ 251:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c ****   return r;
+ 252:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 416              		.loc 1 252 1 view .LVU87
+ 417 000c 08BD     		pop	{r3, pc}
+ 418              	.LVL39:
+ 419              	.L29:
+ 420              	.LCFI8:
+ 421              		.cfi_def_cfa_offset 0
+ 422              		.cfi_restore 3
+ 423              		.cfi_restore 14
+ 251:Middlewares/ST/STemWin/Config/LCDConf_FlexColor_Template.c **** }
+ 424              		.loc 1 251 10 view .LVU88
+ 425 000e 4FF0FF30 		mov	r0, #-1
+ 426              	.LVL40:
+ 427              		.loc 1 252 1 view .LVU89
+ 428 0012 7047     		bx	lr
+ 429              		.cfi_endproc
+ 430              	.LFE70:
+ 432              		.text
+ 433              	.Letext0:
+ 434              		.file 2 "Middlewares/ST/STemWin/inc/LCD.h"
+ 435              		.file 3 "Middlewares/ST/STemWin/inc/GUI.h"
+ 436              		.file 4 "Middlewares/ST/STemWin/inc/GUI_Type.h"
+ 437              		.file 5 "Middlewares/ST/STemWin/inc/GUIDRV_FlexColor.h"
+ 438              		.file 6 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h"
+ 439              		.file 7 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_stdint.h"
+ 440              		.file 8 "Drivers/CMSIS/Include/core_cm3.h"
+ 441              		.file 9 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 442              		.file 10 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h"
+ 443              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 444              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 445              		.file 13 "Core/Inc/lcd_driver.h"
+ 446              		.file 14 "<built-in>"
+ARM GAS  /tmp/ccdY68XZ.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 LCDConf_FlexColor_Template.c
+     /tmp/ccdY68XZ.s:16     .text.LcdReadDataMultiple:0000000000000000 $t
+     /tmp/ccdY68XZ.s:23     .text.LcdReadDataMultiple:0000000000000000 LcdReadDataMultiple
+     /tmp/ccdY68XZ.s:86     .text.LcdReadDataMultiple:0000000000000030 $d
+     /tmp/ccdY68XZ.s:91     .text.LcdWriteDataMultiple:0000000000000000 $t
+     /tmp/ccdY68XZ.s:97     .text.LcdWriteDataMultiple:0000000000000000 LcdWriteDataMultiple
+     /tmp/ccdY68XZ.s:158    .text.LcdWriteDataMultiple:0000000000000030 $d
+     /tmp/ccdY68XZ.s:163    .text.LcdWriteData:0000000000000000 $t
+     /tmp/ccdY68XZ.s:169    .text.LcdWriteData:0000000000000000 LcdWriteData
+     /tmp/ccdY68XZ.s:211    .text.LcdWriteData:0000000000000028 $d
+     /tmp/ccdY68XZ.s:216    .text.LcdWriteReg:0000000000000000 $t
+     /tmp/ccdY68XZ.s:222    .text.LcdWriteReg:0000000000000000 LcdWriteReg
+     /tmp/ccdY68XZ.s:262    .text.LcdWriteReg:0000000000000028 $d
+     /tmp/ccdY68XZ.s:267    .text.LCD_X_Config:0000000000000000 $t
+     /tmp/ccdY68XZ.s:274    .text.LCD_X_Config:0000000000000000 LCD_X_Config
+     /tmp/ccdY68XZ.s:372    .text.LCD_X_Config:000000000000006c $d
+     /tmp/ccdY68XZ.s:384    .text.LCD_X_DisplayDriver:0000000000000000 $t
+     /tmp/ccdY68XZ.s:391    .text.LCD_X_DisplayDriver:0000000000000000 LCD_X_DisplayDriver
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+ili9320_ReadData
+ili9320_WriteData
+ili9320_WriteIndex
+memset
+GUI_DEVICE_CreateAndLink
+LCD_SetSizeEx
+LCD_SetVSizeEx
+GUIDRV_FlexColor_Config
+GUIDRV_FlexColor_SetFunc
+LCD_API_ColorConv_565
+GUIDRV_FlexColor_API
+GUIDRV_FlexColor_SetMode16bppC0B16
+GUIDRV_FlexColor_SetFunc66708
+ili9320_Initializtion

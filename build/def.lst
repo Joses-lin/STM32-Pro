@@ -1,0 +1,887 @@
+ARM GAS  /tmp/ccdf0Hng.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"def.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.lwip_htons,"ax",%progbits
+  16              		.align	1
+  17              		.global	lwip_htons
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	lwip_htons:
+  25              	.LVL0:
+  26              	.LFB90:
+  27              		.file 1 "Middlewares/Third_Party/LwIP/src/core/def.c"
+   1:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+   2:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @file
+   3:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Common functions used throughout the stack.
+   4:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+   5:Middlewares/Third_Party/LwIP/src/core/def.c ****  * These are reference implementations of the byte swapping functions.
+   6:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Again with the aim of being simple, correct and fully portable.
+   7:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Byte swapping is the second thing you would want to optimize. You will
+   8:Middlewares/Third_Party/LwIP/src/core/def.c ****  * need to port it to your architecture and in your cc.h:
+   9:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  10:Middlewares/Third_Party/LwIP/src/core/def.c ****  * \#define lwip_htons(x) your_htons
+  11:Middlewares/Third_Party/LwIP/src/core/def.c ****  * \#define lwip_htonl(x) your_htonl
+  12:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  13:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Note lwip_ntohs() and lwip_ntohl() are merely references to the htonx counterparts.
+  14:Middlewares/Third_Party/LwIP/src/core/def.c ****  * 
+  15:Middlewares/Third_Party/LwIP/src/core/def.c ****  * If you \#define them to htons() and htonl(), you should
+  16:Middlewares/Third_Party/LwIP/src/core/def.c ****  * \#define LWIP_DONT_PROVIDE_BYTEORDER_FUNCTIONS to prevent lwIP from
+  17:Middlewares/Third_Party/LwIP/src/core/def.c ****  * defining htonx/ntohx compatibility macros.
+  18:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  19:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @defgroup sys_nonstandard Non-standard functions
+  20:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @ingroup sys_layer
+  21:Middlewares/Third_Party/LwIP/src/core/def.c ****  * lwIP provides default implementations for non-standard functions.
+  22:Middlewares/Third_Party/LwIP/src/core/def.c ****  * These can be mapped to OS functions to reduce code footprint if desired.
+  23:Middlewares/Third_Party/LwIP/src/core/def.c ****  * All defines related to this section must not be placed in lwipopts.h,
+  24:Middlewares/Third_Party/LwIP/src/core/def.c ****  * but in arch/cc.h!
+  25:Middlewares/Third_Party/LwIP/src/core/def.c ****  * These options cannot be \#defined in lwipopts.h since they are not options
+  26:Middlewares/Third_Party/LwIP/src/core/def.c ****  * of lwIP itself, but options of the lwIP port to your system.
+  27:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+  28:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  29:Middlewares/Third_Party/LwIP/src/core/def.c **** /*
+  30:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Copyright (c) 2001-2004 Swedish Institute of Computer Science.
+  31:Middlewares/Third_Party/LwIP/src/core/def.c ****  * All rights reserved.
+ARM GAS  /tmp/ccdf0Hng.s 			page 2
+
+
+  32:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  33:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Redistribution and use in source and binary forms, with or without modification,
+  34:Middlewares/Third_Party/LwIP/src/core/def.c ****  * are permitted provided that the following conditions are met:
+  35:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  36:Middlewares/Third_Party/LwIP/src/core/def.c ****  * 1. Redistributions of source code must retain the above copyright notice,
+  37:Middlewares/Third_Party/LwIP/src/core/def.c ****  *    this list of conditions and the following disclaimer.
+  38:Middlewares/Third_Party/LwIP/src/core/def.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice,
+  39:Middlewares/Third_Party/LwIP/src/core/def.c ****  *    this list of conditions and the following disclaimer in the documentation
+  40:Middlewares/Third_Party/LwIP/src/core/def.c ****  *    and/or other materials provided with the distribution.
+  41:Middlewares/Third_Party/LwIP/src/core/def.c ****  * 3. The name of the author may not be used to endorse or promote products
+  42:Middlewares/Third_Party/LwIP/src/core/def.c ****  *    derived from this software without specific prior written permission.
+  43:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  44:Middlewares/Third_Party/LwIP/src/core/def.c ****  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+  45:Middlewares/Third_Party/LwIP/src/core/def.c ****  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  46:Middlewares/Third_Party/LwIP/src/core/def.c ****  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+  47:Middlewares/Third_Party/LwIP/src/core/def.c ****  * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  48:Middlewares/Third_Party/LwIP/src/core/def.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+  49:Middlewares/Third_Party/LwIP/src/core/def.c ****  * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  50:Middlewares/Third_Party/LwIP/src/core/def.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  51:Middlewares/Third_Party/LwIP/src/core/def.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+  52:Middlewares/Third_Party/LwIP/src/core/def.c ****  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+  53:Middlewares/Third_Party/LwIP/src/core/def.c ****  * OF SUCH DAMAGE.
+  54:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  55:Middlewares/Third_Party/LwIP/src/core/def.c ****  * This file is part of the lwIP TCP/IP stack.
+  56:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  57:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Author: Simon Goldschmidt
+  58:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  59:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+  60:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  61:Middlewares/Third_Party/LwIP/src/core/def.c **** #include "lwip/opt.h"
+  62:Middlewares/Third_Party/LwIP/src/core/def.c **** #include "lwip/def.h"
+  63:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  64:Middlewares/Third_Party/LwIP/src/core/def.c **** #include <string.h>
+  65:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  66:Middlewares/Third_Party/LwIP/src/core/def.c **** #if BYTE_ORDER == LITTLE_ENDIAN
+  67:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  68:Middlewares/Third_Party/LwIP/src/core/def.c **** #if !defined(lwip_htons)
+  69:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+  70:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Convert an u16_t from host- to network byte order.
+  71:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  72:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @param n u16_t in host byte order
+  73:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @return n in network byte order
+  74:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+  75:Middlewares/Third_Party/LwIP/src/core/def.c **** u16_t
+  76:Middlewares/Third_Party/LwIP/src/core/def.c **** lwip_htons(u16_t n)
+  77:Middlewares/Third_Party/LwIP/src/core/def.c **** {
+  28              		.loc 1 77 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  78:Middlewares/Third_Party/LwIP/src/core/def.c ****   return (u16_t)PP_HTONS(n);
+  33              		.loc 1 78 3 view .LVU1
+  34              		.loc 1 78 10 is_stmt 0 view .LVU2
+  35 0000 40BA     		rev16	r0, r0
+  36              	.LVL1:
+  79:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ARM GAS  /tmp/ccdf0Hng.s 			page 3
+
+
+  37              		.loc 1 79 1 view .LVU3
+  38 0002 80B2     		uxth	r0, r0
+  39 0004 7047     		bx	lr
+  40              		.cfi_endproc
+  41              	.LFE90:
+  43              		.section	.text.lwip_htonl,"ax",%progbits
+  44              		.align	1
+  45              		.global	lwip_htonl
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  49              		.fpu softvfp
+  51              	lwip_htonl:
+  52              	.LVL2:
+  53              	.LFB91:
+  80:Middlewares/Third_Party/LwIP/src/core/def.c **** #endif /* lwip_htons */
+  81:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  82:Middlewares/Third_Party/LwIP/src/core/def.c **** #if !defined(lwip_htonl)
+  83:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+  84:Middlewares/Third_Party/LwIP/src/core/def.c ****  * Convert an u32_t from host- to network byte order.
+  85:Middlewares/Third_Party/LwIP/src/core/def.c ****  *
+  86:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @param n u32_t in host byte order
+  87:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @return n in network byte order
+  88:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+  89:Middlewares/Third_Party/LwIP/src/core/def.c **** u32_t
+  90:Middlewares/Third_Party/LwIP/src/core/def.c **** lwip_htonl(u32_t n)
+  91:Middlewares/Third_Party/LwIP/src/core/def.c **** {
+  54              		.loc 1 91 1 is_stmt 1 view -0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  92:Middlewares/Third_Party/LwIP/src/core/def.c ****   return (u32_t)PP_HTONL(n);
+  59              		.loc 1 92 3 view .LVU5
+  60              		.loc 1 92 17 is_stmt 0 view .LVU6
+  61 0000 0302     		lsls	r3, r0, #8
+  62 0002 03F47F03 		and	r3, r3, #16711680
+  63 0006 43EA0063 		orr	r3, r3, r0, lsl #24
+  64 000a 020A     		lsrs	r2, r0, #8
+  65 000c 02F47F42 		and	r2, r2, #65280
+  66 0010 1343     		orrs	r3, r3, r2
+  93:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+  67              		.loc 1 93 1 view .LVU7
+  68 0012 43EA1060 		orr	r0, r3, r0, lsr #24
+  69              	.LVL3:
+  70              		.loc 1 93 1 view .LVU8
+  71 0016 7047     		bx	lr
+  72              		.cfi_endproc
+  73              	.LFE91:
+  75              		.section	.text.lwip_strnstr,"ax",%progbits
+  76              		.align	1
+  77              		.global	lwip_strnstr
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu softvfp
+  83              	lwip_strnstr:
+ARM GAS  /tmp/ccdf0Hng.s 			page 4
+
+
+  84              	.LVL4:
+  85              	.LFB92:
+  94:Middlewares/Third_Party/LwIP/src/core/def.c **** #endif /* lwip_htonl */
+  95:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  96:Middlewares/Third_Party/LwIP/src/core/def.c **** #endif /* BYTE_ORDER == LITTLE_ENDIAN */
+  97:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+  98:Middlewares/Third_Party/LwIP/src/core/def.c **** #ifndef lwip_strnstr
+  99:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+ 100:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @ingroup sys_nonstandard
+ 101:Middlewares/Third_Party/LwIP/src/core/def.c ****  * lwIP default implementation for strnstr() non-standard function.
+ 102:Middlewares/Third_Party/LwIP/src/core/def.c ****  * This can be \#defined to strnstr() depending on your platform port.
+ 103:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+ 104:Middlewares/Third_Party/LwIP/src/core/def.c **** char*
+ 105:Middlewares/Third_Party/LwIP/src/core/def.c **** lwip_strnstr(const char* buffer, const char* token, size_t n)
+ 106:Middlewares/Third_Party/LwIP/src/core/def.c **** {
+  86              		.loc 1 106 1 is_stmt 1 view -0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              		.loc 1 106 1 is_stmt 0 view .LVU10
+  91 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  92              	.LCFI0:
+  93              		.cfi_def_cfa_offset 32
+  94              		.cfi_offset 3, -32
+  95              		.cfi_offset 4, -28
+  96              		.cfi_offset 5, -24
+  97              		.cfi_offset 6, -20
+  98              		.cfi_offset 7, -16
+  99              		.cfi_offset 8, -12
+ 100              		.cfi_offset 9, -8
+ 101              		.cfi_offset 14, -4
+ 102 0004 0746     		mov	r7, r0
+ 103 0006 0E46     		mov	r6, r1
+ 104 0008 9146     		mov	r9, r2
+ 107:Middlewares/Third_Party/LwIP/src/core/def.c ****   const char* p;
+ 105              		.loc 1 107 3 is_stmt 1 view .LVU11
+ 108:Middlewares/Third_Party/LwIP/src/core/def.c ****   size_t tokenlen = strlen(token);
+ 106              		.loc 1 108 3 view .LVU12
+ 107              		.loc 1 108 21 is_stmt 0 view .LVU13
+ 108 000a 0846     		mov	r0, r1
+ 109              	.LVL5:
+ 110              		.loc 1 108 21 view .LVU14
+ 111 000c FFF7FEFF 		bl	strlen
+ 112              	.LVL6:
+ 109:Middlewares/Third_Party/LwIP/src/core/def.c ****   if (tokenlen == 0) {
+ 113              		.loc 1 109 3 is_stmt 1 view .LVU15
+ 114              		.loc 1 109 6 is_stmt 0 view .LVU16
+ 115 0010 C0B1     		cbz	r0, .L8
+ 116 0012 8046     		mov	r8, r0
+ 110:Middlewares/Third_Party/LwIP/src/core/def.c ****     return LWIP_CONST_CAST(char *, buffer);
+ 111:Middlewares/Third_Party/LwIP/src/core/def.c ****   }
+ 112:Middlewares/Third_Party/LwIP/src/core/def.c ****   for (p = buffer; *p && (p + tokenlen <= buffer + n); p++) {
+ 117              		.loc 1 112 10 view .LVU17
+ 118 0014 3C46     		mov	r4, r7
+ 119 0016 00E0     		b	.L5
+ 120              	.LVL7:
+ 121              	.L6:
+ARM GAS  /tmp/ccdf0Hng.s 			page 5
+
+
+ 122              		.loc 1 112 56 is_stmt 1 discriminator 2 view .LVU18
+ 123              		.loc 1 112 57 is_stmt 0 discriminator 2 view .LVU19
+ 124 0018 0134     		adds	r4, r4, #1
+ 125              	.LVL8:
+ 126              	.L5:
+ 127              		.loc 1 112 20 is_stmt 1 discriminator 1 view .LVU20
+ 128 001a 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+ 129              		.loc 1 112 3 is_stmt 0 discriminator 1 view .LVU21
+ 130 001c B5B1     		cbz	r5, .L9
+ 131              		.loc 1 112 29 discriminator 3 view .LVU22
+ 132 001e 04EB0803 		add	r3, r4, r8
+ 133              		.loc 1 112 50 discriminator 3 view .LVU23
+ 134 0022 07EB0902 		add	r2, r7, r9
+ 135              		.loc 1 112 23 discriminator 3 view .LVU24
+ 136 0026 9342     		cmp	r3, r2
+ 137 0028 0AD8     		bhi	.L11
+ 113:Middlewares/Third_Party/LwIP/src/core/def.c ****     if ((*p == *token) && (strncmp(p, token, tokenlen) == 0)) {
+ 138              		.loc 1 113 5 is_stmt 1 view .LVU25
+ 139              		.loc 1 113 16 is_stmt 0 view .LVU26
+ 140 002a 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
+ 141              		.loc 1 113 8 view .LVU27
+ 142 002c AB42     		cmp	r3, r5
+ 143 002e F3D1     		bne	.L6
+ 144              		.loc 1 113 28 discriminator 1 view .LVU28
+ 145 0030 4246     		mov	r2, r8
+ 146 0032 3146     		mov	r1, r6
+ 147 0034 2046     		mov	r0, r4
+ 148 0036 FFF7FEFF 		bl	strncmp
+ 149              	.LVL9:
+ 150              		.loc 1 113 24 discriminator 1 view .LVU29
+ 151 003a 0028     		cmp	r0, #0
+ 152 003c ECD1     		bne	.L6
+ 153 003e 02E0     		b	.L3
+ 154              	.L11:
+ 114:Middlewares/Third_Party/LwIP/src/core/def.c ****       return LWIP_CONST_CAST(char *, p);
+ 115:Middlewares/Third_Party/LwIP/src/core/def.c ****     }
+ 116:Middlewares/Third_Party/LwIP/src/core/def.c ****   }
+ 117:Middlewares/Third_Party/LwIP/src/core/def.c ****   return NULL;
+ 155              		.loc 1 117 10 view .LVU30
+ 156 0040 0024     		movs	r4, #0
+ 157              	.LVL10:
+ 158              		.loc 1 117 10 view .LVU31
+ 159 0042 00E0     		b	.L3
+ 160              	.LVL11:
+ 161              	.L8:
+ 110:Middlewares/Third_Party/LwIP/src/core/def.c ****   }
+ 162              		.loc 1 110 12 view .LVU32
+ 163 0044 3C46     		mov	r4, r7
+ 164              	.LVL12:
+ 165              	.L3:
+ 118:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ 166              		.loc 1 118 1 view .LVU33
+ 167 0046 2046     		mov	r0, r4
+ 168 0048 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 169              	.LVL13:
+ 170              	.L9:
+ 117:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ARM GAS  /tmp/ccdf0Hng.s 			page 6
+
+
+ 171              		.loc 1 117 10 view .LVU34
+ 172 004c 0024     		movs	r4, #0
+ 173              	.LVL14:
+ 117:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ 174              		.loc 1 117 10 view .LVU35
+ 175 004e FAE7     		b	.L3
+ 176              		.cfi_endproc
+ 177              	.LFE92:
+ 179              		.section	.text.lwip_stricmp,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	lwip_stricmp
+ 182              		.syntax unified
+ 183              		.thumb
+ 184              		.thumb_func
+ 185              		.fpu softvfp
+ 187              	lwip_stricmp:
+ 188              	.LFB93:
+ 119:Middlewares/Third_Party/LwIP/src/core/def.c **** #endif
+ 120:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 121:Middlewares/Third_Party/LwIP/src/core/def.c **** #ifndef lwip_stricmp
+ 122:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+ 123:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @ingroup sys_nonstandard
+ 124:Middlewares/Third_Party/LwIP/src/core/def.c ****  * lwIP default implementation for stricmp() non-standard function.
+ 125:Middlewares/Third_Party/LwIP/src/core/def.c ****  * This can be \#defined to stricmp() depending on your platform port.
+ 126:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+ 127:Middlewares/Third_Party/LwIP/src/core/def.c **** int
+ 128:Middlewares/Third_Party/LwIP/src/core/def.c **** lwip_stricmp(const char* str1, const char* str2)
+ 129:Middlewares/Third_Party/LwIP/src/core/def.c **** {
+ 189              		.loc 1 129 1 is_stmt 1 view -0
+ 190              		.cfi_startproc
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193              		@ link register save eliminated.
+ 194              	.LVL15:
+ 195              		.loc 1 129 1 is_stmt 0 view .LVU37
+ 196 0000 30B4     		push	{r4, r5}
+ 197              	.LCFI1:
+ 198              		.cfi_def_cfa_offset 8
+ 199              		.cfi_offset 4, -8
+ 200              		.cfi_offset 5, -4
+ 201 0002 00E0     		b	.L15
+ 202              	.LVL16:
+ 203              	.L13:
+ 130:Middlewares/Third_Party/LwIP/src/core/def.c ****   char c1, c2;
+ 131:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 132:Middlewares/Third_Party/LwIP/src/core/def.c ****   do {
+ 133:Middlewares/Third_Party/LwIP/src/core/def.c ****     c1 = *str1++;
+ 134:Middlewares/Third_Party/LwIP/src/core/def.c ****     c2 = *str2++;
+ 135:Middlewares/Third_Party/LwIP/src/core/def.c ****     if (c1 != c2) {
+ 136:Middlewares/Third_Party/LwIP/src/core/def.c ****       char c1_upc = c1 | 0x20;
+ 137:Middlewares/Third_Party/LwIP/src/core/def.c ****       if ((c1_upc >= 'a') && (c1_upc <= 'z')) {
+ 138:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 139:Middlewares/Third_Party/LwIP/src/core/def.c ****         downcase both chars and check again */
+ 140:Middlewares/Third_Party/LwIP/src/core/def.c ****         char c2_upc = c2 | 0x20;
+ 141:Middlewares/Third_Party/LwIP/src/core/def.c ****         if (c1_upc != c2_upc) {
+ 142:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* still not equal */
+ 143:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* don't care for < or > */
+ARM GAS  /tmp/ccdf0Hng.s 			page 7
+
+
+ 144:Middlewares/Third_Party/LwIP/src/core/def.c ****           return 1;
+ 145:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 146:Middlewares/Third_Party/LwIP/src/core/def.c ****       } else {
+ 147:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal but none is in the alphabet range */
+ 148:Middlewares/Third_Party/LwIP/src/core/def.c ****         return 1;
+ 149:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 150:Middlewares/Third_Party/LwIP/src/core/def.c ****     }
+ 151:Middlewares/Third_Party/LwIP/src/core/def.c ****   } while (c1 != 0);
+ 204              		.loc 1 151 11 is_stmt 1 view .LVU38
+ 205              		.loc 1 151 3 is_stmt 0 view .LVU39
+ 206 0004 92B1     		cbz	r2, .L19
+ 207              	.LVL17:
+ 208              	.L15:
+ 130:Middlewares/Third_Party/LwIP/src/core/def.c ****   char c1, c2;
+ 209              		.loc 1 130 3 is_stmt 1 view .LVU40
+ 132:Middlewares/Third_Party/LwIP/src/core/def.c ****     c1 = *str1++;
+ 210              		.loc 1 132 3 view .LVU41
+ 133:Middlewares/Third_Party/LwIP/src/core/def.c ****     c2 = *str2++;
+ 211              		.loc 1 133 5 view .LVU42
+ 133:Middlewares/Third_Party/LwIP/src/core/def.c ****     c2 = *str2++;
+ 212              		.loc 1 133 8 is_stmt 0 view .LVU43
+ 213 0006 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+ 214 0008 0130     		adds	r0, r0, #1
+ 215              	.LVL18:
+ 134:Middlewares/Third_Party/LwIP/src/core/def.c ****     if (c1 != c2) {
+ 216              		.loc 1 134 5 is_stmt 1 view .LVU44
+ 134:Middlewares/Third_Party/LwIP/src/core/def.c ****     if (c1 != c2) {
+ 217              		.loc 1 134 8 is_stmt 0 view .LVU45
+ 218 000a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 219 000c 0131     		adds	r1, r1, #1
+ 220              	.LVL19:
+ 135:Middlewares/Third_Party/LwIP/src/core/def.c ****       char c1_upc = c1 | 0x20;
+ 221              		.loc 1 135 5 is_stmt 1 view .LVU46
+ 135:Middlewares/Third_Party/LwIP/src/core/def.c ****       char c1_upc = c1 | 0x20;
+ 222              		.loc 1 135 8 is_stmt 0 view .LVU47
+ 223 000e 9A42     		cmp	r2, r3
+ 224 0010 F8D0     		beq	.L13
+ 225              	.LBB2:
+ 136:Middlewares/Third_Party/LwIP/src/core/def.c ****       if ((c1_upc >= 'a') && (c1_upc <= 'z')) {
+ 226              		.loc 1 136 7 is_stmt 1 view .LVU48
+ 136:Middlewares/Third_Party/LwIP/src/core/def.c ****       if ((c1_upc >= 'a') && (c1_upc <= 'z')) {
+ 227              		.loc 1 136 12 is_stmt 0 view .LVU49
+ 228 0012 42F02005 		orr	r5, r2, #32
+ 229              	.LVL20:
+ 137:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 230              		.loc 1 137 7 is_stmt 1 view .LVU50
+ 137:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 231              		.loc 1 137 27 is_stmt 0 view .LVU51
+ 232 0016 A5F16104 		sub	r4, r5, #97
+ 233 001a E4B2     		uxtb	r4, r4
+ 137:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 234              		.loc 1 137 10 view .LVU52
+ 235 001c 192C     		cmp	r4, #25
+ 236 001e 08D8     		bhi	.L16
+ 237              	.LBB3:
+ 140:Middlewares/Third_Party/LwIP/src/core/def.c ****         if (c1_upc != c2_upc) {
+ 238              		.loc 1 140 9 is_stmt 1 view .LVU53
+ARM GAS  /tmp/ccdf0Hng.s 			page 8
+
+
+ 140:Middlewares/Third_Party/LwIP/src/core/def.c ****         if (c1_upc != c2_upc) {
+ 239              		.loc 1 140 14 is_stmt 0 view .LVU54
+ 240 0020 43F02003 		orr	r3, r3, #32
+ 241              	.LVL21:
+ 141:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* still not equal */
+ 242              		.loc 1 141 9 is_stmt 1 view .LVU55
+ 141:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* still not equal */
+ 243              		.loc 1 141 12 is_stmt 0 view .LVU56
+ 244 0024 9D42     		cmp	r5, r3
+ 245 0026 EDD0     		beq	.L13
+ 144:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 246              		.loc 1 144 18 view .LVU57
+ 247 0028 0120     		movs	r0, #1
+ 248              	.LVL22:
+ 144:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 249              		.loc 1 144 18 view .LVU58
+ 250 002a 00E0     		b	.L12
+ 251              	.LVL23:
+ 252              	.L19:
+ 144:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 253              		.loc 1 144 18 view .LVU59
+ 254              	.LBE3:
+ 255              	.LBE2:
+ 152:Middlewares/Third_Party/LwIP/src/core/def.c ****   return 0;
+ 256              		.loc 1 152 10 view .LVU60
+ 257 002c 0020     		movs	r0, #0
+ 258              	.LVL24:
+ 259              	.L12:
+ 153:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ 260              		.loc 1 153 1 view .LVU61
+ 261 002e 30BC     		pop	{r4, r5}
+ 262              	.LCFI2:
+ 263              		.cfi_remember_state
+ 264              		.cfi_restore 5
+ 265              		.cfi_restore 4
+ 266              		.cfi_def_cfa_offset 0
+ 267 0030 7047     		bx	lr
+ 268              	.LVL25:
+ 269              	.L16:
+ 270              	.LCFI3:
+ 271              		.cfi_restore_state
+ 272              	.LBB4:
+ 148:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 273              		.loc 1 148 16 view .LVU62
+ 274 0032 0120     		movs	r0, #1
+ 275              	.LVL26:
+ 148:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 276              		.loc 1 148 16 view .LVU63
+ 277 0034 FBE7     		b	.L12
+ 278              	.LBE4:
+ 279              		.cfi_endproc
+ 280              	.LFE93:
+ 282              		.section	.text.lwip_strnicmp,"ax",%progbits
+ 283              		.align	1
+ 284              		.global	lwip_strnicmp
+ 285              		.syntax unified
+ 286              		.thumb
+ARM GAS  /tmp/ccdf0Hng.s 			page 9
+
+
+ 287              		.thumb_func
+ 288              		.fpu softvfp
+ 290              	lwip_strnicmp:
+ 291              	.LVL27:
+ 292              	.LFB94:
+ 154:Middlewares/Third_Party/LwIP/src/core/def.c **** #endif
+ 155:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 156:Middlewares/Third_Party/LwIP/src/core/def.c **** #ifndef lwip_strnicmp
+ 157:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+ 158:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @ingroup sys_nonstandard
+ 159:Middlewares/Third_Party/LwIP/src/core/def.c ****  * lwIP default implementation for strnicmp() non-standard function.
+ 160:Middlewares/Third_Party/LwIP/src/core/def.c ****  * This can be \#defined to strnicmp() depending on your platform port.
+ 161:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+ 162:Middlewares/Third_Party/LwIP/src/core/def.c **** int
+ 163:Middlewares/Third_Party/LwIP/src/core/def.c **** lwip_strnicmp(const char* str1, const char* str2, size_t len)
+ 164:Middlewares/Third_Party/LwIP/src/core/def.c **** {
+ 293              		.loc 1 164 1 is_stmt 1 view -0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298              		.loc 1 164 1 is_stmt 0 view .LVU65
+ 299 0000 70B4     		push	{r4, r5, r6}
+ 300              	.LCFI4:
+ 301              		.cfi_def_cfa_offset 12
+ 302              		.cfi_offset 4, -12
+ 303              		.cfi_offset 5, -8
+ 304              		.cfi_offset 6, -4
+ 305 0002 03E0     		b	.L23
+ 306              	.LVL28:
+ 307              	.L21:
+ 165:Middlewares/Third_Party/LwIP/src/core/def.c ****   char c1, c2;
+ 166:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 167:Middlewares/Third_Party/LwIP/src/core/def.c ****   do {
+ 168:Middlewares/Third_Party/LwIP/src/core/def.c ****     c1 = *str1++;
+ 169:Middlewares/Third_Party/LwIP/src/core/def.c ****     c2 = *str2++;
+ 170:Middlewares/Third_Party/LwIP/src/core/def.c ****     if (c1 != c2) {
+ 171:Middlewares/Third_Party/LwIP/src/core/def.c ****       char c1_upc = c1 | 0x20;
+ 172:Middlewares/Third_Party/LwIP/src/core/def.c ****       if ((c1_upc >= 'a') && (c1_upc <= 'z')) {
+ 173:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 174:Middlewares/Third_Party/LwIP/src/core/def.c ****         downcase both chars and check again */
+ 175:Middlewares/Third_Party/LwIP/src/core/def.c ****         char c2_upc = c2 | 0x20;
+ 176:Middlewares/Third_Party/LwIP/src/core/def.c ****         if (c1_upc != c2_upc) {
+ 177:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* still not equal */
+ 178:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* don't care for < or > */
+ 179:Middlewares/Third_Party/LwIP/src/core/def.c ****           return 1;
+ 180:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 181:Middlewares/Third_Party/LwIP/src/core/def.c ****       } else {
+ 182:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal but none is in the alphabet range */
+ 183:Middlewares/Third_Party/LwIP/src/core/def.c ****         return 1;
+ 184:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 185:Middlewares/Third_Party/LwIP/src/core/def.c ****     }
+ 186:Middlewares/Third_Party/LwIP/src/core/def.c ****   } while (len-- && c1 != 0);
+ 308              		.loc 1 186 11 is_stmt 1 view .LVU66
+ 309              		.loc 1 186 15 is_stmt 0 view .LVU67
+ 310 0004 531E     		subs	r3, r2, #1
+ 311              	.LVL29:
+ARM GAS  /tmp/ccdf0Hng.s 			page 10
+
+
+ 312              		.loc 1 186 3 view .LVU68
+ 313 0006 C2B1     		cbz	r2, .L26
+ 314              		.loc 1 186 18 discriminator 1 view .LVU69
+ 315 0008 9CB1     		cbz	r4, .L29
+ 316              		.loc 1 186 15 view .LVU70
+ 317 000a 1A46     		mov	r2, r3
+ 318              	.LVL30:
+ 319              	.L23:
+ 165:Middlewares/Third_Party/LwIP/src/core/def.c ****   char c1, c2;
+ 320              		.loc 1 165 3 is_stmt 1 view .LVU71
+ 167:Middlewares/Third_Party/LwIP/src/core/def.c ****     c1 = *str1++;
+ 321              		.loc 1 167 3 view .LVU72
+ 168:Middlewares/Third_Party/LwIP/src/core/def.c ****     c2 = *str2++;
+ 322              		.loc 1 168 5 view .LVU73
+ 168:Middlewares/Third_Party/LwIP/src/core/def.c ****     c2 = *str2++;
+ 323              		.loc 1 168 8 is_stmt 0 view .LVU74
+ 324 000c 0478     		ldrb	r4, [r0]	@ zero_extendqisi2
+ 325 000e 0130     		adds	r0, r0, #1
+ 326              	.LVL31:
+ 169:Middlewares/Third_Party/LwIP/src/core/def.c ****     if (c1 != c2) {
+ 327              		.loc 1 169 5 is_stmt 1 view .LVU75
+ 169:Middlewares/Third_Party/LwIP/src/core/def.c ****     if (c1 != c2) {
+ 328              		.loc 1 169 8 is_stmt 0 view .LVU76
+ 329 0010 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 330 0012 0131     		adds	r1, r1, #1
+ 331              	.LVL32:
+ 170:Middlewares/Third_Party/LwIP/src/core/def.c ****       char c1_upc = c1 | 0x20;
+ 332              		.loc 1 170 5 is_stmt 1 view .LVU77
+ 170:Middlewares/Third_Party/LwIP/src/core/def.c ****       char c1_upc = c1 | 0x20;
+ 333              		.loc 1 170 8 is_stmt 0 view .LVU78
+ 334 0014 9C42     		cmp	r4, r3
+ 335 0016 F5D0     		beq	.L21
+ 336              	.LBB5:
+ 171:Middlewares/Third_Party/LwIP/src/core/def.c ****       if ((c1_upc >= 'a') && (c1_upc <= 'z')) {
+ 337              		.loc 1 171 7 is_stmt 1 view .LVU79
+ 171:Middlewares/Third_Party/LwIP/src/core/def.c ****       if ((c1_upc >= 'a') && (c1_upc <= 'z')) {
+ 338              		.loc 1 171 12 is_stmt 0 view .LVU80
+ 339 0018 44F02006 		orr	r6, r4, #32
+ 340              	.LVL33:
+ 172:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 341              		.loc 1 172 7 is_stmt 1 view .LVU81
+ 172:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 342              		.loc 1 172 27 is_stmt 0 view .LVU82
+ 343 001c A6F16105 		sub	r5, r6, #97
+ 344 0020 EDB2     		uxtb	r5, r5
+ 172:Middlewares/Third_Party/LwIP/src/core/def.c ****         /* characters are not equal an one is in the alphabet range:
+ 345              		.loc 1 172 10 view .LVU83
+ 346 0022 192D     		cmp	r5, #25
+ 347 0024 07D8     		bhi	.L24
+ 348              	.LBB6:
+ 175:Middlewares/Third_Party/LwIP/src/core/def.c ****         if (c1_upc != c2_upc) {
+ 349              		.loc 1 175 9 is_stmt 1 view .LVU84
+ 175:Middlewares/Third_Party/LwIP/src/core/def.c ****         if (c1_upc != c2_upc) {
+ 350              		.loc 1 175 14 is_stmt 0 view .LVU85
+ 351 0026 43F02003 		orr	r3, r3, #32
+ 352              	.LVL34:
+ 176:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* still not equal */
+ARM GAS  /tmp/ccdf0Hng.s 			page 11
+
+
+ 353              		.loc 1 176 9 is_stmt 1 view .LVU86
+ 176:Middlewares/Third_Party/LwIP/src/core/def.c ****           /* still not equal */
+ 354              		.loc 1 176 12 is_stmt 0 view .LVU87
+ 355 002a 9E42     		cmp	r6, r3
+ 356 002c EAD0     		beq	.L21
+ 179:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 357              		.loc 1 179 18 view .LVU88
+ 358 002e 0120     		movs	r0, #1
+ 359              	.LVL35:
+ 179:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 360              		.loc 1 179 18 view .LVU89
+ 361 0030 04E0     		b	.L20
+ 362              	.LVL36:
+ 363              	.L29:
+ 179:Middlewares/Third_Party/LwIP/src/core/def.c ****         }
+ 364              		.loc 1 179 18 view .LVU90
+ 365              	.LBE6:
+ 366              	.LBE5:
+ 187:Middlewares/Third_Party/LwIP/src/core/def.c ****   return 0;
+ 367              		.loc 1 187 10 view .LVU91
+ 368 0032 0020     		movs	r0, #0
+ 369              	.LVL37:
+ 370              		.loc 1 187 10 view .LVU92
+ 371 0034 02E0     		b	.L20
+ 372              	.LVL38:
+ 373              	.L24:
+ 374              	.LBB7:
+ 183:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 375              		.loc 1 183 16 view .LVU93
+ 376 0036 0120     		movs	r0, #1
+ 377              	.LVL39:
+ 183:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 378              		.loc 1 183 16 view .LVU94
+ 379 0038 00E0     		b	.L20
+ 380              	.LVL40:
+ 381              	.L26:
+ 183:Middlewares/Third_Party/LwIP/src/core/def.c ****       }
+ 382              		.loc 1 183 16 view .LVU95
+ 383              	.LBE7:
+ 384              		.loc 1 187 10 view .LVU96
+ 385 003a 0020     		movs	r0, #0
+ 386              	.LVL41:
+ 387              	.L20:
+ 188:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ 388              		.loc 1 188 1 view .LVU97
+ 389 003c 70BC     		pop	{r4, r5, r6}
+ 390              	.LCFI5:
+ 391              		.cfi_restore 6
+ 392              		.cfi_restore 5
+ 393              		.cfi_restore 4
+ 394              		.cfi_def_cfa_offset 0
+ 395              	.LVL42:
+ 396              		.loc 1 188 1 view .LVU98
+ 397 003e 7047     		bx	lr
+ 398              		.cfi_endproc
+ 399              	.LFE94:
+ 401              		.section	.rodata.lwip_itoa.str1.4,"aMS",%progbits,1
+ARM GAS  /tmp/ccdf0Hng.s 			page 12
+
+
+ 402              		.align	2
+ 403              	.LC0:
+ 404 0000 7A797877 		.ascii	"zyxwvutsrqponmlkjihgfedcba9876543210123456789abcdef"
+ 404      76757473 
+ 404      7271706F 
+ 404      6E6D6C6B 
+ 404      6A696867 
+ 405 0033 6768696A 		.ascii	"ghijklmnopqrstuvwxyz\000"
+ 405      6B6C6D6E 
+ 405      6F707172 
+ 405      73747576 
+ 405      7778797A 
+ 406              		.section	.text.lwip_itoa,"ax",%progbits
+ 407              		.align	1
+ 408              		.global	lwip_itoa
+ 409              		.syntax unified
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.fpu softvfp
+ 414              	lwip_itoa:
+ 415              	.LVL43:
+ 416              	.LFB95:
+ 189:Middlewares/Third_Party/LwIP/src/core/def.c **** #endif
+ 190:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 191:Middlewares/Third_Party/LwIP/src/core/def.c **** #ifndef lwip_itoa
+ 192:Middlewares/Third_Party/LwIP/src/core/def.c **** /**
+ 193:Middlewares/Third_Party/LwIP/src/core/def.c ****  * @ingroup sys_nonstandard
+ 194:Middlewares/Third_Party/LwIP/src/core/def.c ****  * lwIP default implementation for itoa() non-standard function.
+ 195:Middlewares/Third_Party/LwIP/src/core/def.c ****  * This can be \#defined to itoa() or snprintf(result, bufsize, "%d", number) depending on your pla
+ 196:Middlewares/Third_Party/LwIP/src/core/def.c ****  */
+ 197:Middlewares/Third_Party/LwIP/src/core/def.c **** void
+ 198:Middlewares/Third_Party/LwIP/src/core/def.c **** lwip_itoa(char* result, size_t bufsize, int number)
+ 199:Middlewares/Third_Party/LwIP/src/core/def.c **** {
+ 417              		.loc 1 199 1 is_stmt 1 view -0
+ 418              		.cfi_startproc
+ 419              		@ args = 0, pretend = 0, frame = 0
+ 420              		@ frame_needed = 0, uses_anonymous_args = 0
+ 421              		@ link register save eliminated.
+ 422              		.loc 1 199 1 is_stmt 0 view .LVU100
+ 423 0000 70B4     		push	{r4, r5, r6}
+ 424              	.LCFI6:
+ 425              		.cfi_def_cfa_offset 12
+ 426              		.cfi_offset 4, -12
+ 427              		.cfi_offset 5, -8
+ 428              		.cfi_offset 6, -4
+ 200:Middlewares/Third_Party/LwIP/src/core/def.c ****   const int base = 10;
+ 429              		.loc 1 200 3 is_stmt 1 view .LVU101
+ 430              	.LVL44:
+ 201:Middlewares/Third_Party/LwIP/src/core/def.c ****   char* ptr = result, *ptr1 = result, tmp_char;
+ 431              		.loc 1 201 3 view .LVU102
+ 432              		.loc 1 201 9 is_stmt 0 view .LVU103
+ 433 0002 0346     		mov	r3, r0
+ 434              	.LVL45:
+ 435              	.L31:
+ 202:Middlewares/Third_Party/LwIP/src/core/def.c ****   int tmp_value;
+ 436              		.loc 1 202 3 is_stmt 1 discriminator 1 view .LVU104
+ 203:Middlewares/Third_Party/LwIP/src/core/def.c ****   LWIP_UNUSED_ARG(bufsize);
+ARM GAS  /tmp/ccdf0Hng.s 			page 13
+
+
+ 437              		.loc 1 203 3 discriminator 1 view .LVU105
+ 204:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 205:Middlewares/Third_Party/LwIP/src/core/def.c ****   do {
+ 438              		.loc 1 205 3 discriminator 1 view .LVU106
+ 206:Middlewares/Third_Party/LwIP/src/core/def.c ****     tmp_value = number;
+ 439              		.loc 1 206 5 discriminator 1 view .LVU107
+ 207:Middlewares/Third_Party/LwIP/src/core/def.c ****     number /= base;
+ 440              		.loc 1 207 5 discriminator 1 view .LVU108
+ 441 0004 1446     		mov	r4, r2
+ 442              		.loc 1 207 12 is_stmt 0 discriminator 1 view .LVU109
+ 443 0006 1349     		ldr	r1, .L37
+ 444 0008 81FB0251 		smull	r5, r1, r1, r2
+ 445 000c D217     		asrs	r2, r2, #31
+ 446              	.LVL46:
+ 447              		.loc 1 207 12 discriminator 1 view .LVU110
+ 448 000e C2EBA102 		rsb	r2, r2, r1, asr #2
+ 449              	.LVL47:
+ 208:Middlewares/Third_Party/LwIP/src/core/def.c ****     *ptr++ = "zyxwvutsrqponmlkjihgfedcba9876543210123456789abcdefghijklmnopqrstuvwxyz"[35 + (tmp_va
+ 450              		.loc 1 208 5 is_stmt 1 discriminator 1 view .LVU111
+ 451              		.loc 1 208 104 is_stmt 0 discriminator 1 view .LVU112
+ 452 0012 6FF00901 		mvn	r1, #9
+ 453 0016 01FB0241 		mla	r1, r1, r2, r4
+ 454              		.loc 1 208 91 discriminator 1 view .LVU113
+ 455 001a 2331     		adds	r1, r1, #35
+ 456 001c 1D46     		mov	r5, r3
+ 457              		.loc 1 208 9 discriminator 1 view .LVU114
+ 458 001e 0133     		adds	r3, r3, #1
+ 459              	.LVL48:
+ 460              		.loc 1 208 87 discriminator 1 view .LVU115
+ 461 0020 0D4E     		ldr	r6, .L37+4
+ 462 0022 715C     		ldrb	r1, [r6, r1]	@ zero_extendqisi2
+ 463              		.loc 1 208 12 discriminator 1 view .LVU116
+ 464 0024 2970     		strb	r1, [r5]
+ 209:Middlewares/Third_Party/LwIP/src/core/def.c ****   } while(number);
+ 465              		.loc 1 209 10 is_stmt 1 discriminator 1 view .LVU117
+ 466              		.loc 1 209 3 is_stmt 0 discriminator 1 view .LVU118
+ 467 0026 002A     		cmp	r2, #0
+ 468 0028 ECD1     		bne	.L31
+ 210:Middlewares/Third_Party/LwIP/src/core/def.c **** 
+ 211:Middlewares/Third_Party/LwIP/src/core/def.c ****    /* Apply negative sign */
+ 212:Middlewares/Third_Party/LwIP/src/core/def.c ****   if (tmp_value < 0) {
+ 469              		.loc 1 212 3 is_stmt 1 view .LVU119
+ 470              		.loc 1 212 6 is_stmt 0 view .LVU120
+ 471 002a 002C     		cmp	r4, #0
+ 472 002c 03DB     		blt	.L36
+ 473              	.LVL49:
+ 474              	.L32:
+ 213:Middlewares/Third_Party/LwIP/src/core/def.c ****      *ptr++ = '-';
+ 214:Middlewares/Third_Party/LwIP/src/core/def.c ****   }
+ 215:Middlewares/Third_Party/LwIP/src/core/def.c ****   *ptr-- = '\0';
+ 475              		.loc 1 215 3 is_stmt 1 view .LVU121
+ 476              		.loc 1 215 10 is_stmt 0 view .LVU122
+ 477 002e 0022     		movs	r2, #0
+ 478 0030 03F80129 		strb	r2, [r3], #-1
+ 479              	.LVL50:
+ 216:Middlewares/Third_Party/LwIP/src/core/def.c ****   while(ptr1 < ptr) {
+ 480              		.loc 1 216 3 is_stmt 1 view .LVU123
+ARM GAS  /tmp/ccdf0Hng.s 			page 14
+
+
+ 481              		.loc 1 216 8 is_stmt 0 view .LVU124
+ 482 0034 09E0     		b	.L33
+ 483              	.LVL51:
+ 484              	.L36:
+ 213:Middlewares/Third_Party/LwIP/src/core/def.c ****      *ptr++ = '-';
+ 485              		.loc 1 213 6 is_stmt 1 view .LVU125
+ 213:Middlewares/Third_Party/LwIP/src/core/def.c ****      *ptr++ = '-';
+ 486              		.loc 1 213 13 is_stmt 0 view .LVU126
+ 487 0036 2D22     		movs	r2, #45
+ 488              	.LVL52:
+ 213:Middlewares/Third_Party/LwIP/src/core/def.c ****      *ptr++ = '-';
+ 489              		.loc 1 213 13 view .LVU127
+ 490 0038 1A70     		strb	r2, [r3]
+ 213:Middlewares/Third_Party/LwIP/src/core/def.c ****      *ptr++ = '-';
+ 491              		.loc 1 213 10 view .LVU128
+ 492 003a AB1C     		adds	r3, r5, #2
+ 493              	.LVL53:
+ 213:Middlewares/Third_Party/LwIP/src/core/def.c ****      *ptr++ = '-';
+ 494              		.loc 1 213 10 view .LVU129
+ 495 003c F7E7     		b	.L32
+ 496              	.LVL54:
+ 497              	.L34:
+ 217:Middlewares/Third_Party/LwIP/src/core/def.c ****     tmp_char = *ptr;
+ 498              		.loc 1 217 5 is_stmt 1 view .LVU130
+ 499              		.loc 1 217 14 is_stmt 0 view .LVU131
+ 500 003e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 501              	.LVL55:
+ 218:Middlewares/Third_Party/LwIP/src/core/def.c ****     *ptr--= *ptr1;
+ 502              		.loc 1 218 5 is_stmt 1 view .LVU132
+ 503              		.loc 1 218 13 is_stmt 0 view .LVU133
+ 504 0040 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 505              		.loc 1 218 11 view .LVU134
+ 506 0042 03F80119 		strb	r1, [r3], #-1
+ 507              	.LVL56:
+ 219:Middlewares/Third_Party/LwIP/src/core/def.c ****     *ptr1++ = tmp_char;
+ 508              		.loc 1 219 5 is_stmt 1 view .LVU135
+ 509              		.loc 1 219 13 is_stmt 0 view .LVU136
+ 510 0046 00F8012B 		strb	r2, [r0], #1
+ 511              	.LVL57:
+ 512              	.L33:
+ 216:Middlewares/Third_Party/LwIP/src/core/def.c ****     tmp_char = *ptr;
+ 513              		.loc 1 216 8 is_stmt 1 view .LVU137
+ 514 004a 8342     		cmp	r3, r0
+ 515 004c F7D8     		bhi	.L34
+ 220:Middlewares/Third_Party/LwIP/src/core/def.c ****   }
+ 221:Middlewares/Third_Party/LwIP/src/core/def.c **** }
+ 516              		.loc 1 221 1 is_stmt 0 view .LVU138
+ 517 004e 70BC     		pop	{r4, r5, r6}
+ 518              	.LCFI7:
+ 519              		.cfi_restore 6
+ 520              		.cfi_restore 5
+ 521              		.cfi_restore 4
+ 522              		.cfi_def_cfa_offset 0
+ 523              	.LVL58:
+ 524              		.loc 1 221 1 view .LVU139
+ 525 0050 7047     		bx	lr
+ 526              	.L38:
+ARM GAS  /tmp/ccdf0Hng.s 			page 15
+
+
+ 527 0052 00BF     		.align	2
+ 528              	.L37:
+ 529 0054 67666666 		.word	1717986919
+ 530 0058 00000000 		.word	.LC0
+ 531              		.cfi_endproc
+ 532              	.LFE95:
+ 534              		.text
+ 535              	.Letext0:
+ 536              		.file 2 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h"
+ 537              		.file 3 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_stdint.h"
+ 538              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 539              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 540              		.file 6 "/opt/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h"
+ 541              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 542              		.file 8 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h"
+ 543              		.file 9 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h"
+ 544              		.file 10 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/lock.h"
+ 545              		.file 11 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h"
+ 546              		.file 12 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/time.h"
+ 547              		.file 13 "Middlewares/Third_Party/LwIP/src/include/lwip/arch.h"
+ 548              		.file 14 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/string.h"
+ARM GAS  /tmp/ccdf0Hng.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 def.c
+     /tmp/ccdf0Hng.s:16     .text.lwip_htons:0000000000000000 $t
+     /tmp/ccdf0Hng.s:24     .text.lwip_htons:0000000000000000 lwip_htons
+     /tmp/ccdf0Hng.s:44     .text.lwip_htonl:0000000000000000 $t
+     /tmp/ccdf0Hng.s:51     .text.lwip_htonl:0000000000000000 lwip_htonl
+     /tmp/ccdf0Hng.s:76     .text.lwip_strnstr:0000000000000000 $t
+     /tmp/ccdf0Hng.s:83     .text.lwip_strnstr:0000000000000000 lwip_strnstr
+     /tmp/ccdf0Hng.s:180    .text.lwip_stricmp:0000000000000000 $t
+     /tmp/ccdf0Hng.s:187    .text.lwip_stricmp:0000000000000000 lwip_stricmp
+     /tmp/ccdf0Hng.s:283    .text.lwip_strnicmp:0000000000000000 $t
+     /tmp/ccdf0Hng.s:290    .text.lwip_strnicmp:0000000000000000 lwip_strnicmp
+     /tmp/ccdf0Hng.s:402    .rodata.lwip_itoa.str1.4:0000000000000000 $d
+     /tmp/ccdf0Hng.s:407    .text.lwip_itoa:0000000000000000 $t
+     /tmp/ccdf0Hng.s:414    .text.lwip_itoa:0000000000000000 lwip_itoa
+     /tmp/ccdf0Hng.s:529    .text.lwip_itoa:0000000000000054 $d
+
+UNDEFINED SYMBOLS
+strlen
+strncmp

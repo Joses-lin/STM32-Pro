@@ -1,0 +1,179 @@
+ARM GAS  /tmp/ccpfCw66.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"GUIConf.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.GUI_X_Config,"ax",%progbits
+  16              		.align	1
+  17              		.global	GUI_X_Config
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	GUI_X_Config:
+  25              	.LFB0:
+  26              		.file 1 "Middlewares/ST/STemWin/Config/GUIConf.c"
+   1:Middlewares/ST/STemWin/Config/GUIConf.c **** /*********************************************************************
+   2:Middlewares/ST/STemWin/Config/GUIConf.c **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:Middlewares/ST/STemWin/Config/GUIConf.c **** *        Solutions for real time microcontroller applications        *
+   4:Middlewares/ST/STemWin/Config/GUIConf.c **** **********************************************************************
+   5:Middlewares/ST/STemWin/Config/GUIConf.c **** *                                                                    *
+   6:Middlewares/ST/STemWin/Config/GUIConf.c **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:Middlewares/ST/STemWin/Config/GUIConf.c **** *                                                                    *
+   8:Middlewares/ST/STemWin/Config/GUIConf.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:Middlewares/ST/STemWin/Config/GUIConf.c **** *                                                                    *
+  10:Middlewares/ST/STemWin/Config/GUIConf.c **** **********************************************************************
+  11:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  12:Middlewares/ST/STemWin/Config/GUIConf.c **** ** emWin V5.44 - Graphical user interface for embedded applications **
+  13:Middlewares/ST/STemWin/Config/GUIConf.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:Middlewares/ST/STemWin/Config/GUIConf.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:Middlewares/ST/STemWin/Config/GUIConf.c **** source code may not be used to write a similar product.  This file may
+  16:Middlewares/ST/STemWin/Config/GUIConf.c **** only be used in accordance with the following terms:
+  17:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  18:Middlewares/ST/STemWin/Config/GUIConf.c **** The  software has  been licensed  to STMicroelectronics International
+  19:Middlewares/ST/STemWin/Config/GUIConf.c **** N.V. a Dutch company with a Swiss branch and its headquarters in Plan-
+  20:Middlewares/ST/STemWin/Config/GUIConf.c **** les-Ouates, Geneva, 39 Chemin du Champ des Filles, Switzerland for the
+  21:Middlewares/ST/STemWin/Config/GUIConf.c **** purposes of creating libraries for ARM Cortex-M-based 32-bit microcon_
+  22:Middlewares/ST/STemWin/Config/GUIConf.c **** troller products commercialized by Licensee only, sublicensed and dis_
+  23:Middlewares/ST/STemWin/Config/GUIConf.c **** tributed under the terms and conditions of the End User License Agree_
+  24:Middlewares/ST/STemWin/Config/GUIConf.c **** ment supplied by STMicroelectronics International N.V.
+  25:Middlewares/ST/STemWin/Config/GUIConf.c **** Full source code is available at: www.segger.com
+  26:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  27:Middlewares/ST/STemWin/Config/GUIConf.c **** We appreciate your understanding and fairness.
+  28:Middlewares/ST/STemWin/Config/GUIConf.c **** ----------------------------------------------------------------------
+  29:Middlewares/ST/STemWin/Config/GUIConf.c **** File        : GUIConf.c
+  30:Middlewares/ST/STemWin/Config/GUIConf.c **** Purpose     : Display controller initialization
+  31:Middlewares/ST/STemWin/Config/GUIConf.c **** ---------------------------END-OF-HEADER------------------------------
+  32:Middlewares/ST/STemWin/Config/GUIConf.c **** */
+ARM GAS  /tmp/ccpfCw66.s 			page 2
+
+
+  33:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  34:Middlewares/ST/STemWin/Config/GUIConf.c **** /**
+  35:Middlewares/ST/STemWin/Config/GUIConf.c ****   ******************************************************************************
+  36:Middlewares/ST/STemWin/Config/GUIConf.c ****   * @attention
+  37:Middlewares/ST/STemWin/Config/GUIConf.c ****   *
+  38:Middlewares/ST/STemWin/Config/GUIConf.c ****   * <h2><center>&copy; Copyright (c) 2018 STMicroelectronics. 
+  39:Middlewares/ST/STemWin/Config/GUIConf.c ****   * All rights reserved.</center></h2>
+  40:Middlewares/ST/STemWin/Config/GUIConf.c ****   *
+  41:Middlewares/ST/STemWin/Config/GUIConf.c ****   * This software component is licensed by ST under Ultimate Liberty license SLA0044,
+  42:Middlewares/ST/STemWin/Config/GUIConf.c ****   * the "License"; You may not use this file except in compliance with the License.
+  43:Middlewares/ST/STemWin/Config/GUIConf.c ****   * You may obtain a copy of the License at:
+  44:Middlewares/ST/STemWin/Config/GUIConf.c ****   *                      http://www.st.com/SLA0044
+  45:Middlewares/ST/STemWin/Config/GUIConf.c ****   *
+  46:Middlewares/ST/STemWin/Config/GUIConf.c ****   ******************************************************************************
+  47:Middlewares/ST/STemWin/Config/GUIConf.c ****   */
+  48:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  49:Middlewares/ST/STemWin/Config/GUIConf.c **** #include "GUI.h"
+  50:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  51:Middlewares/ST/STemWin/Config/GUIConf.c **** /*********************************************************************
+  52:Middlewares/ST/STemWin/Config/GUIConf.c **** *
+  53:Middlewares/ST/STemWin/Config/GUIConf.c **** *       Defines
+  54:Middlewares/ST/STemWin/Config/GUIConf.c **** *
+  55:Middlewares/ST/STemWin/Config/GUIConf.c **** **********************************************************************
+  56:Middlewares/ST/STemWin/Config/GUIConf.c **** */
+  57:Middlewares/ST/STemWin/Config/GUIConf.c **** //
+  58:Middlewares/ST/STemWin/Config/GUIConf.c **** // Define the available number of bytes available for the GUI
+  59:Middlewares/ST/STemWin/Config/GUIConf.c **** //
+  60:Middlewares/ST/STemWin/Config/GUIConf.c **** #define GUI_NUMBYTES  1024 * 30
+  61:Middlewares/ST/STemWin/Config/GUIConf.c **** 
+  62:Middlewares/ST/STemWin/Config/GUIConf.c **** /*********************************************************************
+  63:Middlewares/ST/STemWin/Config/GUIConf.c **** *
+  64:Middlewares/ST/STemWin/Config/GUIConf.c **** *       Public code
+  65:Middlewares/ST/STemWin/Config/GUIConf.c **** *
+  66:Middlewares/ST/STemWin/Config/GUIConf.c **** **********************************************************************
+  67:Middlewares/ST/STemWin/Config/GUIConf.c **** */
+  68:Middlewares/ST/STemWin/Config/GUIConf.c **** /*********************************************************************
+  69:Middlewares/ST/STemWin/Config/GUIConf.c **** *
+  70:Middlewares/ST/STemWin/Config/GUIConf.c **** *       GUI_X_Config
+  71:Middlewares/ST/STemWin/Config/GUIConf.c **** *
+  72:Middlewares/ST/STemWin/Config/GUIConf.c **** * Purpose:
+  73:Middlewares/ST/STemWin/Config/GUIConf.c **** *   Called during the initialization process in order to set up the
+  74:Middlewares/ST/STemWin/Config/GUIConf.c **** *   available memory for the GUI.
+  75:Middlewares/ST/STemWin/Config/GUIConf.c **** */
+  76:Middlewares/ST/STemWin/Config/GUIConf.c **** void GUI_X_Config(void) {
+  27              		.loc 1 76 25 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  77:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
+  78:Middlewares/ST/STemWin/Config/GUIConf.c ****   // 32 bit aligned memory area
+  79:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
+  80:Middlewares/ST/STemWin/Config/GUIConf.c ****   static U32 aMemory[GUI_NUMBYTES / 4];
+ARM GAS  /tmp/ccpfCw66.s 			page 3
+
+
+  36              		.loc 1 80 3 view .LVU1
+  81:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
+  82:Middlewares/ST/STemWin/Config/GUIConf.c ****   // Assign memory to emWin
+  83:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
+  84:Middlewares/ST/STemWin/Config/GUIConf.c ****   GUI_ALLOC_AssignMemory(aMemory, GUI_NUMBYTES);
+  37              		.loc 1 84 3 view .LVU2
+  38 0002 4FF4F041 		mov	r1, #30720
+  39 0006 0348     		ldr	r0, .L3
+  40 0008 FFF7FEFF 		bl	GUI_ALLOC_AssignMemory
+  41              	.LVL0:
+  85:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
+  86:Middlewares/ST/STemWin/Config/GUIConf.c ****   // Set default font
+  87:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
+  88:Middlewares/ST/STemWin/Config/GUIConf.c ****   GUI_SetDefaultFont(GUI_FONT_6X8);
+  42              		.loc 1 88 3 view .LVU3
+  43 000c 0248     		ldr	r0, .L3+4
+  44 000e FFF7FEFF 		bl	GUI_SetDefaultFont
+  45              	.LVL1:
+  89:Middlewares/ST/STemWin/Config/GUIConf.c **** }
+  46              		.loc 1 89 1 is_stmt 0 view .LVU4
+  47 0012 08BD     		pop	{r3, pc}
+  48              	.L4:
+  49              		.align	2
+  50              	.L3:
+  51 0014 00000000 		.word	aMemory.8074
+  52 0018 00000000 		.word	GUI_Font6x8
+  53              		.cfi_endproc
+  54              	.LFE0:
+  56              		.section	.bss.aMemory.8074,"aw",%nobits
+  57              		.align	2
+  60              	aMemory.8074:
+  61 0000 00000000 		.space	30720
+  61      00000000 
+  61      00000000 
+  61      00000000 
+  61      00000000 
+  62              		.text
+  63              	.Letext0:
+  64              		.file 2 "Middlewares/ST/STemWin/inc/LCD.h"
+  65              		.file 3 "Middlewares/ST/STemWin/inc/GUI.h"
+  66              		.file 4 "Middlewares/ST/STemWin/inc/GUI_Type.h"
+ARM GAS  /tmp/ccpfCw66.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 GUIConf.c
+     /tmp/ccpfCw66.s:16     .text.GUI_X_Config:0000000000000000 $t
+     /tmp/ccpfCw66.s:24     .text.GUI_X_Config:0000000000000000 GUI_X_Config
+     /tmp/ccpfCw66.s:51     .text.GUI_X_Config:0000000000000014 $d
+     /tmp/ccpfCw66.s:60     .bss.aMemory.8074:0000000000000000 aMemory.8074
+     /tmp/ccpfCw66.s:57     .bss.aMemory.8074:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+GUI_ALLOC_AssignMemory
+GUI_SetDefaultFont
+GUI_Font6x8
