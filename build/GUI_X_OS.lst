@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccmSvPuU.s 			page 1
+ARM GAS  /tmp/ccWJWfDY.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
   30:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** Purpose     : This file provides emWin Interface with FreeRTOS
   31:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** ---------------------------END-OF-HEADER------------------------------
   32:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** */
-ARM GAS  /tmp/ccmSvPuU.s 			page 2
+ARM GAS  /tmp/ccWJWfDY.s 			page 2
 
 
   33:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
   38 0002 FFF7FEFF 		bl	osKernelSysTick
   39              	.LVL0:
   76:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** }
-ARM GAS  /tmp/ccmSvPuU.s 			page 3
+ARM GAS  /tmp/ccWJWfDY.s 			page 3
 
 
   40              		.loc 1 76 1 view .LVU3
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
   91:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** */
   92:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** 
   93:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** void GUI_X_Init(void) {
-ARM GAS  /tmp/ccmSvPuU.s 			page 4
+ARM GAS  /tmp/ccWJWfDY.s 			page 4
 
 
   84              		.loc 1 93 23 is_stmt 1 view -0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  112:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** * GUI_X_GetTaskId()
  113:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** * GUI_X_Lock()
  114:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** * GUI_X_Unlock()
-ARM GAS  /tmp/ccmSvPuU.s 			page 5
+ARM GAS  /tmp/ccWJWfDY.s 			page 5
 
 
  115:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** *
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  154 001a 6846     		mov	r0, sp
  155 001c FFF7FEFF 		bl	osSemaphoreCreate
  156              	.LVL4:
-ARM GAS  /tmp/ccmSvPuU.s 			page 6
+ARM GAS  /tmp/ccWJWfDY.s 			page 6
 
 
  157              		.loc 1 138 14 view .LVU20
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  208              		.align	1
  209              		.global	GUI_X_Lock
  210              		.syntax unified
-ARM GAS  /tmp/ccmSvPuU.s 			page 7
+ARM GAS  /tmp/ccWJWfDY.s 			page 7
 
 
  211              		.thumb
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  259              		.cfi_offset 14, -4
  154:Middlewares/ST/STemWin/OS/GUI_X_OS.c ****   return ((U32) osThreadGetId());
  260              		.loc 1 154 3 view .LVU29
-ARM GAS  /tmp/ccmSvPuU.s 			page 8
+ARM GAS  /tmp/ccWJWfDY.s 			page 8
 
 
  261              		.loc 1 154 17 is_stmt 0 view .LVU30
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  312              	.LFB14:
  162:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** 
  163:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** 
-ARM GAS  /tmp/ccmSvPuU.s 			page 9
+ARM GAS  /tmp/ccWJWfDY.s 			page 9
 
 
  164:Middlewares/ST/STemWin/OS/GUI_X_OS.c **** void GUI_X_SignalEvent (void) 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  349              		@ args = 0, pretend = 0, frame = 0
  350              		@ frame_needed = 0, uses_anonymous_args = 0
  351              		@ link register save eliminated.
-ARM GAS  /tmp/ccmSvPuU.s 			page 10
+ARM GAS  /tmp/ccWJWfDY.s 			page 10
 
 
  352              		.loc 1 183 34 view .LVU39
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  413              		.text
  414              	.Letext0:
  415              		.file 2 "Middlewares/ST/STemWin/inc/LCD.h"
-ARM GAS  /tmp/ccmSvPuU.s 			page 11
+ARM GAS  /tmp/ccWJWfDY.s 			page 11
 
 
  416              		.file 3 "Middlewares/ST/STemWin/inc/GUI.h"
@@ -611,46 +611,46 @@ ARM GAS  /tmp/ccmSvPuU.s 			page 1
  423              		.file 10 "Middlewares/Third_Party/FreeRTOS/Source/include/queue.h"
  424              		.file 11 "Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h"
  425              		.file 12 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h"
-ARM GAS  /tmp/ccmSvPuU.s 			page 12
+ARM GAS  /tmp/ccWJWfDY.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 GUI_X_OS.c
-     /tmp/ccmSvPuU.s:16     .text.GUI_X_GetTime:0000000000000000 $t
-     /tmp/ccmSvPuU.s:24     .text.GUI_X_GetTime:0000000000000000 GUI_X_GetTime
-     /tmp/ccmSvPuU.s:46     .text.GUI_X_Delay:0000000000000000 $t
-     /tmp/ccmSvPuU.s:53     .text.GUI_X_Delay:0000000000000000 GUI_X_Delay
-     /tmp/ccmSvPuU.s:75     .text.GUI_X_Init:0000000000000000 $t
-     /tmp/ccmSvPuU.s:82     .text.GUI_X_Init:0000000000000000 GUI_X_Init
-     /tmp/ccmSvPuU.s:95     .text.GUI_X_ExecIdle:0000000000000000 $t
-     /tmp/ccmSvPuU.s:102    .text.GUI_X_ExecIdle:0000000000000000 GUI_X_ExecIdle
-     /tmp/ccmSvPuU.s:115    .text.GUI_X_InitOS:0000000000000000 $t
-     /tmp/ccmSvPuU.s:122    .text.GUI_X_InitOS:0000000000000000 GUI_X_InitOS
-     /tmp/ccmSvPuU.s:169    .text.GUI_X_InitOS:0000000000000028 $d
-     /tmp/ccmSvPuU.s:175    .text.GUI_X_Unlock:0000000000000000 $t
-     /tmp/ccmSvPuU.s:182    .text.GUI_X_Unlock:0000000000000000 GUI_X_Unlock
-     /tmp/ccmSvPuU.s:203    .text.GUI_X_Unlock:000000000000000c $d
-     /tmp/ccmSvPuU.s:208    .text.GUI_X_Lock:0000000000000000 $t
-     /tmp/ccmSvPuU.s:215    .text.GUI_X_Lock:0000000000000000 GUI_X_Lock
-     /tmp/ccmSvPuU.s:237    .text.GUI_X_Lock:0000000000000010 $d
-     /tmp/ccmSvPuU.s:242    .text.GUI_X_GetTaskId:0000000000000000 $t
-     /tmp/ccmSvPuU.s:249    .text.GUI_X_GetTaskId:0000000000000000 GUI_X_GetTaskId
-     /tmp/ccmSvPuU.s:270    .text.GUI_X_WaitEvent:0000000000000000 $t
-     /tmp/ccmSvPuU.s:277    .text.GUI_X_WaitEvent:0000000000000000 GUI_X_WaitEvent
-     /tmp/ccmSvPuU.s:299    .text.GUI_X_WaitEvent:0000000000000010 $d
-     /tmp/ccmSvPuU.s:304    .text.GUI_X_SignalEvent:0000000000000000 $t
-     /tmp/ccmSvPuU.s:311    .text.GUI_X_SignalEvent:0000000000000000 GUI_X_SignalEvent
-     /tmp/ccmSvPuU.s:332    .text.GUI_X_SignalEvent:000000000000000c $d
-     /tmp/ccmSvPuU.s:337    .text.GUI_X_Log:0000000000000000 $t
-     /tmp/ccmSvPuU.s:344    .text.GUI_X_Log:0000000000000000 GUI_X_Log
-     /tmp/ccmSvPuU.s:358    .text.GUI_X_Warn:0000000000000000 $t
-     /tmp/ccmSvPuU.s:365    .text.GUI_X_Warn:0000000000000000 GUI_X_Warn
-     /tmp/ccmSvPuU.s:379    .text.GUI_X_ErrorOut:0000000000000000 $t
-     /tmp/ccmSvPuU.s:386    .text.GUI_X_ErrorOut:0000000000000000 GUI_X_ErrorOut
-     /tmp/ccmSvPuU.s:400    .bss.osMutex:0000000000000000 $d
-     /tmp/ccmSvPuU.s:404    .bss.osMutex:0000000000000000 osMutex
-     /tmp/ccmSvPuU.s:407    .bss.osSemaphore:0000000000000000 $d
-     /tmp/ccmSvPuU.s:411    .bss.osSemaphore:0000000000000000 osSemaphore
+     /tmp/ccWJWfDY.s:16     .text.GUI_X_GetTime:0000000000000000 $t
+     /tmp/ccWJWfDY.s:24     .text.GUI_X_GetTime:0000000000000000 GUI_X_GetTime
+     /tmp/ccWJWfDY.s:46     .text.GUI_X_Delay:0000000000000000 $t
+     /tmp/ccWJWfDY.s:53     .text.GUI_X_Delay:0000000000000000 GUI_X_Delay
+     /tmp/ccWJWfDY.s:75     .text.GUI_X_Init:0000000000000000 $t
+     /tmp/ccWJWfDY.s:82     .text.GUI_X_Init:0000000000000000 GUI_X_Init
+     /tmp/ccWJWfDY.s:95     .text.GUI_X_ExecIdle:0000000000000000 $t
+     /tmp/ccWJWfDY.s:102    .text.GUI_X_ExecIdle:0000000000000000 GUI_X_ExecIdle
+     /tmp/ccWJWfDY.s:115    .text.GUI_X_InitOS:0000000000000000 $t
+     /tmp/ccWJWfDY.s:122    .text.GUI_X_InitOS:0000000000000000 GUI_X_InitOS
+     /tmp/ccWJWfDY.s:169    .text.GUI_X_InitOS:0000000000000028 $d
+     /tmp/ccWJWfDY.s:175    .text.GUI_X_Unlock:0000000000000000 $t
+     /tmp/ccWJWfDY.s:182    .text.GUI_X_Unlock:0000000000000000 GUI_X_Unlock
+     /tmp/ccWJWfDY.s:203    .text.GUI_X_Unlock:000000000000000c $d
+     /tmp/ccWJWfDY.s:208    .text.GUI_X_Lock:0000000000000000 $t
+     /tmp/ccWJWfDY.s:215    .text.GUI_X_Lock:0000000000000000 GUI_X_Lock
+     /tmp/ccWJWfDY.s:237    .text.GUI_X_Lock:0000000000000010 $d
+     /tmp/ccWJWfDY.s:242    .text.GUI_X_GetTaskId:0000000000000000 $t
+     /tmp/ccWJWfDY.s:249    .text.GUI_X_GetTaskId:0000000000000000 GUI_X_GetTaskId
+     /tmp/ccWJWfDY.s:270    .text.GUI_X_WaitEvent:0000000000000000 $t
+     /tmp/ccWJWfDY.s:277    .text.GUI_X_WaitEvent:0000000000000000 GUI_X_WaitEvent
+     /tmp/ccWJWfDY.s:299    .text.GUI_X_WaitEvent:0000000000000010 $d
+     /tmp/ccWJWfDY.s:304    .text.GUI_X_SignalEvent:0000000000000000 $t
+     /tmp/ccWJWfDY.s:311    .text.GUI_X_SignalEvent:0000000000000000 GUI_X_SignalEvent
+     /tmp/ccWJWfDY.s:332    .text.GUI_X_SignalEvent:000000000000000c $d
+     /tmp/ccWJWfDY.s:337    .text.GUI_X_Log:0000000000000000 $t
+     /tmp/ccWJWfDY.s:344    .text.GUI_X_Log:0000000000000000 GUI_X_Log
+     /tmp/ccWJWfDY.s:358    .text.GUI_X_Warn:0000000000000000 $t
+     /tmp/ccWJWfDY.s:365    .text.GUI_X_Warn:0000000000000000 GUI_X_Warn
+     /tmp/ccWJWfDY.s:379    .text.GUI_X_ErrorOut:0000000000000000 $t
+     /tmp/ccWJWfDY.s:386    .text.GUI_X_ErrorOut:0000000000000000 GUI_X_ErrorOut
+     /tmp/ccWJWfDY.s:400    .bss.osMutex:0000000000000000 $d
+     /tmp/ccWJWfDY.s:404    .bss.osMutex:0000000000000000 osMutex
+     /tmp/ccWJWfDY.s:407    .bss.osSemaphore:0000000000000000 $d
+     /tmp/ccWJWfDY.s:411    .bss.osSemaphore:0000000000000000 osSemaphore
 
 UNDEFINED SYMBOLS
 osKernelSysTick

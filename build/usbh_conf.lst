@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpuC7PM.s 			page 1
+ARM GAS  /tmp/ccUheXQD.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
   29:USB_HOST/Target/usbh_conf.c **** 
   30:USB_HOST/Target/usbh_conf.c **** /* Private typedef -----------------------------------------------------------*/
   31:USB_HOST/Target/usbh_conf.c **** /* Private define ------------------------------------------------------------*/
-ARM GAS  /tmp/ccpuC7PM.s 			page 2
+ARM GAS  /tmp/ccUheXQD.s 			page 2
 
 
   32:USB_HOST/Target/usbh_conf.c **** /* Private macro -------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
   47              		.cfi_def_cfa_offset 16
   66:USB_HOST/Target/usbh_conf.c ****   {
   67:USB_HOST/Target/usbh_conf.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 0 */
-ARM GAS  /tmp/ccpuC7PM.s 			page 3
+ARM GAS  /tmp/ccUheXQD.s 			page 3
 
 
   68:USB_HOST/Target/usbh_conf.c **** 
@@ -144,10 +144,10 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
   64              		.loc 1 71 5 view .LVU10
   72:USB_HOST/Target/usbh_conf.c **** 
   73:USB_HOST/Target/usbh_conf.c ****     /* Peripheral interrupt init */
-  74:USB_HOST/Target/usbh_conf.c ****     HAL_NVIC_SetPriority(OTG_FS_IRQn, 0, 0);
+  74:USB_HOST/Target/usbh_conf.c ****     HAL_NVIC_SetPriority(OTG_FS_IRQn, 6, 0);
   65              		.loc 1 74 5 view .LVU11
   66 0028 0022     		movs	r2, #0
-  67 002a 1146     		mov	r1, r2
+  67 002a 0621     		movs	r1, #6
   68 002c 4320     		movs	r0, #67
   69              	.LVL1:
   70              		.loc 1 74 5 is_stmt 0 view .LVU12
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
   90              		.thumb
   91              		.thumb_func
   92              		.fpu softvfp
-ARM GAS  /tmp/ccpuC7PM.s 			page 4
+ARM GAS  /tmp/ccUheXQD.s 			page 4
 
 
   94              	HAL_HCD_MspDeInit:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
   93:USB_HOST/Target/usbh_conf.c **** 
  127              		.loc 1 93 5 is_stmt 0 view .LVU23
  128 0018 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
-ARM GAS  /tmp/ccpuC7PM.s 			page 5
+ARM GAS  /tmp/ccUheXQD.s 			page 5
 
 
  129              	.LVL8:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  176              		.thumb_func
  177              		.fpu softvfp
  179              	HAL_HCD_Connect_Callback:
-ARM GAS  /tmp/ccpuC7PM.s 			page 6
+ARM GAS  /tmp/ccUheXQD.s 			page 6
 
 
  180              	.LVL12:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  218              		.loc 1 127 1 is_stmt 0 view .LVU36
  219 0000 08B5     		push	{r3, lr}
  220              	.LCFI6:
-ARM GAS  /tmp/ccpuC7PM.s 			page 7
+ARM GAS  /tmp/ccUheXQD.s 			page 7
 
 
  221              		.cfi_def_cfa_offset 8
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  143:USB_HOST/Target/usbh_conf.c **** #endif
  144:USB_HOST/Target/usbh_conf.c **** }
  262              		.loc 1 144 1 view .LVU44
-ARM GAS  /tmp/ccpuC7PM.s 			page 8
+ARM GAS  /tmp/ccUheXQD.s 			page 8
 
 
  263 000a 08BD     		pop	{r3, pc}
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  156:USB_HOST/Target/usbh_conf.c ****   * @brief  Port Port Disabled callback.
  157:USB_HOST/Target/usbh_conf.c ****   * @param  hhcd: HCD handle
  158:USB_HOST/Target/usbh_conf.c ****   * @retval None
-ARM GAS  /tmp/ccpuC7PM.s 			page 9
+ARM GAS  /tmp/ccUheXQD.s 			page 9
 
 
  159:USB_HOST/Target/usbh_conf.c ****   */
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  347              		.loc 1 177 12 is_stmt 0 view .LVU57
  348 0000 90F8C433 		ldrb	r3, [r0, #964]	@ zero_extendqisi2
  349              		.loc 1 177 6 view .LVU58
-ARM GAS  /tmp/ccpuC7PM.s 			page 10
+ARM GAS  /tmp/ccUheXQD.s 			page 10
 
 
  350 0004 012B     		cmp	r3, #1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  379 001e 0360     		str	r3, [r0]
  183:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.speed = HCD_SPEED_FULL;
  380              		.loc 1 183 3 is_stmt 1 view .LVU70
-ARM GAS  /tmp/ccpuC7PM.s 			page 11
+ARM GAS  /tmp/ccUheXQD.s 			page 11
 
 
  183:USB_HOST/Target/usbh_conf.c ****   hhcd_USB_OTG_FS.Init.speed = HCD_SPEED_FULL;
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  425              		.align	1
  426              		.global	USBH_LL_GetSpeed
  427              		.syntax unified
-ARM GAS  /tmp/ccpuC7PM.s 			page 12
+ARM GAS  /tmp/ccUheXQD.s 			page 12
 
 
  428              		.thumb
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  243:USB_HOST/Target/usbh_conf.c **** 
  244:USB_HOST/Target/usbh_conf.c ****   return usb_status;
  245:USB_HOST/Target/usbh_conf.c **** }
-ARM GAS  /tmp/ccpuC7PM.s 			page 13
+ARM GAS  /tmp/ccUheXQD.s 			page 13
 
 
  246:USB_HOST/Target/usbh_conf.c **** 
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  463              	.LVL40:
  272:USB_HOST/Target/usbh_conf.c ****     break;
  273:USB_HOST/Target/usbh_conf.c ****   }
-ARM GAS  /tmp/ccpuC7PM.s 			page 14
+ARM GAS  /tmp/ccUheXQD.s 			page 14
 
 
  274:USB_HOST/Target/usbh_conf.c ****   return  speed;
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  490              		.loc 1 301 1 is_stmt 1 view -0
  491              		.cfi_startproc
  492              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccpuC7PM.s 			page 15
+ARM GAS  /tmp/ccUheXQD.s 			page 15
 
 
  493              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  328:USB_HOST/Target/usbh_conf.c **** }
  329:USB_HOST/Target/usbh_conf.c **** 
  330:USB_HOST/Target/usbh_conf.c **** /**
-ARM GAS  /tmp/ccpuC7PM.s 			page 16
+ARM GAS  /tmp/ccUheXQD.s 			page 16
 
 
  331:USB_HOST/Target/usbh_conf.c ****   * @brief  Close a pipe of the low level driver.
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  385:USB_HOST/Target/usbh_conf.c ****   usb_status =  USBH_Get_USB_Status(hal_status);
  386:USB_HOST/Target/usbh_conf.c **** 
  387:USB_HOST/Target/usbh_conf.c ****   return usb_status;
-ARM GAS  /tmp/ccpuC7PM.s 			page 17
+ARM GAS  /tmp/ccUheXQD.s 			page 17
 
 
  388:USB_HOST/Target/usbh_conf.c **** }
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  411:USB_HOST/Target/usbh_conf.c ****   * @param  phost: Host handle
  412:USB_HOST/Target/usbh_conf.c ****   * @param  state : VBUS state
  413:USB_HOST/Target/usbh_conf.c ****   *          This parameter can be one of the these values:
-ARM GAS  /tmp/ccpuC7PM.s 			page 18
+ARM GAS  /tmp/ccUheXQD.s 			page 18
 
 
  414:USB_HOST/Target/usbh_conf.c ****   *           0 : VBUS Inactive
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  590              		.loc 1 421 5 view .LVU117
  591 001a F6E7     		b	.L48
  592              		.cfi_endproc
-ARM GAS  /tmp/ccpuC7PM.s 			page 19
+ARM GAS  /tmp/ccUheXQD.s 			page 19
 
 
  593              	.LFE92:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  447:USB_HOST/Target/usbh_conf.c ****   }
  448:USB_HOST/Target/usbh_conf.c ****   else
  449:USB_HOST/Target/usbh_conf.c ****   {
-ARM GAS  /tmp/ccpuC7PM.s 			page 20
+ARM GAS  /tmp/ccUheXQD.s 			page 20
 
 
  450:USB_HOST/Target/usbh_conf.c ****     pHandle->hc[pipe].toggle_out = toggle;
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  669              		.loc 1 466 11 is_stmt 0 view .LVU138
  670 0000 D0F8C833 		ldr	r3, [r0, #968]
  671              	.LVL61:
-ARM GAS  /tmp/ccpuC7PM.s 			page 21
+ARM GAS  /tmp/ccUheXQD.s 			page 21
 
 
  467:USB_HOST/Target/usbh_conf.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  479:USB_HOST/Target/usbh_conf.c **** /**
  480:USB_HOST/Target/usbh_conf.c ****   * @brief  Delay routine for the USB Host Library
  481:USB_HOST/Target/usbh_conf.c ****   * @param  Delay: Delay in ms
-ARM GAS  /tmp/ccpuC7PM.s 			page 22
+ARM GAS  /tmp/ccUheXQD.s 			page 22
 
 
  482:USB_HOST/Target/usbh_conf.c ****   * @retval None
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  755              	.L62:
  756 0008 05       		.byte	(.L60-.L62)/2
  757 0009 04       		.byte	(.L64-.L62)/2
-ARM GAS  /tmp/ccpuC7PM.s 			page 23
+ARM GAS  /tmp/ccUheXQD.s 			page 23
 
 
  758 000a 02       		.byte	(.L61-.L62)/2
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  792              		.loc 1 202 1 is_stmt 1 view -0
  793              		.cfi_startproc
  794              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccpuC7PM.s 			page 24
+ARM GAS  /tmp/ccUheXQD.s 			page 24
 
 
  795              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  839              	.LCFI17:
  840              		.cfi_def_cfa_offset 8
  841              		.cfi_offset 3, -8
-ARM GAS  /tmp/ccpuC7PM.s 			page 25
+ARM GAS  /tmp/ccUheXQD.s 			page 25
 
 
  842              		.cfi_offset 14, -4
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  238:USB_HOST/Target/usbh_conf.c **** 
  886              		.loc 1 238 3 view .LVU190
  240:USB_HOST/Target/usbh_conf.c **** 
-ARM GAS  /tmp/ccpuC7PM.s 			page 26
+ARM GAS  /tmp/ccUheXQD.s 			page 26
 
 
  887              		.loc 1 240 3 view .LVU191
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  931              	.LVL91:
  287:USB_HOST/Target/usbh_conf.c **** 
  932              		.loc 1 287 16 view .LVU204
-ARM GAS  /tmp/ccpuC7PM.s 			page 27
+ARM GAS  /tmp/ccUheXQD.s 			page 27
 
 
  933 0006 FFF7FEFF 		bl	HAL_HCD_ResetPort
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  978 000c 0294     		str	r4, [sp, #8]
  979 000e 9DF81C40 		ldrb	r4, [sp, #28]	@ zero_extendqisi2
  980 0012 0194     		str	r4, [sp, #4]
-ARM GAS  /tmp/ccpuC7PM.s 			page 28
+ARM GAS  /tmp/ccUheXQD.s 			page 28
 
 
  981 0014 9DF81840 		ldrb	r4, [sp, #24]	@ zero_extendqisi2
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  1026 0002 D0F8C803 		ldr	r0, [r0, #968]
  1027              	.LVL101:
  341:USB_HOST/Target/usbh_conf.c **** 
-ARM GAS  /tmp/ccpuC7PM.s 			page 29
+ARM GAS  /tmp/ccUheXQD.s 			page 29
 
 
  1028              		.loc 1 341 16 view .LVU227
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  1073 0008 9DF82440 		ldrb	r4, [sp, #36]	@ zero_extendqisi2
  1074 000c 0394     		str	r4, [sp, #12]
  1075 000e BDF82040 		ldrh	r4, [sp, #32]
-ARM GAS  /tmp/ccpuC7PM.s 			page 30
+ARM GAS  /tmp/ccUheXQD.s 			page 30
 
 
  1076 0012 0294     		str	r4, [sp, #8]
@@ -1793,67 +1793,67 @@ ARM GAS  /tmp/ccpuC7PM.s 			page 1
  1121              		.file 22 "USB_HOST/Target/usbh_platform.h"
  1122              		.file 23 "Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h"
  1123              		.file 24 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
-ARM GAS  /tmp/ccpuC7PM.s 			page 31
+ARM GAS  /tmp/ccUheXQD.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbh_conf.c
-     /tmp/ccpuC7PM.s:16     .text.HAL_HCD_MspInit:0000000000000000 $t
-     /tmp/ccpuC7PM.s:24     .text.HAL_HCD_MspInit:0000000000000000 HAL_HCD_MspInit
-     /tmp/ccpuC7PM.s:87     .text.HAL_HCD_MspDeInit:0000000000000000 $t
-     /tmp/ccpuC7PM.s:94     .text.HAL_HCD_MspDeInit:0000000000000000 HAL_HCD_MspDeInit
-     /tmp/ccpuC7PM.s:135    .text.HAL_HCD_MspDeInit:0000000000000020 $d
-     /tmp/ccpuC7PM.s:140    .text.HAL_HCD_SOF_Callback:0000000000000000 $t
-     /tmp/ccpuC7PM.s:147    .text.HAL_HCD_SOF_Callback:0000000000000000 HAL_HCD_SOF_Callback
-     /tmp/ccpuC7PM.s:172    .text.HAL_HCD_Connect_Callback:0000000000000000 $t
-     /tmp/ccpuC7PM.s:179    .text.HAL_HCD_Connect_Callback:0000000000000000 HAL_HCD_Connect_Callback
-     /tmp/ccpuC7PM.s:204    .text.HAL_HCD_Disconnect_Callback:0000000000000000 $t
-     /tmp/ccpuC7PM.s:211    .text.HAL_HCD_Disconnect_Callback:0000000000000000 HAL_HCD_Disconnect_Callback
-     /tmp/ccpuC7PM.s:236    .text.HAL_HCD_HC_NotifyURBChange_Callback:0000000000000000 $t
-     /tmp/ccpuC7PM.s:243    .text.HAL_HCD_HC_NotifyURBChange_Callback:0000000000000000 HAL_HCD_HC_NotifyURBChange_Callback
-     /tmp/ccpuC7PM.s:268    .text.HAL_HCD_PortEnabled_Callback:0000000000000000 $t
-     /tmp/ccpuC7PM.s:275    .text.HAL_HCD_PortEnabled_Callback:0000000000000000 HAL_HCD_PortEnabled_Callback
-     /tmp/ccpuC7PM.s:300    .text.HAL_HCD_PortDisabled_Callback:0000000000000000 $t
-     /tmp/ccpuC7PM.s:307    .text.HAL_HCD_PortDisabled_Callback:0000000000000000 HAL_HCD_PortDisabled_Callback
-     /tmp/ccpuC7PM.s:332    .text.USBH_LL_Init:0000000000000000 $t
-     /tmp/ccpuC7PM.s:339    .text.USBH_LL_Init:0000000000000000 USBH_LL_Init
-     /tmp/ccpuC7PM.s:420    .text.USBH_LL_Init:000000000000004c $d
+     /tmp/ccUheXQD.s:16     .text.HAL_HCD_MspInit:0000000000000000 $t
+     /tmp/ccUheXQD.s:24     .text.HAL_HCD_MspInit:0000000000000000 HAL_HCD_MspInit
+     /tmp/ccUheXQD.s:87     .text.HAL_HCD_MspDeInit:0000000000000000 $t
+     /tmp/ccUheXQD.s:94     .text.HAL_HCD_MspDeInit:0000000000000000 HAL_HCD_MspDeInit
+     /tmp/ccUheXQD.s:135    .text.HAL_HCD_MspDeInit:0000000000000020 $d
+     /tmp/ccUheXQD.s:140    .text.HAL_HCD_SOF_Callback:0000000000000000 $t
+     /tmp/ccUheXQD.s:147    .text.HAL_HCD_SOF_Callback:0000000000000000 HAL_HCD_SOF_Callback
+     /tmp/ccUheXQD.s:172    .text.HAL_HCD_Connect_Callback:0000000000000000 $t
+     /tmp/ccUheXQD.s:179    .text.HAL_HCD_Connect_Callback:0000000000000000 HAL_HCD_Connect_Callback
+     /tmp/ccUheXQD.s:204    .text.HAL_HCD_Disconnect_Callback:0000000000000000 $t
+     /tmp/ccUheXQD.s:211    .text.HAL_HCD_Disconnect_Callback:0000000000000000 HAL_HCD_Disconnect_Callback
+     /tmp/ccUheXQD.s:236    .text.HAL_HCD_HC_NotifyURBChange_Callback:0000000000000000 $t
+     /tmp/ccUheXQD.s:243    .text.HAL_HCD_HC_NotifyURBChange_Callback:0000000000000000 HAL_HCD_HC_NotifyURBChange_Callback
+     /tmp/ccUheXQD.s:268    .text.HAL_HCD_PortEnabled_Callback:0000000000000000 $t
+     /tmp/ccUheXQD.s:275    .text.HAL_HCD_PortEnabled_Callback:0000000000000000 HAL_HCD_PortEnabled_Callback
+     /tmp/ccUheXQD.s:300    .text.HAL_HCD_PortDisabled_Callback:0000000000000000 $t
+     /tmp/ccUheXQD.s:307    .text.HAL_HCD_PortDisabled_Callback:0000000000000000 HAL_HCD_PortDisabled_Callback
+     /tmp/ccUheXQD.s:332    .text.USBH_LL_Init:0000000000000000 $t
+     /tmp/ccUheXQD.s:339    .text.USBH_LL_Init:0000000000000000 USBH_LL_Init
+     /tmp/ccUheXQD.s:420    .text.USBH_LL_Init:000000000000004c $d
                             *COM*:00000000000002c4 hhcd_USB_OTG_FS
-     /tmp/ccpuC7PM.s:425    .text.USBH_LL_GetSpeed:0000000000000000 $t
-     /tmp/ccpuC7PM.s:432    .text.USBH_LL_GetSpeed:0000000000000000 USBH_LL_GetSpeed
-     /tmp/ccpuC7PM.s:480    .text.USBH_LL_GetLastXferSize:0000000000000000 $t
-     /tmp/ccpuC7PM.s:487    .text.USBH_LL_GetLastXferSize:0000000000000000 USBH_LL_GetLastXferSize
-     /tmp/ccpuC7PM.s:513    .text.USBH_LL_GetURBState:0000000000000000 $t
-     /tmp/ccpuC7PM.s:520    .text.USBH_LL_GetURBState:0000000000000000 USBH_LL_GetURBState
-     /tmp/ccpuC7PM.s:546    .text.USBH_LL_DriverVBUS:0000000000000000 $t
-     /tmp/ccpuC7PM.s:553    .text.USBH_LL_DriverVBUS:0000000000000000 USBH_LL_DriverVBUS
-     /tmp/ccpuC7PM.s:596    .text.USBH_LL_SetToggle:0000000000000000 $t
-     /tmp/ccpuC7PM.s:603    .text.USBH_LL_SetToggle:0000000000000000 USBH_LL_SetToggle
-     /tmp/ccpuC7PM.s:651    .text.USBH_LL_GetToggle:0000000000000000 $t
-     /tmp/ccpuC7PM.s:658    .text.USBH_LL_GetToggle:0000000000000000 USBH_LL_GetToggle
-     /tmp/ccpuC7PM.s:706    .text.USBH_Delay:0000000000000000 $t
-     /tmp/ccpuC7PM.s:713    .text.USBH_Delay:0000000000000000 USBH_Delay
-     /tmp/ccpuC7PM.s:735    .text.USBH_Get_USB_Status:0000000000000000 $t
-     /tmp/ccpuC7PM.s:742    .text.USBH_Get_USB_Status:0000000000000000 USBH_Get_USB_Status
-     /tmp/ccpuC7PM.s:756    .text.USBH_Get_USB_Status:0000000000000008 $d
-     /tmp/ccpuC7PM.s:782    .text.USBH_LL_DeInit:0000000000000000 $t
-     /tmp/ccpuC7PM.s:789    .text.USBH_LL_DeInit:0000000000000000 USBH_LL_DeInit
-     /tmp/ccpuC7PM.s:823    .text.USBH_LL_Start:0000000000000000 $t
-     /tmp/ccpuC7PM.s:830    .text.USBH_LL_Start:0000000000000000 USBH_LL_Start
-     /tmp/ccpuC7PM.s:864    .text.USBH_LL_Stop:0000000000000000 $t
-     /tmp/ccpuC7PM.s:871    .text.USBH_LL_Stop:0000000000000000 USBH_LL_Stop
-     /tmp/ccpuC7PM.s:905    .text.USBH_LL_ResetPort:0000000000000000 $t
-     /tmp/ccpuC7PM.s:912    .text.USBH_LL_ResetPort:0000000000000000 USBH_LL_ResetPort
-     /tmp/ccpuC7PM.s:946    .text.USBH_LL_OpenPipe:0000000000000000 $t
-     /tmp/ccpuC7PM.s:953    .text.USBH_LL_OpenPipe:0000000000000000 USBH_LL_OpenPipe
-     /tmp/ccpuC7PM.s:1001   .text.USBH_LL_ClosePipe:0000000000000000 $t
-     /tmp/ccpuC7PM.s:1008   .text.USBH_LL_ClosePipe:0000000000000000 USBH_LL_ClosePipe
-     /tmp/ccpuC7PM.s:1042   .text.USBH_LL_SubmitURB:0000000000000000 $t
-     /tmp/ccpuC7PM.s:1049   .text.USBH_LL_SubmitURB:0000000000000000 USBH_LL_SubmitURB
-     /tmp/ccpuC7PM.s:759    .text.USBH_Get_USB_Status:000000000000000b $d
-     /tmp/ccpuC7PM.s:759    .text.USBH_Get_USB_Status:000000000000000c $t
+     /tmp/ccUheXQD.s:425    .text.USBH_LL_GetSpeed:0000000000000000 $t
+     /tmp/ccUheXQD.s:432    .text.USBH_LL_GetSpeed:0000000000000000 USBH_LL_GetSpeed
+     /tmp/ccUheXQD.s:480    .text.USBH_LL_GetLastXferSize:0000000000000000 $t
+     /tmp/ccUheXQD.s:487    .text.USBH_LL_GetLastXferSize:0000000000000000 USBH_LL_GetLastXferSize
+     /tmp/ccUheXQD.s:513    .text.USBH_LL_GetURBState:0000000000000000 $t
+     /tmp/ccUheXQD.s:520    .text.USBH_LL_GetURBState:0000000000000000 USBH_LL_GetURBState
+     /tmp/ccUheXQD.s:546    .text.USBH_LL_DriverVBUS:0000000000000000 $t
+     /tmp/ccUheXQD.s:553    .text.USBH_LL_DriverVBUS:0000000000000000 USBH_LL_DriverVBUS
+     /tmp/ccUheXQD.s:596    .text.USBH_LL_SetToggle:0000000000000000 $t
+     /tmp/ccUheXQD.s:603    .text.USBH_LL_SetToggle:0000000000000000 USBH_LL_SetToggle
+     /tmp/ccUheXQD.s:651    .text.USBH_LL_GetToggle:0000000000000000 $t
+     /tmp/ccUheXQD.s:658    .text.USBH_LL_GetToggle:0000000000000000 USBH_LL_GetToggle
+     /tmp/ccUheXQD.s:706    .text.USBH_Delay:0000000000000000 $t
+     /tmp/ccUheXQD.s:713    .text.USBH_Delay:0000000000000000 USBH_Delay
+     /tmp/ccUheXQD.s:735    .text.USBH_Get_USB_Status:0000000000000000 $t
+     /tmp/ccUheXQD.s:742    .text.USBH_Get_USB_Status:0000000000000000 USBH_Get_USB_Status
+     /tmp/ccUheXQD.s:756    .text.USBH_Get_USB_Status:0000000000000008 $d
+     /tmp/ccUheXQD.s:782    .text.USBH_LL_DeInit:0000000000000000 $t
+     /tmp/ccUheXQD.s:789    .text.USBH_LL_DeInit:0000000000000000 USBH_LL_DeInit
+     /tmp/ccUheXQD.s:823    .text.USBH_LL_Start:0000000000000000 $t
+     /tmp/ccUheXQD.s:830    .text.USBH_LL_Start:0000000000000000 USBH_LL_Start
+     /tmp/ccUheXQD.s:864    .text.USBH_LL_Stop:0000000000000000 $t
+     /tmp/ccUheXQD.s:871    .text.USBH_LL_Stop:0000000000000000 USBH_LL_Stop
+     /tmp/ccUheXQD.s:905    .text.USBH_LL_ResetPort:0000000000000000 $t
+     /tmp/ccUheXQD.s:912    .text.USBH_LL_ResetPort:0000000000000000 USBH_LL_ResetPort
+     /tmp/ccUheXQD.s:946    .text.USBH_LL_OpenPipe:0000000000000000 $t
+     /tmp/ccUheXQD.s:953    .text.USBH_LL_OpenPipe:0000000000000000 USBH_LL_OpenPipe
+     /tmp/ccUheXQD.s:1001   .text.USBH_LL_ClosePipe:0000000000000000 $t
+     /tmp/ccUheXQD.s:1008   .text.USBH_LL_ClosePipe:0000000000000000 USBH_LL_ClosePipe
+     /tmp/ccUheXQD.s:1042   .text.USBH_LL_SubmitURB:0000000000000000 $t
+     /tmp/ccUheXQD.s:1049   .text.USBH_LL_SubmitURB:0000000000000000 USBH_LL_SubmitURB
+     /tmp/ccUheXQD.s:759    .text.USBH_Get_USB_Status:000000000000000b $d
+     /tmp/ccUheXQD.s:759    .text.USBH_Get_USB_Status:000000000000000c $t
 
-ARM GAS  /tmp/ccpuC7PM.s 			page 32
+ARM GAS  /tmp/ccUheXQD.s 			page 32
 
 
 UNDEFINED SYMBOLS

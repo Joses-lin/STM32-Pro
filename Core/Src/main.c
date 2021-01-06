@@ -21,11 +21,10 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "usb_host.h"
-#include "GUI.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "GUI.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -394,10 +393,10 @@ static void MX_SPI3_Init(void)
   hspi3.Init.Mode = SPI_MODE_MASTER;
   hspi3.Init.Direction = SPI_DIRECTION_2LINES;
   hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi3.Init.CLKPolarity = SPI_POLARITY_HIGH;
-  hspi3.Init.CLKPhase = SPI_PHASE_2EDGE;
+  hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -468,14 +467,14 @@ static void MX_GPIO_Init(void)
                           |DB14_Pin|DB15_Pin|DB00_Pin|DB01_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, SD_CS_Pin|LCD_RS_Pin|LCD_WR_Pin|LCD_RD_Pin
+  HAL_GPIO_WritePin(GPIOB, LCD_WR_Pin|USB_PWR_Pin|F_CS_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOD, SD_CS_Pin|LCD_RS_Pin|LCD_WRError_Pin|LCD_RD_Pin
                           |LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, LCD_CS_Pin|TP_CS_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, USB_PWR_Pin|F_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : DB02_Pin DB03_Pin DB04_Pin DB05_Pin
                            DB06_Pin DB07_Pin DB08_Pin DB09_Pin
@@ -490,15 +489,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  ////////////////////////////////////////
-  GPIO_InitStruct.Pin = SD_CD_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /////////////////////////////////////////
-
   /*Configure GPIO pins : Key_temper_Pin Key2_Pin RMII_INT_Pin */
   GPIO_InitStruct.Pin = Key_temper_Pin|Key2_Pin|RMII_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -511,11 +501,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Key_Pin SD_CD_Pin */
+  /*Configure GPIO pin : Key_Pin */
   GPIO_InitStruct.Pin = Key_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(Key_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LCD_WR_Pin */
+  GPIO_InitStruct.Pin = LCD_WR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(LCD_WR_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PD8 PD9 PD10 */
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
@@ -530,15 +527,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
   HAL_GPIO_Init(SD_CS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LCD_RS_Pin LCD_WR_Pin LCD_RD_Pin */
-  GPIO_InitStruct.Pin = LCD_RS_Pin|LCD_WR_Pin|LCD_RD_Pin;
+  /*Configure GPIO pins : LCD_RS_Pin LCD_WRError_Pin LCD_RD_Pin */
+  GPIO_InitStruct.Pin = LCD_RS_Pin|LCD_WRError_Pin|LCD_RD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LCD_CS_Pin TP_CS_Pin */
-  GPIO_InitStruct.Pin = LCD_CS_Pin|TP_CS_Pin;  
+  GPIO_InitStruct.Pin = LCD_CS_Pin|TP_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
@@ -584,47 +581,67 @@ void StartDefaultTask(void const * argument)
 {
   /* init code for USB_HOST */
   MX_USB_HOST_Init();
-  
   /* USER CODE BEGIN 5 */
   GUI_Init();
 
   // GUI_SetBkColor(GUI_BLACK);
   // GUI_Clear();
   // GUI_DispStringAt("101Hello World!", 30, 10);
-  GUI_SetFont(&GUI_Font8x16);
+//   GUI_SetFont(&GUI_Font8x16);
 
-GUI_SetBkColor(GUI_BLUE);
-GUI_Clear();
-GUI_SetPenSize(10);
-GUI_SetColor(GUI_RED);
-GUI_DrawLine(80, 10, 220, 90);
-GUI_DrawLine(80, 90, 220, 10);
-GUI_SetBkColor(GUI_BLACK);
-GUI_SetColor(GUI_WHITE);
-GUI_SetTextMode(GUI_TM_NORMAL);
-GUI_DispStringHCenterAt("GUI_TM_NORMAL" , 160, 10);
-GUI_SetTextMode(GUI_TM_REV);
-GUI_DispStringHCenterAt("GUI_TM_REV" , 160, 26);
-GUI_SetTextMode(GUI_TM_TRANS);
-GUI_DispStringHCenterAt("GUI_TM_TRANS" , 160, 42);
-GUI_SetTextMode(GUI_TM_XOR);
-GUI_DispStringHCenterAt("GUI_TM_XOR" , 160, 58);
-GUI_SetTextMode(GUI_TM_TRANS | GUI_TM_REV);
-GUI_DispStringHCenterAt("GUI_TM_TRANS | GUI_TM_REV", 160, 74);
-GUI_DispStringAt("101Hello World!", 0, 0);
-GUI_DispStringAt("101Hello World!", 1, 20);
-GUI_DispStringAt("101Hello World!", 5, 40);
-GUI_DispStringAt("101Hello World!", 10, 60);
-GUI_DispStringAt("101Hello World!", 20, 80);
-GUI_DispStringAt("101Hello World!", 50, 100);
-GUI_DispStringAt("101Hello World!", 100, 120);
-GUI_DispStringAt("101Hello World!", 200, 140);
-GUI_DispStringAt("101Hello World!", 300, 160);
+// GUI_SetBkColor(GUI_BLUE);
+// GUI_Clear();
+// GUI_SetPenSize(10);
+// GUI_SetColor(GUI_RED);
+// GUI_DrawLine(80, 10, 220, 90);
+// GUI_DrawLine(80, 90, 220, 10);
+// GUI_SetBkColor(GUI_BLACK);
+// GUI_SetColor(GUI_WHITE);
+// GUI_SetTextMode(GUI_TM_NORMAL);
+// GUI_DispStringHCenterAt("GUI_TM_NORMAL" , 160, 10);
+// GUI_SetTextMode(GUI_TM_REV);
+// GUI_DispStringHCenterAt("GUI_TM_REV" , 160, 26);
+// GUI_SetTextMode(GUI_TM_TRANS);
+// GUI_DispStringHCenterAt("GUI_TM_TRANS" , 160, 42);
+// GUI_SetTextMode(GUI_TM_XOR);
+// GUI_DispStringHCenterAt("GUI_TM_XOR" , 160, 58);
+// GUI_SetTextMode(GUI_TM_TRANS | GUI_TM_REV);
+// GUI_DispStringHCenterAt("GUI_TM_TRANS | GUI_TM_REV", 160, 74);
+// GUI_SetTextMode(GUI_TM_NORMAL);
+// GUI_DispStringAt("101Hello World!", 0, 0);
+
+
 
   /* Infinite loop */
   for(;;)
   {
+    GUI_PID_STATE TouchState;
+    int xPhys, yPhys;
     HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
+
+    GUI_TOUCH_Exec();
+  
+    GUI_TOUCH_GetState(&TouchState); /* Get the touch position in pixel */
+    xPhys = GUI_TOUCH_GetxPhys(); /* Get the A/D mesurement result in x */
+    yPhys = GUI_TOUCH_GetyPhys(); /* Get the A/D mesurement result in y */
+    /* Display the measurement result */
+    GUI_SetColor(GUI_BLUE);
+    GUI_DispStringAt("Analog input:\n", 10, 30);
+    GUI_GotoY(GUI_GetDispPosY() + 2);
+    GUI_DispString("x:");
+    GUI_DispDec(xPhys, 4);
+    GUI_DispString(", y:");
+    GUI_DispDec(yPhys, 4);
+    /* Display the according position */
+    GUI_SetColor(GUI_RED);
+    GUI_GotoY(GUI_GetDispPosY() + 4);
+    GUI_DispString("\nPosition:\n");
+    GUI_GotoY(GUI_GetDispPosY() + 2);
+    GUI_DispString("x:");
+    GUI_DispDec(TouchState.x,4);
+    GUI_DispString(", y:");
+    GUI_DispDec(TouchState.y,4);
+
     osDelay(100);
   }
   /* USER CODE END 5 */

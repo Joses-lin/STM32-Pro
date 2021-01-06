@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUGBbv4.s 			page 1
+ARM GAS  /tmp/ccQg4mYh.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUGBbv4.s 			page 1
   30:Middlewares/ST/STemWin/Config/GUIConf.c **** Purpose     : Display controller initialization
   31:Middlewares/ST/STemWin/Config/GUIConf.c **** ---------------------------END-OF-HEADER------------------------------
   32:Middlewares/ST/STemWin/Config/GUIConf.c **** */
-ARM GAS  /tmp/ccUGBbv4.s 			page 2
+ARM GAS  /tmp/ccQg4mYh.s 			page 2
 
 
   33:Middlewares/ST/STemWin/Config/GUIConf.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUGBbv4.s 			page 1
   78:Middlewares/ST/STemWin/Config/GUIConf.c ****   // 32 bit aligned memory area
   79:Middlewares/ST/STemWin/Config/GUIConf.c ****   //
   80:Middlewares/ST/STemWin/Config/GUIConf.c ****   static U32 aMemory[GUI_NUMBYTES / 4];
-ARM GAS  /tmp/ccUGBbv4.s 			page 3
+ARM GAS  /tmp/ccQg4mYh.s 			page 3
 
 
   36              		.loc 1 80 3 view .LVU1
@@ -162,16 +162,16 @@ ARM GAS  /tmp/ccUGBbv4.s 			page 1
   64              		.file 2 "Middlewares/ST/STemWin/inc/LCD.h"
   65              		.file 3 "Middlewares/ST/STemWin/inc/GUI.h"
   66              		.file 4 "Middlewares/ST/STemWin/inc/GUI_Type.h"
-ARM GAS  /tmp/ccUGBbv4.s 			page 4
+ARM GAS  /tmp/ccQg4mYh.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 GUIConf.c
-     /tmp/ccUGBbv4.s:16     .text.GUI_X_Config:0000000000000000 $t
-     /tmp/ccUGBbv4.s:24     .text.GUI_X_Config:0000000000000000 GUI_X_Config
-     /tmp/ccUGBbv4.s:51     .text.GUI_X_Config:0000000000000014 $d
-     /tmp/ccUGBbv4.s:60     .bss.aMemory.8074:0000000000000000 aMemory.8074
-     /tmp/ccUGBbv4.s:57     .bss.aMemory.8074:0000000000000000 $d
+     /tmp/ccQg4mYh.s:16     .text.GUI_X_Config:0000000000000000 $t
+     /tmp/ccQg4mYh.s:24     .text.GUI_X_Config:0000000000000000 GUI_X_Config
+     /tmp/ccQg4mYh.s:51     .text.GUI_X_Config:0000000000000014 $d
+     /tmp/ccQg4mYh.s:60     .bss.aMemory.8074:0000000000000000 aMemory.8074
+     /tmp/ccQg4mYh.s:57     .bss.aMemory.8074:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 GUI_ALLOC_AssignMemory

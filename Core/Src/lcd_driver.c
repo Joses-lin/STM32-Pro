@@ -592,7 +592,6 @@ void ili9320_Initializtion()
 */
     
     //ili9320_Clear(0x001F);
-    GUI_Line(1, 1, 50, 50, 0x001f); // debug
 }
 
 __inline void ili9320_SetCursor(u16 x,u16 y)

@@ -1,0 +1,985 @@
+ARM GAS  /tmp/cc0ZSlIg.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"GUI_X_Touch.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.SPI3_WriteByte,"ax",%progbits
+  16              		.align	1
+  17              		.global	SPI3_WriteByte
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	SPI3_WriteByte:
+  25              	.LVL0:
+  26              	.LFB68:
+  27              		.file 1 "Core/Src/GUI_X_Touch.c"
+   1:Core/Src/GUI_X_Touch.c **** /*
+   2:Core/Src/GUI_X_Touch.c **** ***************************************************************************************************
+   3:Core/Src/GUI_X_Touch.c **** *                                                uC/GUI
+   4:Core/Src/GUI_X_Touch.c **** *                        Universal graphic software for embedded applications
+   5:Core/Src/GUI_X_Touch.c **** *
+   6:Core/Src/GUI_X_Touch.c **** *                       (c) Copyright 2002, Micrium Inc., Weston, FL
+   7:Core/Src/GUI_X_Touch.c **** *                       (c) Copyright 2002, SEGGER Microcontroller Systeme GmbH
+   8:Core/Src/GUI_X_Touch.c **** *
+   9:Core/Src/GUI_X_Touch.c **** *              �C/GUI is protected by international copyright laws. Knowledge of the
+  10:Core/Src/GUI_X_Touch.c **** *              source code may not be used to write a similar product. This file may
+  11:Core/Src/GUI_X_Touch.c **** *              only be used in accordance with a license and should not be redistributed
+  12:Core/Src/GUI_X_Touch.c **** *              in any way. We appreciate your understanding and fairness.
+  13:Core/Src/GUI_X_Touch.c **** *
+  14:Core/Src/GUI_X_Touch.c **** ----------------------------------------------------------------------
+  15:Core/Src/GUI_X_Touch.c **** File        : GUI_TOUCH_X.C
+  16:Core/Src/GUI_X_Touch.c **** Purpose     : Config / System dependent externals for GUI
+  17:Core/Src/GUI_X_Touch.c **** ---------------------------END-OF-HEADER------------------------------
+  18:Core/Src/GUI_X_Touch.c **** */
+  19:Core/Src/GUI_X_Touch.c **** #include "GUI.h"
+  20:Core/Src/GUI_X_Touch.c **** //#include "GUI_X.h"
+  21:Core/Src/GUI_X_Touch.c **** #include "main.h"
+  22:Core/Src/GUI_X_Touch.c **** #include "stdio.h"
+  23:Core/Src/GUI_X_Touch.c **** 
+  24:Core/Src/GUI_X_Touch.c **** extern SPI_HandleTypeDef hspi3;
+  25:Core/Src/GUI_X_Touch.c **** 
+  26:Core/Src/GUI_X_Touch.c **** unsigned char SPI3_WriteByte(unsigned char data);
+  27:Core/Src/GUI_X_Touch.c **** unsigned short TPReadX(void);
+  28:Core/Src/GUI_X_Touch.c **** unsigned short TPReadY(void);
+  29:Core/Src/GUI_X_Touch.c **** 
+  30:Core/Src/GUI_X_Touch.c **** unsigned char SPI3_WriteByte(unsigned char data) 
+  31:Core/Src/GUI_X_Touch.c **** { 
+ARM GAS  /tmp/cc0ZSlIg.s 			page 2
+
+
+  28              		.loc 1 31 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 31 1 is_stmt 0 view .LVU1
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+  37 0002 83B0     		sub	sp, sp, #12
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 16
+  40 0004 8DF80700 		strb	r0, [sp, #7]
+  32:Core/Src/GUI_X_Touch.c **** 	unsigned char Data = 0; 
+  41              		.loc 1 32 2 is_stmt 1 view .LVU2
+  42              	.LVL1:
+  33:Core/Src/GUI_X_Touch.c **** 	HAL_SPI_Transmit(&hspi3,&data,1,3000);
+  43              		.loc 1 33 2 view .LVU3
+  44 0008 40F6B833 		movw	r3, #3000
+  45 000c 0122     		movs	r2, #1
+  46 000e 0DF10701 		add	r1, sp, #7
+  47 0012 0348     		ldr	r0, .L3
+  48              	.LVL2:
+  49              		.loc 1 33 2 is_stmt 0 view .LVU4
+  50 0014 FFF7FEFF 		bl	HAL_SPI_Transmit
+  51              	.LVL3:
+  34:Core/Src/GUI_X_Touch.c **** 	//HAL_SPI_Receive(&hspi3,&Data,1,3000);
+  35:Core/Src/GUI_X_Touch.c ****   	return Data; 													 // Return the shifted data 	 
+  52              		.loc 1 35 4 is_stmt 1 view .LVU5
+  36:Core/Src/GUI_X_Touch.c **** }
+  53              		.loc 1 36 1 is_stmt 0 view .LVU6
+  54 0018 0020     		movs	r0, #0
+  55 001a 03B0     		add	sp, sp, #12
+  56              	.LCFI2:
+  57              		.cfi_def_cfa_offset 4
+  58              		@ sp needed
+  59 001c 5DF804FB 		ldr	pc, [sp], #4
+  60              	.L4:
+  61              		.align	2
+  62              	.L3:
+  63 0020 00000000 		.word	hspi3
+  64              		.cfi_endproc
+  65              	.LFE68:
+  67              		.section	.text.SpiDelay,"ax",%progbits
+  68              		.align	1
+  69              		.global	SpiDelay
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  73              		.fpu softvfp
+  75              	SpiDelay:
+  76              	.LVL4:
+  77              	.LFB69:
+  37:Core/Src/GUI_X_Touch.c **** 
+  38:Core/Src/GUI_X_Touch.c **** 
+  39:Core/Src/GUI_X_Touch.c **** void SpiDelay(unsigned int DelayCnt)
+  40:Core/Src/GUI_X_Touch.c **** {
+ARM GAS  /tmp/cc0ZSlIg.s 			page 3
+
+
+  78              		.loc 1 40 1 is_stmt 1 view -0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  41:Core/Src/GUI_X_Touch.c ****  	unsigned int i;
+  83              		.loc 1 41 3 view .LVU8
+  42:Core/Src/GUI_X_Touch.c ****  	for(i=0;i<DelayCnt;i++);
+  84              		.loc 1 42 3 view .LVU9
+  85              		.loc 1 42 8 is_stmt 0 view .LVU10
+  86 0000 0023     		movs	r3, #0
+  87              	.LVL5:
+  88              	.L6:
+  89              		.loc 1 42 11 is_stmt 1 discriminator 1 view .LVU11
+  90              		.loc 1 42 3 is_stmt 0 discriminator 1 view .LVU12
+  91 0002 8342     		cmp	r3, r0
+  92 0004 01D2     		bcs	.L8
+  93              		.loc 1 42 26 is_stmt 1 discriminator 3 view .LVU13
+  94              		.loc 1 42 22 discriminator 3 view .LVU14
+  95              		.loc 1 42 23 is_stmt 0 discriminator 3 view .LVU15
+  96 0006 0133     		adds	r3, r3, #1
+  97              	.LVL6:
+  98              		.loc 1 42 23 discriminator 3 view .LVU16
+  99 0008 FBE7     		b	.L6
+ 100              	.L8:
+  43:Core/Src/GUI_X_Touch.c **** }
+ 101              		.loc 1 43 1 view .LVU17
+ 102 000a 7047     		bx	lr
+ 103              		.cfi_endproc
+ 104              	.LFE69:
+ 106              		.section	.text.TPReadX,"ax",%progbits
+ 107              		.align	1
+ 108              		.global	TPReadX
+ 109              		.syntax unified
+ 110              		.thumb
+ 111              		.thumb_func
+ 112              		.fpu softvfp
+ 114              	TPReadX:
+ 115              	.LFB70:
+  44:Core/Src/GUI_X_Touch.c **** 
+  45:Core/Src/GUI_X_Touch.c **** unsigned short TPReadX(void)
+  46:Core/Src/GUI_X_Touch.c **** { 
+ 116              		.loc 1 46 1 is_stmt 1 view -0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 8
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120 0000 10B5     		push	{r4, lr}
+ 121              	.LCFI3:
+ 122              		.cfi_def_cfa_offset 8
+ 123              		.cfi_offset 4, -8
+ 124              		.cfi_offset 14, -4
+ 125 0002 82B0     		sub	sp, sp, #8
+ 126              	.LCFI4:
+ 127              		.cfi_def_cfa_offset 16
+  47:Core/Src/GUI_X_Touch.c ****    unsigned short x=0;
+ 128              		.loc 1 47 4 view .LVU19
+ 129              	.LVL7:
+ARM GAS  /tmp/cc0ZSlIg.s 			page 4
+
+
+  48:Core/Src/GUI_X_Touch.c ****    unsigned char data[2];
+ 130              		.loc 1 48 4 view .LVU20
+  49:Core/Src/GUI_X_Touch.c ****    TP_CS();
+ 131              		.loc 1 49 4 view .LVU21
+ 132 0004 104C     		ldr	r4, .L11
+ 133 0006 0022     		movs	r2, #0
+ 134 0008 4FF40071 		mov	r1, #512
+ 135 000c 2046     		mov	r0, r4
+ 136 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 137              	.LVL8:
+  50:Core/Src/GUI_X_Touch.c ****    SpiDelay(10);
+ 138              		.loc 1 50 4 view .LVU22
+  51:Core/Src/GUI_X_Touch.c ****    SPI3_WriteByte(0xd0);
+ 139              		.loc 1 51 4 view .LVU23
+ 140 0012 D020     		movs	r0, #208
+ 141 0014 FFF7FEFF 		bl	SPI3_WriteByte
+ 142              	.LVL9:
+  52:Core/Src/GUI_X_Touch.c ****    SpiDelay(10);
+ 143              		.loc 1 52 4 view .LVU24
+  53:Core/Src/GUI_X_Touch.c ****    HAL_SPI_Receive(&hspi3,data,2,3000);
+ 144              		.loc 1 53 4 view .LVU25
+ 145 0018 40F6B833 		movw	r3, #3000
+ 146 001c 0222     		movs	r2, #2
+ 147 001e 01A9     		add	r1, sp, #4
+ 148 0020 0A48     		ldr	r0, .L11+4
+ 149 0022 FFF7FEFF 		bl	HAL_SPI_Receive
+ 150              	.LVL10:
+  54:Core/Src/GUI_X_Touch.c ****    TP_DCS(); 
+ 151              		.loc 1 54 4 view .LVU26
+ 152 0026 0122     		movs	r2, #1
+ 153 0028 4FF40071 		mov	r1, #512
+ 154 002c 2046     		mov	r0, r4
+ 155 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 156              	.LVL11:
+  55:Core/Src/GUI_X_Touch.c ****    x = data[0];
+ 157              		.loc 1 55 4 view .LVU27
+ 158              		.loc 1 55 6 is_stmt 0 view .LVU28
+ 159 0032 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+ 160              	.LVL12:
+  56:Core/Src/GUI_X_Touch.c ****    x = (x << 8) + data[1];
+ 161              		.loc 1 56 4 is_stmt 1 view .LVU29
+ 162              		.loc 1 56 23 is_stmt 0 view .LVU30
+ 163 0036 9DF80500 		ldrb	r0, [sp, #5]	@ zero_extendqisi2
+ 164              		.loc 1 56 6 view .LVU31
+ 165 003a 00EB0320 		add	r0, r0, r3, lsl #8
+ 166              	.LVL13:
+  57:Core/Src/GUI_X_Touch.c ****    x = x >> 3;
+ 167              		.loc 1 57 4 is_stmt 1 view .LVU32
+  58:Core/Src/GUI_X_Touch.c ****    return (x);
+ 168              		.loc 1 58 4 view .LVU33
+  59:Core/Src/GUI_X_Touch.c **** }
+ 169              		.loc 1 59 1 is_stmt 0 view .LVU34
+ 170 003e C0F3CC00 		ubfx	r0, r0, #3, #13
+ 171              	.LVL14:
+ 172              		.loc 1 59 1 view .LVU35
+ 173 0042 02B0     		add	sp, sp, #8
+ 174              	.LCFI5:
+ARM GAS  /tmp/cc0ZSlIg.s 			page 5
+
+
+ 175              		.cfi_def_cfa_offset 8
+ 176              		@ sp needed
+ 177 0044 10BD     		pop	{r4, pc}
+ 178              	.LVL15:
+ 179              	.L12:
+ 180              		.loc 1 59 1 view .LVU36
+ 181 0046 00BF     		.align	2
+ 182              	.L11:
+ 183 0048 00100140 		.word	1073811456
+ 184 004c 00000000 		.word	hspi3
+ 185              		.cfi_endproc
+ 186              	.LFE70:
+ 188              		.section	.text.TPReadY,"ax",%progbits
+ 189              		.align	1
+ 190              		.global	TPReadY
+ 191              		.syntax unified
+ 192              		.thumb
+ 193              		.thumb_func
+ 194              		.fpu softvfp
+ 196              	TPReadY:
+ 197              	.LFB71:
+  60:Core/Src/GUI_X_Touch.c **** 
+  61:Core/Src/GUI_X_Touch.c **** unsigned short TPReadY(void)
+  62:Core/Src/GUI_X_Touch.c **** {
+ 198              		.loc 1 62 1 is_stmt 1 view -0
+ 199              		.cfi_startproc
+ 200              		@ args = 0, pretend = 0, frame = 8
+ 201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202 0000 10B5     		push	{r4, lr}
+ 203              	.LCFI6:
+ 204              		.cfi_def_cfa_offset 8
+ 205              		.cfi_offset 4, -8
+ 206              		.cfi_offset 14, -4
+ 207 0002 82B0     		sub	sp, sp, #8
+ 208              	.LCFI7:
+ 209              		.cfi_def_cfa_offset 16
+  63:Core/Src/GUI_X_Touch.c ****  	unsigned short y=0;
+ 210              		.loc 1 63 3 view .LVU38
+ 211              	.LVL16:
+  64:Core/Src/GUI_X_Touch.c **** 	unsigned char data[2];
+ 212              		.loc 1 64 2 view .LVU39
+  65:Core/Src/GUI_X_Touch.c ****   	TP_CS();
+ 213              		.loc 1 65 4 view .LVU40
+ 214 0004 104C     		ldr	r4, .L15
+ 215 0006 0022     		movs	r2, #0
+ 216 0008 4FF40071 		mov	r1, #512
+ 217 000c 2046     		mov	r0, r4
+ 218 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 219              	.LVL17:
+  66:Core/Src/GUI_X_Touch.c ****   	SpiDelay(10);
+ 220              		.loc 1 66 4 view .LVU41
+  67:Core/Src/GUI_X_Touch.c **** 	SPI3_WriteByte(0x90);
+ 221              		.loc 1 67 2 view .LVU42
+ 222 0012 9020     		movs	r0, #144
+ 223 0014 FFF7FEFF 		bl	SPI3_WriteByte
+ 224              	.LVL18:
+  68:Core/Src/GUI_X_Touch.c **** 	SpiDelay(10);
+ARM GAS  /tmp/cc0ZSlIg.s 			page 6
+
+
+ 225              		.loc 1 68 2 view .LVU43
+  69:Core/Src/GUI_X_Touch.c **** 	HAL_SPI_Receive(&hspi3,data,2,3000);
+ 226              		.loc 1 69 2 view .LVU44
+ 227 0018 40F6B833 		movw	r3, #3000
+ 228 001c 0222     		movs	r2, #2
+ 229 001e 01A9     		add	r1, sp, #4
+ 230 0020 0A48     		ldr	r0, .L15+4
+ 231 0022 FFF7FEFF 		bl	HAL_SPI_Receive
+ 232              	.LVL19:
+  70:Core/Src/GUI_X_Touch.c **** 	TP_DCS();
+ 233              		.loc 1 70 2 view .LVU45
+ 234 0026 0122     		movs	r2, #1
+ 235 0028 4FF40071 		mov	r1, #512
+ 236 002c 2046     		mov	r0, r4
+ 237 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 238              	.LVL20:
+  71:Core/Src/GUI_X_Touch.c **** 	y = data[0];
+ 239              		.loc 1 71 2 view .LVU46
+ 240              		.loc 1 71 4 is_stmt 0 view .LVU47
+ 241 0032 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+ 242              	.LVL21:
+  72:Core/Src/GUI_X_Touch.c **** 	y = (y << 8) + data[1]; 
+ 243              		.loc 1 72 2 is_stmt 1 view .LVU48
+ 244              		.loc 1 72 21 is_stmt 0 view .LVU49
+ 245 0036 9DF80500 		ldrb	r0, [sp, #5]	@ zero_extendqisi2
+ 246              		.loc 1 72 4 view .LVU50
+ 247 003a 00EB0320 		add	r0, r0, r3, lsl #8
+ 248              	.LVL22:
+  73:Core/Src/GUI_X_Touch.c **** 	y = y >> 3;
+ 249              		.loc 1 73 2 is_stmt 1 view .LVU51
+  74:Core/Src/GUI_X_Touch.c **** 	return (y);
+ 250              		.loc 1 74 2 view .LVU52
+  75:Core/Src/GUI_X_Touch.c **** }
+ 251              		.loc 1 75 1 is_stmt 0 view .LVU53
+ 252 003e C0F3CC00 		ubfx	r0, r0, #3, #13
+ 253              	.LVL23:
+ 254              		.loc 1 75 1 view .LVU54
+ 255 0042 02B0     		add	sp, sp, #8
+ 256              	.LCFI8:
+ 257              		.cfi_def_cfa_offset 8
+ 258              		@ sp needed
+ 259 0044 10BD     		pop	{r4, pc}
+ 260              	.LVL24:
+ 261              	.L16:
+ 262              		.loc 1 75 1 view .LVU55
+ 263 0046 00BF     		.align	2
+ 264              	.L15:
+ 265 0048 00100140 		.word	1073811456
+ 266 004c 00000000 		.word	hspi3
+ 267              		.cfi_endproc
+ 268              	.LFE71:
+ 270              		.section	.text.GUI_TOUCH_X_ActivateX,"ax",%progbits
+ 271              		.align	1
+ 272              		.global	GUI_TOUCH_X_ActivateX
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ARM GAS  /tmp/cc0ZSlIg.s 			page 7
+
+
+ 276              		.fpu softvfp
+ 278              	GUI_TOUCH_X_ActivateX:
+ 279              	.LFB72:
+  76:Core/Src/GUI_X_Touch.c **** 
+  77:Core/Src/GUI_X_Touch.c **** 
+  78:Core/Src/GUI_X_Touch.c **** void GUI_TOUCH_X_ActivateX(void) 
+  79:Core/Src/GUI_X_Touch.c **** {
+ 280              		.loc 1 79 1 is_stmt 1 view -0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284              		@ link register save eliminated.
+  80:Core/Src/GUI_X_Touch.c **** }
+ 285              		.loc 1 80 1 view .LVU57
+ 286 0000 7047     		bx	lr
+ 287              		.cfi_endproc
+ 288              	.LFE72:
+ 290              		.section	.text.GUI_TOUCH_X_ActivateY,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	GUI_TOUCH_X_ActivateY
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 296              		.fpu softvfp
+ 298              	GUI_TOUCH_X_ActivateY:
+ 299              	.LFB73:
+  81:Core/Src/GUI_X_Touch.c **** 
+  82:Core/Src/GUI_X_Touch.c **** void GUI_TOUCH_X_ActivateY(void) 
+  83:Core/Src/GUI_X_Touch.c **** {
+ 300              		.loc 1 83 1 view -0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 304              		@ link register save eliminated.
+  84:Core/Src/GUI_X_Touch.c **** }
+ 305              		.loc 1 84 1 view .LVU59
+ 306 0000 7047     		bx	lr
+ 307              		.cfi_endproc
+ 308              	.LFE73:
+ 310              		.section	.text.GUI_TOUCH_X_MeasureX,"ax",%progbits
+ 311              		.align	1
+ 312              		.global	GUI_TOUCH_X_MeasureX
+ 313              		.syntax unified
+ 314              		.thumb
+ 315              		.thumb_func
+ 316              		.fpu softvfp
+ 318              	GUI_TOUCH_X_MeasureX:
+ 319              	.LFB74:
+  85:Core/Src/GUI_X_Touch.c **** 
+  86:Core/Src/GUI_X_Touch.c **** int  GUI_TOUCH_X_MeasureX(void) 
+  87:Core/Src/GUI_X_Touch.c **** {
+ 320              		.loc 1 87 1 view -0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 24
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324 0000 70B5     		push	{r4, r5, r6, lr}
+ 325              	.LCFI9:
+ARM GAS  /tmp/cc0ZSlIg.s 			page 8
+
+
+ 326              		.cfi_def_cfa_offset 16
+ 327              		.cfi_offset 4, -16
+ 328              		.cfi_offset 5, -12
+ 329              		.cfi_offset 6, -8
+ 330              		.cfi_offset 14, -4
+ 331 0002 86B0     		sub	sp, sp, #24
+ 332              	.LCFI10:
+ 333              		.cfi_def_cfa_offset 40
+  88:Core/Src/GUI_X_Touch.c **** 	unsigned char t=0,t1,count=0;
+ 334              		.loc 1 88 2 view .LVU61
+ 335              	.LVL25:
+  89:Core/Src/GUI_X_Touch.c **** 	unsigned short int databuffer[10]={5,7,9,3,2,6,4,0,3,1};//������
+ 336              		.loc 1 89 2 view .LVU62
+ 337              		.loc 1 89 21 is_stmt 0 view .LVU63
+ 338 0004 01AC     		add	r4, sp, #4
+ 339 0006 234D     		ldr	r5, .L31
+ 340 0008 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 341 000a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 342 000c 2B68     		ldr	r3, [r5]
+ 343 000e 2360     		str	r3, [r4]
+  90:Core/Src/GUI_X_Touch.c **** 	unsigned short temp=0,X=0;	
+ 344              		.loc 1 90 2 is_stmt 1 view .LVU64
+ 345              	.LVL26:
+  91:Core/Src/GUI_X_Touch.c ****  	
+  92:Core/Src/GUI_X_Touch.c **** 	while(count<10)
+ 346              		.loc 1 92 2 view .LVU65
+  88:Core/Src/GUI_X_Touch.c **** 	unsigned short int databuffer[10]={5,7,9,3,2,6,4,0,3,1};//������
+ 347              		.loc 1 88 23 is_stmt 0 view .LVU66
+ 348 0010 0024     		movs	r4, #0
+ 349              	.LVL27:
+ 350              	.L20:
+ 351              		.loc 1 92 7 is_stmt 1 view .LVU67
+ 352 0012 092C     		cmp	r4, #9
+ 353 0014 09D8     		bhi	.L29
+  93:Core/Src/GUI_X_Touch.c **** 	{	   	  
+  94:Core/Src/GUI_X_Touch.c **** 		databuffer[count]=TPReadX();
+ 354              		.loc 1 94 3 view .LVU68
+ 355              		.loc 1 94 21 is_stmt 0 view .LVU69
+ 356 0016 FFF7FEFF 		bl	TPReadX
+ 357              	.LVL28:
+ 358              		.loc 1 94 20 view .LVU70
+ 359 001a 06AB     		add	r3, sp, #24
+ 360 001c 03EB4403 		add	r3, r3, r4, lsl #1
+ 361 0020 23F8140C 		strh	r0, [r3, #-20]	@ movhi
+  95:Core/Src/GUI_X_Touch.c **** 		count++; 
+ 362              		.loc 1 95 3 is_stmt 1 view .LVU71
+ 363              		.loc 1 95 8 is_stmt 0 view .LVU72
+ 364 0024 0134     		adds	r4, r4, #1
+ 365              	.LVL29:
+ 366              		.loc 1 95 8 view .LVU73
+ 367 0026 E4B2     		uxtb	r4, r4
+ 368              	.LVL30:
+ 369              		.loc 1 95 8 view .LVU74
+ 370 0028 F3E7     		b	.L20
+ 371              	.L29:
+  96:Core/Src/GUI_X_Touch.c **** 	}  
+  97:Core/Src/GUI_X_Touch.c **** 	if(count==10)
+ARM GAS  /tmp/cc0ZSlIg.s 			page 9
+
+
+ 372              		.loc 1 97 2 is_stmt 1 view .LVU75
+ 373              		.loc 1 97 4 is_stmt 0 view .LVU76
+ 374 002a 0A2C     		cmp	r4, #10
+ 375 002c 02D0     		beq	.L26
+  90:Core/Src/GUI_X_Touch.c ****  	
+ 376              		.loc 1 90 24 view .LVU77
+ 377 002e 0020     		movs	r0, #0
+ 378              	.LVL31:
+ 379              	.L22:
+  98:Core/Src/GUI_X_Touch.c **** 	{  
+  99:Core/Src/GUI_X_Touch.c **** 	    do  
+ 100:Core/Src/GUI_X_Touch.c **** 		{	
+ 101:Core/Src/GUI_X_Touch.c **** 			t1=0;		  
+ 102:Core/Src/GUI_X_Touch.c **** 			for(t=0;t<count-1;t++)
+ 103:Core/Src/GUI_X_Touch.c **** 			{
+ 104:Core/Src/GUI_X_Touch.c **** 				if(databuffer[t]>databuffer[t+1])
+ 105:Core/Src/GUI_X_Touch.c **** 				{
+ 106:Core/Src/GUI_X_Touch.c **** 					temp=databuffer[t+1];
+ 107:Core/Src/GUI_X_Touch.c **** 					databuffer[t+1]=databuffer[t];
+ 108:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 109:Core/Src/GUI_X_Touch.c **** 					t1=1; 
+ 110:Core/Src/GUI_X_Touch.c **** 				}  
+ 111:Core/Src/GUI_X_Touch.c **** 			}
+ 112:Core/Src/GUI_X_Touch.c **** 		}while(t1); 	    		 	 		  
+ 113:Core/Src/GUI_X_Touch.c **** 		X=(databuffer[3]+databuffer[4]+databuffer[5])/3;	  
+ 114:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 115:Core/Src/GUI_X_Touch.c **** 	return(X);  
+ 380              		.loc 1 115 2 is_stmt 1 view .LVU78
+ 116:Core/Src/GUI_X_Touch.c **** }
+ 381              		.loc 1 116 1 is_stmt 0 view .LVU79
+ 382 0030 06B0     		add	sp, sp, #24
+ 383              	.LCFI11:
+ 384              		.cfi_remember_state
+ 385              		.cfi_def_cfa_offset 16
+ 386              		@ sp needed
+ 387 0032 70BD     		pop	{r4, r5, r6, pc}
+ 388              	.LVL32:
+ 389              	.L26:
+ 390              	.LCFI12:
+ 391              		.cfi_restore_state
+  99:Core/Src/GUI_X_Touch.c **** 		{	
+ 392              		.loc 1 99 6 is_stmt 1 view .LVU80
+ 101:Core/Src/GUI_X_Touch.c **** 			for(t=0;t<count-1;t++)
+ 393              		.loc 1 101 4 view .LVU81
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 394              		.loc 1 102 4 view .LVU82
+ 101:Core/Src/GUI_X_Touch.c **** 			for(t=0;t<count-1;t++)
+ 395              		.loc 1 101 6 is_stmt 0 view .LVU83
+ 396 0034 0026     		movs	r6, #0
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 397              		.loc 1 102 9 view .LVU84
+ 398 0036 3346     		mov	r3, r6
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 399              		.loc 1 102 4 view .LVU85
+ 400 0038 01E0     		b	.L23
+ 401              	.LVL33:
+ 402              	.L24:
+ARM GAS  /tmp/cc0ZSlIg.s 			page 10
+
+
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 403              		.loc 1 102 22 is_stmt 1 discriminator 2 view .LVU86
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 404              		.loc 1 102 23 is_stmt 0 discriminator 2 view .LVU87
+ 405 003a 0133     		adds	r3, r3, #1
+ 406              	.LVL34:
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 407              		.loc 1 102 23 discriminator 2 view .LVU88
+ 408 003c DBB2     		uxtb	r3, r3
+ 409              	.LVL35:
+ 410              	.L23:
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 411              		.loc 1 102 12 is_stmt 1 discriminator 1 view .LVU89
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 412              		.loc 1 102 13 is_stmt 0 discriminator 1 view .LVU90
+ 413 003e 1946     		mov	r1, r3
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 414              		.loc 1 102 19 discriminator 1 view .LVU91
+ 415 0040 621E     		subs	r2, r4, #1
+ 102:Core/Src/GUI_X_Touch.c **** 			{
+ 416              		.loc 1 102 4 discriminator 1 view .LVU92
+ 417 0042 9342     		cmp	r3, r2
+ 418 0044 17DA     		bge	.L30
+ 104:Core/Src/GUI_X_Touch.c **** 				{
+ 419              		.loc 1 104 5 is_stmt 1 view .LVU93
+ 104:Core/Src/GUI_X_Touch.c **** 				{
+ 420              		.loc 1 104 18 is_stmt 0 view .LVU94
+ 421 0046 06AA     		add	r2, sp, #24
+ 422 0048 02EB4302 		add	r2, r2, r3, lsl #1
+ 423 004c 32F8145C 		ldrh	r5, [r2, #-20]
+ 104:Core/Src/GUI_X_Touch.c **** 				{
+ 424              		.loc 1 104 34 view .LVU95
+ 425 0050 5A1C     		adds	r2, r3, #1
+ 104:Core/Src/GUI_X_Touch.c **** 				{
+ 426              		.loc 1 104 32 view .LVU96
+ 427 0052 06A8     		add	r0, sp, #24
+ 428 0054 00EB4200 		add	r0, r0, r2, lsl #1
+ 429 0058 30F8140C 		ldrh	r0, [r0, #-20]
+ 104:Core/Src/GUI_X_Touch.c **** 				{
+ 430              		.loc 1 104 7 view .LVU97
+ 431 005c 8542     		cmp	r5, r0
+ 432 005e ECD9     		bls	.L24
+ 106:Core/Src/GUI_X_Touch.c **** 					databuffer[t+1]=databuffer[t];
+ 433              		.loc 1 106 6 is_stmt 1 view .LVU98
+ 434              	.LVL36:
+ 107:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 435              		.loc 1 107 6 view .LVU99
+ 107:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 436              		.loc 1 107 21 is_stmt 0 view .LVU100
+ 437 0060 06AE     		add	r6, sp, #24
+ 438              	.LVL37:
+ 107:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 439              		.loc 1 107 21 view .LVU101
+ 440 0062 06EB4202 		add	r2, r6, r2, lsl #1
+ 441 0066 22F8145C 		strh	r5, [r2, #-20]	@ movhi
+ 108:Core/Src/GUI_X_Touch.c **** 					t1=1; 
+ 442              		.loc 1 108 6 is_stmt 1 view .LVU102
+ARM GAS  /tmp/cc0ZSlIg.s 			page 11
+
+
+ 108:Core/Src/GUI_X_Touch.c **** 					t1=1; 
+ 443              		.loc 1 108 19 is_stmt 0 view .LVU103
+ 444 006a 06EB4101 		add	r1, r6, r1, lsl #1
+ 445 006e 21F8140C 		strh	r0, [r1, #-20]	@ movhi
+ 109:Core/Src/GUI_X_Touch.c **** 				}  
+ 446              		.loc 1 109 6 is_stmt 1 view .LVU104
+ 447              	.LVL38:
+ 109:Core/Src/GUI_X_Touch.c **** 				}  
+ 448              		.loc 1 109 8 is_stmt 0 view .LVU105
+ 449 0072 0126     		movs	r6, #1
+ 450 0074 E1E7     		b	.L24
+ 451              	.LVL39:
+ 452              	.L30:
+ 112:Core/Src/GUI_X_Touch.c **** 		X=(databuffer[3]+databuffer[4]+databuffer[5])/3;	  
+ 453              		.loc 1 112 9 is_stmt 1 view .LVU106
+ 112:Core/Src/GUI_X_Touch.c **** 		X=(databuffer[3]+databuffer[4]+databuffer[5])/3;	  
+ 454              		.loc 1 112 3 is_stmt 0 view .LVU107
+ 455 0076 002E     		cmp	r6, #0
+ 456 0078 DCD1     		bne	.L26
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 457              		.loc 1 113 3 is_stmt 1 view .LVU108
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 458              		.loc 1 113 16 is_stmt 0 view .LVU109
+ 459 007a BDF80A00 		ldrh	r0, [sp, #10]
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 460              		.loc 1 113 30 view .LVU110
+ 461 007e BDF80C30 		ldrh	r3, [sp, #12]
+ 462              	.LVL40:
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 463              		.loc 1 113 19 view .LVU111
+ 464 0082 1844     		add	r0, r0, r3
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 465              		.loc 1 113 44 view .LVU112
+ 466 0084 BDF80E30 		ldrh	r3, [sp, #14]
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 467              		.loc 1 113 33 view .LVU113
+ 468 0088 1844     		add	r0, r0, r3
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 469              		.loc 1 113 48 view .LVU114
+ 470 008a 034B     		ldr	r3, .L31+4
+ 471 008c 83FB0030 		smull	r3, r0, r3, r0
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 472              		.loc 1 113 4 view .LVU115
+ 473 0090 80B2     		uxth	r0, r0
+ 474              	.LVL41:
+ 113:Core/Src/GUI_X_Touch.c **** 	} 	  
+ 475              		.loc 1 113 4 view .LVU116
+ 476 0092 CDE7     		b	.L22
+ 477              	.L32:
+ 478              		.align	2
+ 479              	.L31:
+ 480 0094 00000000 		.word	.LANCHOR0
+ 481 0098 56555555 		.word	1431655766
+ 482              		.cfi_endproc
+ 483              	.LFE74:
+ 485              		.section	.text.GUI_TOUCH_X_MeasureY,"ax",%progbits
+ 486              		.align	1
+ARM GAS  /tmp/cc0ZSlIg.s 			page 12
+
+
+ 487              		.global	GUI_TOUCH_X_MeasureY
+ 488              		.syntax unified
+ 489              		.thumb
+ 490              		.thumb_func
+ 491              		.fpu softvfp
+ 493              	GUI_TOUCH_X_MeasureY:
+ 494              	.LFB75:
+ 117:Core/Src/GUI_X_Touch.c **** 
+ 118:Core/Src/GUI_X_Touch.c **** int  GUI_TOUCH_X_MeasureY(void) 
+ 119:Core/Src/GUI_X_Touch.c **** {
+ 495              		.loc 1 119 1 is_stmt 1 view -0
+ 496              		.cfi_startproc
+ 497              		@ args = 0, pretend = 0, frame = 24
+ 498              		@ frame_needed = 0, uses_anonymous_args = 0
+ 499 0000 70B5     		push	{r4, r5, r6, lr}
+ 500              	.LCFI13:
+ 501              		.cfi_def_cfa_offset 16
+ 502              		.cfi_offset 4, -16
+ 503              		.cfi_offset 5, -12
+ 504              		.cfi_offset 6, -8
+ 505              		.cfi_offset 14, -4
+ 506 0002 86B0     		sub	sp, sp, #24
+ 507              	.LCFI14:
+ 508              		.cfi_def_cfa_offset 40
+ 120:Core/Src/GUI_X_Touch.c ****   	unsigned char t=0,t1,count=0;
+ 509              		.loc 1 120 4 view .LVU118
+ 510              	.LVL42:
+ 121:Core/Src/GUI_X_Touch.c **** 	unsigned short int databuffer[10]={5,7,9,3,2,6,4,0,3,1};//������
+ 511              		.loc 1 121 2 view .LVU119
+ 512              		.loc 1 121 21 is_stmt 0 view .LVU120
+ 513 0004 01AC     		add	r4, sp, #4
+ 514 0006 234D     		ldr	r5, .L45
+ 515 0008 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 516 000a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 517 000c 2B68     		ldr	r3, [r5]
+ 518 000e 2360     		str	r3, [r4]
+ 122:Core/Src/GUI_X_Touch.c **** 	unsigned short temp=0,Y=0;	
+ 519              		.loc 1 122 2 is_stmt 1 view .LVU121
+ 520              	.LVL43:
+ 123:Core/Src/GUI_X_Touch.c ****  
+ 124:Core/Src/GUI_X_Touch.c ****     while(count<10)	
+ 521              		.loc 1 124 5 view .LVU122
+ 120:Core/Src/GUI_X_Touch.c **** 	unsigned short int databuffer[10]={5,7,9,3,2,6,4,0,3,1};//������
+ 522              		.loc 1 120 25 is_stmt 0 view .LVU123
+ 523 0010 0024     		movs	r4, #0
+ 524              	.LVL44:
+ 525              	.L34:
+ 526              		.loc 1 124 10 is_stmt 1 view .LVU124
+ 527 0012 092C     		cmp	r4, #9
+ 528 0014 09D8     		bhi	.L43
+ 125:Core/Src/GUI_X_Touch.c **** 	{	   	  
+ 126:Core/Src/GUI_X_Touch.c **** 		databuffer[count]=TPReadY();
+ 529              		.loc 1 126 3 view .LVU125
+ 530              		.loc 1 126 21 is_stmt 0 view .LVU126
+ 531 0016 FFF7FEFF 		bl	TPReadY
+ 532              	.LVL45:
+ 533              		.loc 1 126 20 view .LVU127
+ARM GAS  /tmp/cc0ZSlIg.s 			page 13
+
+
+ 534 001a 06AB     		add	r3, sp, #24
+ 535 001c 03EB4403 		add	r3, r3, r4, lsl #1
+ 536 0020 23F8140C 		strh	r0, [r3, #-20]	@ movhi
+ 127:Core/Src/GUI_X_Touch.c **** 		count++;  
+ 537              		.loc 1 127 3 is_stmt 1 view .LVU128
+ 538              		.loc 1 127 8 is_stmt 0 view .LVU129
+ 539 0024 0134     		adds	r4, r4, #1
+ 540              	.LVL46:
+ 541              		.loc 1 127 8 view .LVU130
+ 542 0026 E4B2     		uxtb	r4, r4
+ 543              	.LVL47:
+ 544              		.loc 1 127 8 view .LVU131
+ 545 0028 F3E7     		b	.L34
+ 546              	.L43:
+ 128:Core/Src/GUI_X_Touch.c **** 	}  
+ 129:Core/Src/GUI_X_Touch.c **** 	if(count==10)
+ 547              		.loc 1 129 2 is_stmt 1 view .LVU132
+ 548              		.loc 1 129 4 is_stmt 0 view .LVU133
+ 549 002a 0A2C     		cmp	r4, #10
+ 550 002c 02D0     		beq	.L40
+ 122:Core/Src/GUI_X_Touch.c ****  
+ 551              		.loc 1 122 24 view .LVU134
+ 552 002e 0020     		movs	r0, #0
+ 553              	.LVL48:
+ 554              	.L36:
+ 130:Core/Src/GUI_X_Touch.c **** 	{  
+ 131:Core/Src/GUI_X_Touch.c **** 	    do
+ 132:Core/Src/GUI_X_Touch.c **** 		{	
+ 133:Core/Src/GUI_X_Touch.c **** 			t1=0;		  
+ 134:Core/Src/GUI_X_Touch.c **** 			for(t=0;t<count-1;t++)
+ 135:Core/Src/GUI_X_Touch.c **** 			{
+ 136:Core/Src/GUI_X_Touch.c **** 				if(databuffer[t]>databuffer[t+1])
+ 137:Core/Src/GUI_X_Touch.c **** 				{
+ 138:Core/Src/GUI_X_Touch.c **** 					temp=databuffer[t+1];
+ 139:Core/Src/GUI_X_Touch.c **** 					databuffer[t+1]=databuffer[t];
+ 140:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 141:Core/Src/GUI_X_Touch.c **** 					t1=1; 
+ 142:Core/Src/GUI_X_Touch.c **** 				}  
+ 143:Core/Src/GUI_X_Touch.c **** 			}
+ 144:Core/Src/GUI_X_Touch.c **** 		}while(t1); 
+ 145:Core/Src/GUI_X_Touch.c **** 	    		 	 		  
+ 146:Core/Src/GUI_X_Touch.c **** 		Y=(databuffer[3]+databuffer[4]+databuffer[5])/3;
+ 147:Core/Src/GUI_X_Touch.c **** 			  
+ 148:Core/Src/GUI_X_Touch.c **** 	}
+ 149:Core/Src/GUI_X_Touch.c **** 	return(Y); 
+ 555              		.loc 1 149 2 is_stmt 1 view .LVU135
+ 150:Core/Src/GUI_X_Touch.c **** }  
+ 556              		.loc 1 150 1 is_stmt 0 view .LVU136
+ 557 0030 06B0     		add	sp, sp, #24
+ 558              	.LCFI15:
+ 559              		.cfi_remember_state
+ 560              		.cfi_def_cfa_offset 16
+ 561              		@ sp needed
+ 562 0032 70BD     		pop	{r4, r5, r6, pc}
+ 563              	.LVL49:
+ 564              	.L40:
+ 565              	.LCFI16:
+ARM GAS  /tmp/cc0ZSlIg.s 			page 14
+
+
+ 566              		.cfi_restore_state
+ 131:Core/Src/GUI_X_Touch.c **** 		{	
+ 567              		.loc 1 131 6 is_stmt 1 view .LVU137
+ 133:Core/Src/GUI_X_Touch.c **** 			for(t=0;t<count-1;t++)
+ 568              		.loc 1 133 4 view .LVU138
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 569              		.loc 1 134 4 view .LVU139
+ 133:Core/Src/GUI_X_Touch.c **** 			for(t=0;t<count-1;t++)
+ 570              		.loc 1 133 6 is_stmt 0 view .LVU140
+ 571 0034 0026     		movs	r6, #0
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 572              		.loc 1 134 9 view .LVU141
+ 573 0036 3346     		mov	r3, r6
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 574              		.loc 1 134 4 view .LVU142
+ 575 0038 01E0     		b	.L37
+ 576              	.LVL50:
+ 577              	.L38:
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 578              		.loc 1 134 22 is_stmt 1 discriminator 2 view .LVU143
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 579              		.loc 1 134 23 is_stmt 0 discriminator 2 view .LVU144
+ 580 003a 0133     		adds	r3, r3, #1
+ 581              	.LVL51:
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 582              		.loc 1 134 23 discriminator 2 view .LVU145
+ 583 003c DBB2     		uxtb	r3, r3
+ 584              	.LVL52:
+ 585              	.L37:
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 586              		.loc 1 134 12 is_stmt 1 discriminator 1 view .LVU146
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 587              		.loc 1 134 13 is_stmt 0 discriminator 1 view .LVU147
+ 588 003e 1946     		mov	r1, r3
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 589              		.loc 1 134 19 discriminator 1 view .LVU148
+ 590 0040 621E     		subs	r2, r4, #1
+ 134:Core/Src/GUI_X_Touch.c **** 			{
+ 591              		.loc 1 134 4 discriminator 1 view .LVU149
+ 592 0042 9342     		cmp	r3, r2
+ 593 0044 17DA     		bge	.L44
+ 136:Core/Src/GUI_X_Touch.c **** 				{
+ 594              		.loc 1 136 5 is_stmt 1 view .LVU150
+ 136:Core/Src/GUI_X_Touch.c **** 				{
+ 595              		.loc 1 136 18 is_stmt 0 view .LVU151
+ 596 0046 06AA     		add	r2, sp, #24
+ 597 0048 02EB4302 		add	r2, r2, r3, lsl #1
+ 598 004c 32F8145C 		ldrh	r5, [r2, #-20]
+ 136:Core/Src/GUI_X_Touch.c **** 				{
+ 599              		.loc 1 136 34 view .LVU152
+ 600 0050 5A1C     		adds	r2, r3, #1
+ 136:Core/Src/GUI_X_Touch.c **** 				{
+ 601              		.loc 1 136 32 view .LVU153
+ 602 0052 06A8     		add	r0, sp, #24
+ 603 0054 00EB4200 		add	r0, r0, r2, lsl #1
+ 604 0058 30F8140C 		ldrh	r0, [r0, #-20]
+ 136:Core/Src/GUI_X_Touch.c **** 				{
+ARM GAS  /tmp/cc0ZSlIg.s 			page 15
+
+
+ 605              		.loc 1 136 7 view .LVU154
+ 606 005c 8542     		cmp	r5, r0
+ 607 005e ECD9     		bls	.L38
+ 138:Core/Src/GUI_X_Touch.c **** 					databuffer[t+1]=databuffer[t];
+ 608              		.loc 1 138 6 is_stmt 1 view .LVU155
+ 609              	.LVL53:
+ 139:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 610              		.loc 1 139 6 view .LVU156
+ 139:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 611              		.loc 1 139 21 is_stmt 0 view .LVU157
+ 612 0060 06AE     		add	r6, sp, #24
+ 613              	.LVL54:
+ 139:Core/Src/GUI_X_Touch.c **** 					databuffer[t]=temp;
+ 614              		.loc 1 139 21 view .LVU158
+ 615 0062 06EB4202 		add	r2, r6, r2, lsl #1
+ 616 0066 22F8145C 		strh	r5, [r2, #-20]	@ movhi
+ 140:Core/Src/GUI_X_Touch.c **** 					t1=1; 
+ 617              		.loc 1 140 6 is_stmt 1 view .LVU159
+ 140:Core/Src/GUI_X_Touch.c **** 					t1=1; 
+ 618              		.loc 1 140 19 is_stmt 0 view .LVU160
+ 619 006a 06EB4101 		add	r1, r6, r1, lsl #1
+ 620 006e 21F8140C 		strh	r0, [r1, #-20]	@ movhi
+ 141:Core/Src/GUI_X_Touch.c **** 				}  
+ 621              		.loc 1 141 6 is_stmt 1 view .LVU161
+ 622              	.LVL55:
+ 141:Core/Src/GUI_X_Touch.c **** 				}  
+ 623              		.loc 1 141 8 is_stmt 0 view .LVU162
+ 624 0072 0126     		movs	r6, #1
+ 625 0074 E1E7     		b	.L38
+ 626              	.LVL56:
+ 627              	.L44:
+ 144:Core/Src/GUI_X_Touch.c **** 	    		 	 		  
+ 628              		.loc 1 144 9 is_stmt 1 view .LVU163
+ 144:Core/Src/GUI_X_Touch.c **** 	    		 	 		  
+ 629              		.loc 1 144 3 is_stmt 0 view .LVU164
+ 630 0076 002E     		cmp	r6, #0
+ 631 0078 DCD1     		bne	.L40
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 632              		.loc 1 146 3 is_stmt 1 view .LVU165
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 633              		.loc 1 146 16 is_stmt 0 view .LVU166
+ 634 007a BDF80A00 		ldrh	r0, [sp, #10]
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 635              		.loc 1 146 30 view .LVU167
+ 636 007e BDF80C30 		ldrh	r3, [sp, #12]
+ 637              	.LVL57:
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 638              		.loc 1 146 19 view .LVU168
+ 639 0082 1844     		add	r0, r0, r3
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 640              		.loc 1 146 44 view .LVU169
+ 641 0084 BDF80E30 		ldrh	r3, [sp, #14]
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 642              		.loc 1 146 33 view .LVU170
+ 643 0088 1844     		add	r0, r0, r3
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 644              		.loc 1 146 48 view .LVU171
+ARM GAS  /tmp/cc0ZSlIg.s 			page 16
+
+
+ 645 008a 034B     		ldr	r3, .L45+4
+ 646 008c 83FB0030 		smull	r3, r0, r3, r0
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 647              		.loc 1 146 4 view .LVU172
+ 648 0090 80B2     		uxth	r0, r0
+ 649              	.LVL58:
+ 146:Core/Src/GUI_X_Touch.c **** 			  
+ 650              		.loc 1 146 4 view .LVU173
+ 651 0092 CDE7     		b	.L36
+ 652              	.L46:
+ 653              		.align	2
+ 654              	.L45:
+ 655 0094 00000000 		.word	.LANCHOR0
+ 656 0098 56555555 		.word	1431655766
+ 657              		.cfi_endproc
+ 658              	.LFE75:
+ 660              		.section	.rodata
+ 661              		.align	2
+ 662              		.set	.LANCHOR0,. + 0
+ 663              	.LC0:
+ 664 0000 0500     		.short	5
+ 665 0002 0700     		.short	7
+ 666 0004 0900     		.short	9
+ 667 0006 0300     		.short	3
+ 668 0008 0200     		.short	2
+ 669 000a 0600     		.short	6
+ 670 000c 0400     		.short	4
+ 671 000e 0000     		.short	0
+ 672 0010 0300     		.short	3
+ 673 0012 0100     		.short	1
+ 674              		.text
+ 675              	.Letext0:
+ 676              		.file 2 "Middlewares/ST/STemWin/inc/LCD.h"
+ 677              		.file 3 "Middlewares/ST/STemWin/inc/GUI.h"
+ 678              		.file 4 "Middlewares/ST/STemWin/inc/GUI_Type.h"
+ 679              		.file 5 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h"
+ 680              		.file 6 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_stdint.h"
+ 681              		.file 7 "Drivers/CMSIS/Include/core_cm3.h"
+ 682              		.file 8 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 683              		.file 9 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h"
+ 684              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 685              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 686              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 687              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
+ 688              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 689              		.file 15 "/opt/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h"
+ 690              		.file 16 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h"
+ 691              		.file 17 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h"
+ 692              		.file 18 "/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/lock.h"
+ARM GAS  /tmp/cc0ZSlIg.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 GUI_X_Touch.c
+     /tmp/cc0ZSlIg.s:16     .text.SPI3_WriteByte:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:24     .text.SPI3_WriteByte:0000000000000000 SPI3_WriteByte
+     /tmp/cc0ZSlIg.s:63     .text.SPI3_WriteByte:0000000000000020 $d
+     /tmp/cc0ZSlIg.s:68     .text.SpiDelay:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:75     .text.SpiDelay:0000000000000000 SpiDelay
+     /tmp/cc0ZSlIg.s:107    .text.TPReadX:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:114    .text.TPReadX:0000000000000000 TPReadX
+     /tmp/cc0ZSlIg.s:183    .text.TPReadX:0000000000000048 $d
+     /tmp/cc0ZSlIg.s:189    .text.TPReadY:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:196    .text.TPReadY:0000000000000000 TPReadY
+     /tmp/cc0ZSlIg.s:265    .text.TPReadY:0000000000000048 $d
+     /tmp/cc0ZSlIg.s:271    .text.GUI_TOUCH_X_ActivateX:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:278    .text.GUI_TOUCH_X_ActivateX:0000000000000000 GUI_TOUCH_X_ActivateX
+     /tmp/cc0ZSlIg.s:291    .text.GUI_TOUCH_X_ActivateY:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:298    .text.GUI_TOUCH_X_ActivateY:0000000000000000 GUI_TOUCH_X_ActivateY
+     /tmp/cc0ZSlIg.s:311    .text.GUI_TOUCH_X_MeasureX:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:318    .text.GUI_TOUCH_X_MeasureX:0000000000000000 GUI_TOUCH_X_MeasureX
+     /tmp/cc0ZSlIg.s:480    .text.GUI_TOUCH_X_MeasureX:0000000000000094 $d
+     /tmp/cc0ZSlIg.s:486    .text.GUI_TOUCH_X_MeasureY:0000000000000000 $t
+     /tmp/cc0ZSlIg.s:493    .text.GUI_TOUCH_X_MeasureY:0000000000000000 GUI_TOUCH_X_MeasureY
+     /tmp/cc0ZSlIg.s:655    .text.GUI_TOUCH_X_MeasureY:0000000000000094 $d
+     /tmp/cc0ZSlIg.s:661    .rodata:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_SPI_Transmit
+hspi3
+HAL_GPIO_WritePin
+HAL_SPI_Receive

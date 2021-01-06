@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc4pvuWa.s 			page 1
+ARM GAS  /tmp/ccASFHXt.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
   24:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
   25:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** /** @addtogroup USBH_LIB
   26:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   * @{
-ARM GAS  /tmp/cc4pvuWa.s 			page 2
+ARM GAS  /tmp/ccASFHXt.s 			page 2
 
 
   27:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
   81:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (osCMSIS < 0x20000U)
   82:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** static void USBH_Process_OS(void const *argument);
   83:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
-ARM GAS  /tmp/cc4pvuWa.s 			page 3
+ARM GAS  /tmp/ccASFHXt.s 			page 3
 
 
   84:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** static void USBH_Process_OS(void *argument);
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  138:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   osThreadDef(USBH_Thread, USBH_Process_OS, USBH_PROCESS_PRIO, 0U, USBH_PROCESS_STACK_SIZE);
  139:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
  140:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   osThreadDef(USBH_Thread, USBH_Process_OS, USBH_PROCESS_PRIO, 0U, 8U * configMINIMAL_STACK_SIZE);
-ARM GAS  /tmp/cc4pvuWa.s 			page 4
+ARM GAS  /tmp/ccASFHXt.s 			page 4
 
 
  141:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #endif /* defined (USBH_PROCESS_STACK_SIZE) */
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  195:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  196:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  197:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** /**
-ARM GAS  /tmp/cc4pvuWa.s 			page 5
+ARM GAS  /tmp/ccASFHXt.s 			page 5
 
 
  198:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   * @brief  DeInitStateMachine
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
   65              		.loc 1 213 10 view .LVU12
   66 0018 0023     		movs	r3, #0
   67              	.LVL4:
-ARM GAS  /tmp/cc4pvuWa.s 			page 6
+ARM GAS  /tmp/ccASFHXt.s 			page 6
 
 
   68              	.L4:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  108 003c 4022     		movs	r2, #64
  109 003e A271     		strb	r2, [r4, #6]
  225:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   phost->Control.errorcount = 0U;
-ARM GAS  /tmp/cc4pvuWa.s 			page 7
+ARM GAS  /tmp/ccASFHXt.s 			page 7
 
 
  110              		.loc 1 225 3 is_stmt 1 view .LVU34
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  251:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       status = USBH_OK;
  252:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     }
  253:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     else
-ARM GAS  /tmp/cc4pvuWa.s 			page 8
+ARM GAS  /tmp/ccASFHXt.s 			page 8
 
 
  254:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  308:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** }
  309:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  310:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
-ARM GAS  /tmp/cc4pvuWa.s 			page 9
+ARM GAS  /tmp/ccASFHXt.s 			page 9
 
 
  311:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** /**
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  365:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     pif = &pcfg->Itf_Desc[if_ix];
  366:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     if ((pif->bInterfaceNumber == interface_number) && (pif->bAlternateSetting == alt_settings))
  367:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     {
-ARM GAS  /tmp/cc4pvuWa.s 			page 10
+ARM GAS  /tmp/ccASFHXt.s 			page 10
 
 
  368:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       return  if_ix;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  422:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** USBH_StatusTypeDef USBH_ReEnumerate(USBH_HandleTypeDef *phost)
  423:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** {
  424:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   if (USBH_IsPortEnabled(phost))
-ARM GAS  /tmp/cc4pvuWa.s 			page 11
+ARM GAS  /tmp/ccASFHXt.s 			page 11
 
 
  425:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   {
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  479:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (osCMSIS < 0x20000U)
  480:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         (void)osMessagePut(phost->os_event, phost->os_msg, 0U);
  481:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
-ARM GAS  /tmp/cc4pvuWa.s 			page 12
+ARM GAS  /tmp/ccASFHXt.s 			page 12
 
 
  482:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         (void)osMessageQueuePut(phost->os_event, &phost->os_msg, 0U, NULL);
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  536:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       (void)osMessagePut(phost->os_event, phost->os_msg, 0U);
  537:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
  538:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       (void)osMessageQueuePut(phost->os_event, &phost->os_msg, 0U, NULL);
-ARM GAS  /tmp/cc4pvuWa.s 			page 13
+ARM GAS  /tmp/ccASFHXt.s 			page 13
 
 
  539:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #endif
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  593:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  594:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (USBH_USE_OS == 1U)
  595:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       phost->os_msg = (uint32_t)USBH_PORT_EVENT;
-ARM GAS  /tmp/cc4pvuWa.s 			page 14
+ARM GAS  /tmp/ccASFHXt.s 			page 14
 
 
  596:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (osCMSIS < 0x20000U)
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  650:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****           {
  651:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****             phost->gState = HOST_CLASS_REQUEST;
  652:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****             USBH_UsrLog("%s class started.", phost->pActiveClass->Name);
-ARM GAS  /tmp/cc4pvuWa.s 			page 15
+ARM GAS  /tmp/ccASFHXt.s 			page 15
 
 
  653:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  707:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     case HOST_CLASS:
  708:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       /* process class state machine */
  709:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       if (phost->pActiveClass != NULL)
-ARM GAS  /tmp/cc4pvuWa.s 			page 16
+ARM GAS  /tmp/ccASFHXt.s 			page 16
 
 
  710:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       {
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  764:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** /**
  765:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   * @brief  USBH_HandleEnum
  766:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   *         This function includes the complete enumeration process
-ARM GAS  /tmp/cc4pvuWa.s 			page 17
+ARM GAS  /tmp/ccASFHXt.s 			page 17
 
 
  767:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   * @param  phost: Host Handle
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  821:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         phost->device.address = USBH_DEVICE_ADDRESS;
  822:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  823:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         /* user callback for device address assigned */
-ARM GAS  /tmp/cc4pvuWa.s 			page 18
+ARM GAS  /tmp/ccASFHXt.s 			page 18
 
 
  824:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         USBH_UsrLog("Address (#%d) assigned.", phost->device.address);
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  878:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  879:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (USBH_USE_OS == 1U)
  880:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****           phost->os_msg = (uint32_t)USBH_STATE_CHANGED_EVENT;
-ARM GAS  /tmp/cc4pvuWa.s 			page 19
+ARM GAS  /tmp/ccASFHXt.s 			page 19
 
 
  881:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (osCMSIS < 0x20000U)
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  935:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     case ENUM_GET_SERIALNUM_STRING_DESC:
  936:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       if (phost->device.DevDesc.iSerialNumber != 0U)
  937:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       {
-ARM GAS  /tmp/cc4pvuWa.s 			page 20
+ARM GAS  /tmp/ccASFHXt.s 			page 20
 
 
  938:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         /* Check that Serial number string is available */
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  992:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   phost->Timer ++;
  993:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   USBH_HandleSof(phost);
  994:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** }
-ARM GAS  /tmp/cc4pvuWa.s 			page 21
+ARM GAS  /tmp/ccASFHXt.s 			page 21
 
 
  995:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  175              		.loc 1 1009 1 view .LVU54
  176 0018 F7E7     		b	.L8
  177              		.cfi_endproc
-ARM GAS  /tmp/cc4pvuWa.s 			page 22
+ARM GAS  /tmp/ccASFHXt.s 			page 22
 
 
  178              	.LFE88:
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  227 001a 0821     		movs	r1, #8
  228 001c FFF7FEFF 		bl	USBH_Get_DevDesc
  229              	.LVL15:
-ARM GAS  /tmp/cc4pvuWa.s 			page 23
+ARM GAS  /tmp/ccASFHXt.s 			page 23
 
 
  778:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       {
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  273 0052 0196     		str	r6, [sp, #4]
  274 0054 94F81D33 		ldrb	r3, [r4, #797]	@ zero_extendqisi2
  275 0058 0093     		str	r3, [sp]
-ARM GAS  /tmp/cc4pvuWa.s 			page 24
+ARM GAS  /tmp/ccASFHXt.s 			page 24
 
 
  276 005a 94F81C33 		ldrb	r3, [r4, #796]	@ zero_extendqisi2
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  315 0084 CEE7     		b	.L13
  316              	.L35:
  820:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         phost->device.address = USBH_DEVICE_ADDRESS;
-ARM GAS  /tmp/cc4pvuWa.s 			page 25
+ARM GAS  /tmp/ccASFHXt.s 			page 25
 
 
  317              		.loc 1 820 9 is_stmt 1 view .LVU88
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  849:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****                            USB_CONFIGURATION_DESC_SIZE) == USBH_OK)
  361              		.loc 1 849 11 is_stmt 0 view .LVU99
  362 00cc 0921     		movs	r1, #9
-ARM GAS  /tmp/cc4pvuWa.s 			page 26
+ARM GAS  /tmp/ccASFHXt.s 			page 26
 
 
  363 00ce FFF7FEFF 		bl	USBH_Get_CfgDesc
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  402 00fa 00F58E72 		add	r2, r0, #284
  403 00fe FFF7FEFF 		bl	USBH_Get_StringDesc
  404              	.LVL32:
-ARM GAS  /tmp/cc4pvuWa.s 			page 27
+ARM GAS  /tmp/ccASFHXt.s 			page 27
 
 
  870:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****                                 phost->device.DevDesc.iManufacturer,
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  895:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (osCMSIS < 0x20000U)
  441              		.loc 1 895 23 is_stmt 0 view .LVU133
  442 0124 0521     		movs	r1, #5
-ARM GAS  /tmp/cc4pvuWa.s 			page 28
+ARM GAS  /tmp/ccASFHXt.s 			page 28
 
 
  443 0126 C0F8D813 		str	r1, [r0, #984]
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  481              	.L24:
  921:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         phost->EnumState = ENUM_GET_SERIALNUM_STRING_DESC;
  482              		.loc 1 921 9 is_stmt 1 view .LVU150
-ARM GAS  /tmp/cc4pvuWa.s 			page 29
+ARM GAS  /tmp/ccASFHXt.s 			page 29
 
 
  921:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         phost->EnumState = ENUM_GET_SERIALNUM_STRING_DESC;
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  521 0180 3FF450AF 		beq	.L13
  772:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  522              		.loc 1 772 22 view .LVU167
-ARM GAS  /tmp/cc4pvuWa.s 			page 30
+ARM GAS  /tmp/ccASFHXt.s 			page 30
 
 
  523 0184 0125     		movs	r5, #1
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  565              		.section	.text.USBH_Init,"ax",%progbits
  566              		.align	1
  567              		.global	USBH_Init
-ARM GAS  /tmp/cc4pvuWa.s 			page 31
+ARM GAS  /tmp/ccASFHXt.s 			page 31
 
 
  568              		.syntax unified
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  610              		.loc 1 118 29 is_stmt 0 view .LVU193
  611 001c 85F82143 		strb	r4, [r5, #801]
  119:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   phost->device.is_disconnected = 0U;
-ARM GAS  /tmp/cc4pvuWa.s 			page 32
+ARM GAS  /tmp/ccASFHXt.s 			page 32
 
 
  612              		.loc 1 119 3 is_stmt 1 view .LVU194
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  650              		.loc 1 143 3 view .LVU210
  143:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  651              		.loc 1 143 19 is_stmt 0 view .LVU211
-ARM GAS  /tmp/cc4pvuWa.s 			page 33
+ARM GAS  /tmp/ccASFHXt.s 			page 33
 
 
  652 005a 2946     		mov	r1, r5
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  701              	.LFB74:
  179:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   DeInitStateMachine(phost);
  702              		.loc 1 179 1 is_stmt 1 view -0
-ARM GAS  /tmp/cc4pvuWa.s 			page 34
+ARM GAS  /tmp/ccASFHXt.s 			page 34
 
 
  703              		.cfi_startproc
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  741 0026 0020     		movs	r0, #0
  742 0028 10BD     		pop	{r4, pc}
  194:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
-ARM GAS  /tmp/cc4pvuWa.s 			page 35
+ARM GAS  /tmp/ccASFHXt.s 			page 35
 
 
  743              		.loc 1 194 1 view .LVU236
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  251:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     }
  786              		.loc 1 251 14 is_stmt 0 view .LVU250
  787 0018 0020     		movs	r0, #0
-ARM GAS  /tmp/cc4pvuWa.s 			page 36
+ARM GAS  /tmp/ccASFHXt.s 			page 36
 
 
  788 001a 7047     		bx	lr
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  832 0008 80F82213 		strb	r1, [r0, #802]
  283:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     USBH_UsrLog("Class    : %xh", phost->device.CfgDesc.Itf_Desc[interface].bInterfaceClass);
  833              		.loc 1 283 5 is_stmt 1 view .LVU263
-ARM GAS  /tmp/cc4pvuWa.s 			page 37
+ARM GAS  /tmp/ccASFHXt.s 			page 37
 
 
  283:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     USBH_UsrLog("Class    : %xh", phost->device.CfgDesc.Itf_Desc[interface].bInterfaceClass);
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  873              		.cfi_startproc
  874              		@ args = 0, pretend = 0, frame = 0
  875              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc4pvuWa.s 			page 38
+ARM GAS  /tmp/ccASFHXt.s 			page 38
 
 
  876              		@ link register save eliminated.
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  330:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   {
  920              		.loc 1 330 9 view .LVU293
  921 0006 0AE0     		b	.L59
-ARM GAS  /tmp/cc4pvuWa.s 			page 39
+ARM GAS  /tmp/ccASFHXt.s 			page 39
 
 
  922              	.LVL76:
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  962              		.loc 1 334 14 discriminator 3 view .LVU307
  963 0036 1A24     		movs	r4, #26
  964 0038 04FB0564 		mla	r4, r4, r5, r6
-ARM GAS  /tmp/cc4pvuWa.s 			page 40
+ARM GAS  /tmp/ccASFHXt.s 			page 40
 
 
  965 003c 94F84643 		ldrb	r4, [r4, #838]	@ zero_extendqisi2
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  356:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   USBH_CfgDescTypeDef *pcfg;
  1014              		.loc 1 356 3 is_stmt 1 view .LVU315
  357:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   uint8_t if_ix = 0U;
-ARM GAS  /tmp/cc4pvuWa.s 			page 41
+ARM GAS  /tmp/ccASFHXt.s 			page 41
 
 
  1015              		.loc 1 357 3 view .LVU316
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1053              		.loc 1 366 53 discriminator 1 view .LVU332
  1054 0028 9342     		cmp	r3, r2
  1055 002a EDD1     		bne	.L69
-ARM GAS  /tmp/cc4pvuWa.s 			page 42
+ARM GAS  /tmp/ccASFHXt.s 			page 42
 
 
  1056 002c 00E0     		b	.L70
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1104              		.loc 1 390 3 view .LVU340
  391:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  1105              		.loc 1 391 1 is_stmt 0 view .LVU341
-ARM GAS  /tmp/cc4pvuWa.s 			page 43
+ARM GAS  /tmp/ccASFHXt.s 			page 43
 
 
  1106 0010 0020     		movs	r0, #0
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1153              		.loc 1 413 1 is_stmt 0 view .LVU350
  1154 0020 0020     		movs	r0, #0
  1155 0022 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/cc4pvuWa.s 			page 44
+ARM GAS  /tmp/ccASFHXt.s 			page 44
 
 
  413:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1201              		.loc 1 464 16 is_stmt 0 view .LVU361
  1202 0016 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  1203 0018 DBB2     		uxtb	r3, r3
-ARM GAS  /tmp/cc4pvuWa.s 			page 45
+ARM GAS  /tmp/ccASFHXt.s 			page 45
 
 
  1204 001a 0B2B     		cmp	r3, #11
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1246              	.LVL104:
  475:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  1247              		.loc 1 475 9 is_stmt 1 view .LVU374
-ARM GAS  /tmp/cc4pvuWa.s 			page 46
+ARM GAS  /tmp/ccASFHXt.s 			page 46
 
 
  1248 0052 2046     		mov	r0, r4
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1286 0080 2046     		mov	r0, r4
  1287              	.LVL108:
  501:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       }
-ARM GAS  /tmp/cc4pvuWa.s 			page 47
+ARM GAS  /tmp/ccASFHXt.s 			page 47
 
 
  1288              		.loc 1 501 9 is_stmt 0 view .LVU391
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1329 00b6 94F81D33 		ldrb	r3, [r4, #797]	@ zero_extendqisi2
  1330 00ba 0093     		str	r3, [sp]
  1331 00bc 94F81C33 		ldrb	r3, [r4, #796]	@ zero_extendqisi2
-ARM GAS  /tmp/cc4pvuWa.s 			page 48
+ARM GAS  /tmp/ccASFHXt.s 			page 48
 
 
  1332 00c0 8022     		movs	r2, #128
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1376              	.LVL118:
  545:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       {
  1377              		.loc 1 545 11 view .LVU415
-ARM GAS  /tmp/cc4pvuWa.s 			page 49
+ARM GAS  /tmp/ccASFHXt.s 			page 49
 
 
  1378 00fa FFF7FEFF 		bl	USBH_HandleEnum
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1414 011c D4F8CC33 		ldr	r3, [r4, #972]
  569:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       {
  1415              		.loc 1 569 10 view .LVU434
-ARM GAS  /tmp/cc4pvuWa.s 			page 50
+ARM GAS  /tmp/ccASFHXt.s 			page 50
 
 
  1416 0120 002B     		cmp	r3, #0
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1456              	.L95:
  591:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       }
  1457              		.loc 1 591 9 is_stmt 1 view .LVU449
-ARM GAS  /tmp/cc4pvuWa.s 			page 51
+ARM GAS  /tmp/ccASFHXt.s 			page 51
 
 
  591:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       }
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  627:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
  1496              		.loc 1 627 7 is_stmt 1 view .LVU466
  1497 0180 B7E7     		b	.L80
-ARM GAS  /tmp/cc4pvuWa.s 			page 52
+ARM GAS  /tmp/ccASFHXt.s 			page 52
 
 
  1498              	.LVL131:
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1535 01a0 B3B1     		cbz	r3, .L101
  647:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         {
  1536              		.loc 1 647 9 is_stmt 1 view .LVU484
-ARM GAS  /tmp/cc4pvuWa.s 			page 53
+ARM GAS  /tmp/ccASFHXt.s 			page 53
 
 
  647:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         {
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1572              		.loc 1 671 7 view .LVU503
  671:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #if (osCMSIS < 0x20000U)
  1573              		.loc 1 671 21 is_stmt 0 view .LVU504
-ARM GAS  /tmp/cc4pvuWa.s 			page 54
+ARM GAS  /tmp/ccASFHXt.s 			page 54
 
 
  1574 01be 0521     		movs	r1, #5
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  643:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****           }
  1614              		.loc 1 643 33 view .LVU519
  1615 01f4 C4F87823 		str	r2, [r4, #888]
-ARM GAS  /tmp/cc4pvuWa.s 			page 55
+ARM GAS  /tmp/ccASFHXt.s 			page 55
 
 
  1616 01f8 F4E7     		b	.L100
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  688:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         }
  1655              		.loc 1 688 11 is_stmt 1 view .LVU535
  688:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****         }
-ARM GAS  /tmp/cc4pvuWa.s 			page 56
+ARM GAS  /tmp/ccASFHXt.s 			page 56
 
 
  1656              		.loc 1 688 25 is_stmt 0 view .LVU536
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1694 0248 2046     		mov	r0, r4
  1695              	.LVL153:
  711:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****       }
-ARM GAS  /tmp/cc4pvuWa.s 			page 57
+ARM GAS  /tmp/ccASFHXt.s 			page 57
 
 
  1696              		.loc 1 711 9 view .LVU553
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1734              		.loc 1 729 9 is_stmt 1 view .LVU569
  1735 0272 0521     		movs	r1, #5
  1736 0274 2046     		mov	r0, r4
-ARM GAS  /tmp/cc4pvuWa.s 			page 58
+ARM GAS  /tmp/ccASFHXt.s 			page 58
 
 
  1737 0276 9847     		blx	r3
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1776 02a6 EFE7     		b	.L108
  1777              		.cfi_endproc
  1778              	.LFE84:
-ARM GAS  /tmp/cc4pvuWa.s 			page 59
+ARM GAS  /tmp/ccASFHXt.s 			page 59
 
 
  1780              		.section	.text.USBH_Process_OS,"ax",%progbits
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
 1055:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** uint8_t USBH_IsPortEnabled(USBH_HandleTypeDef *phost)
 1056:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** {
 1057:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   return (phost->device.PortEnabled);
-ARM GAS  /tmp/cc4pvuWa.s 			page 60
+ARM GAS  /tmp/ccASFHXt.s 			page 60
 
 
 1058:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** }
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
 1112:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #endif
 1113:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #endif
 1114:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
-ARM GAS  /tmp/cc4pvuWa.s 			page 61
+ARM GAS  /tmp/ccASFHXt.s 			page 61
 
 
 1115:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   return USBH_OK;
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1818 0016 01A8     		add	r0, sp, #4
  1819 0018 FFF7FEFF 		bl	osMessageGet
  1820              	.LVL166:
-ARM GAS  /tmp/cc4pvuWa.s 			page 62
+ARM GAS  /tmp/ccASFHXt.s 			page 62
 
 
 1134:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****     {
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  1870              		.loc 1 991 1 is_stmt 0 view .LVU600
  1871 0000 08B5     		push	{r3, lr}
  1872              	.LCFI24:
-ARM GAS  /tmp/cc4pvuWa.s 			page 63
+ARM GAS  /tmp/ccASFHXt.s 			page 63
 
 
  1873              		.cfi_def_cfa_offset 8
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
 1025:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
  1918              		.loc 1 1025 3 is_stmt 1 view .LVU612
 1025:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
-ARM GAS  /tmp/cc4pvuWa.s 			page 64
+ARM GAS  /tmp/ccASFHXt.s 			page 64
 
 
  1919              		.loc 1 1025 9 is_stmt 0 view .LVU613
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
 1056:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   return (phost->device.PortEnabled);
  1969              		.loc 1 1056 1 is_stmt 1 view -0
  1970              		.cfi_startproc
-ARM GAS  /tmp/cc4pvuWa.s 			page 65
+ARM GAS  /tmp/ccASFHXt.s 			page 65
 
 
  1971              		@ args = 0, pretend = 0, frame = 0
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  2017 000c C4F8D813 		str	r1, [r4, #984]
  437:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
  2018              		.loc 1 437 3 is_stmt 1 view .LVU633
-ARM GAS  /tmp/cc4pvuWa.s 			page 66
+ARM GAS  /tmp/ccASFHXt.s 			page 66
 
 
  437:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** #else
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  2065              		.cfi_offset 14, -4
 1069:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   phost->device.is_disconnected = 0U;
  2066              		.loc 1 1069 3 is_stmt 1 view .LVU644
-ARM GAS  /tmp/cc4pvuWa.s 			page 67
+ARM GAS  /tmp/ccASFHXt.s 			page 67
 
 
 1069:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   phost->device.is_disconnected = 0U;
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
 1094:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   /* update device connection states */
  2110              		.loc 1 1094 1 is_stmt 0 view .LVU658
  2111 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  /tmp/cc4pvuWa.s 			page 68
+ARM GAS  /tmp/ccASFHXt.s 			page 68
 
 
  2112              	.LCFI28:
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
 1115:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** }
  2153              		.loc 1 1115 3 is_stmt 1 view .LVU672
 1116:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c **** 
-ARM GAS  /tmp/cc4pvuWa.s 			page 69
+ARM GAS  /tmp/ccASFHXt.s 			page 69
 
 
  2154              		.loc 1 1116 1 is_stmt 0 view .LVU673
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  2180              		.cfi_offset 3, -8
  2181              		.cfi_offset 14, -4
 1166:Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c ****   phost->os_msg = (uint32_t)USBH_PORT_EVENT;
-ARM GAS  /tmp/cc4pvuWa.s 			page 70
+ARM GAS  /tmp/ccASFHXt.s 			page 70
 
 
  2182              		.loc 1 1166 3 is_stmt 1 view .LVU677
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  2228              		.file 10 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
  2229              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
  2230              		.file 12 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h"
-ARM GAS  /tmp/cc4pvuWa.s 			page 71
+ARM GAS  /tmp/ccASFHXt.s 			page 71
 
 
  2231              		.file 13 "Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"
@@ -4209,67 +4209,67 @@ ARM GAS  /tmp/cc4pvuWa.s 			page 1
  2236              		.file 18 "Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h"
  2237              		.file 19 "Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h"
  2238              		.file 20 "Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h"
-ARM GAS  /tmp/cc4pvuWa.s 			page 72
+ARM GAS  /tmp/ccASFHXt.s 			page 72
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbh_core.c
-     /tmp/cc4pvuWa.s:13     .rodata.str1.4:0000000000000000 $d
-     /tmp/cc4pvuWa.s:20     .text.DeInitStateMachine:0000000000000000 $t
-     /tmp/cc4pvuWa.s:27     .text.DeInitStateMachine:0000000000000000 DeInitStateMachine
-     /tmp/cc4pvuWa.s:132    .text.USBH_HandleSof:0000000000000000 $t
-     /tmp/cc4pvuWa.s:138    .text.USBH_HandleSof:0000000000000000 USBH_HandleSof
-     /tmp/cc4pvuWa.s:181    .text.USBH_HandleEnum:0000000000000000 $t
-     /tmp/cc4pvuWa.s:187    .text.USBH_HandleEnum:0000000000000000 USBH_HandleEnum
-     /tmp/cc4pvuWa.s:215    .text.USBH_HandleEnum:0000000000000012 $d
-     /tmp/cc4pvuWa.s:223    .text.USBH_HandleEnum:000000000000001a $t
-     /tmp/cc4pvuWa.s:566    .text.USBH_Init:0000000000000000 $t
-     /tmp/cc4pvuWa.s:573    .text.USBH_Init:0000000000000000 USBH_Init
-     /tmp/cc4pvuWa.s:687    .text.USBH_Init:0000000000000078 $d
-     /tmp/cc4pvuWa.s:692    .text.USBH_DeInit:0000000000000000 $t
-     /tmp/cc4pvuWa.s:699    .text.USBH_DeInit:0000000000000000 USBH_DeInit
-     /tmp/cc4pvuWa.s:748    .text.USBH_RegisterClass:0000000000000000 $t
-     /tmp/cc4pvuWa.s:755    .text.USBH_RegisterClass:0000000000000000 USBH_RegisterClass
-     /tmp/cc4pvuWa.s:808    .text.USBH_SelectInterface:0000000000000000 $t
-     /tmp/cc4pvuWa.s:815    .text.USBH_SelectInterface:0000000000000000 USBH_SelectInterface
-     /tmp/cc4pvuWa.s:862    .text.USBH_GetActiveClass:0000000000000000 $t
-     /tmp/cc4pvuWa.s:869    .text.USBH_GetActiveClass:0000000000000000 USBH_GetActiveClass
-     /tmp/cc4pvuWa.s:887    .text.USBH_FindInterface:0000000000000000 $t
-     /tmp/cc4pvuWa.s:894    .text.USBH_FindInterface:0000000000000000 USBH_FindInterface
-     /tmp/cc4pvuWa.s:993    .text.USBH_FindInterfaceIndex:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1000   .text.USBH_FindInterfaceIndex:0000000000000000 USBH_FindInterfaceIndex
-     /tmp/cc4pvuWa.s:1075   .text.USBH_Start:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1082   .text.USBH_Start:0000000000000000 USBH_Start
-     /tmp/cc4pvuWa.s:1113   .text.USBH_Stop:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1120   .text.USBH_Stop:0000000000000000 USBH_Stop
-     /tmp/cc4pvuWa.s:1161   .text.USBH_Process:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1168   .text.USBH_Process:0000000000000000 USBH_Process
-     /tmp/cc4pvuWa.s:1208   .text.USBH_Process:0000000000000022 $d
-     /tmp/cc4pvuWa.s:1220   .text.USBH_Process:000000000000003a $t
-     /tmp/cc4pvuWa.s:1781   .text.USBH_Process_OS:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1787   .text.USBH_Process_OS:0000000000000000 USBH_Process_OS
-     /tmp/cc4pvuWa.s:1832   .text.USBH_LL_SetTimer:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1839   .text.USBH_LL_SetTimer:0000000000000000 USBH_LL_SetTimer
-     /tmp/cc4pvuWa.s:1856   .text.USBH_LL_IncTimer:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1863   .text.USBH_LL_IncTimer:0000000000000000 USBH_LL_IncTimer
-     /tmp/cc4pvuWa.s:1891   .text.USBH_LL_PortEnabled:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1898   .text.USBH_LL_PortEnabled:0000000000000000 USBH_LL_PortEnabled
-     /tmp/cc4pvuWa.s:1933   .text.USBH_LL_PortDisabled:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1940   .text.USBH_LL_PortDisabled:0000000000000000 USBH_LL_PortDisabled
-     /tmp/cc4pvuWa.s:1959   .text.USBH_IsPortEnabled:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1966   .text.USBH_IsPortEnabled:0000000000000000 USBH_IsPortEnabled
-     /tmp/cc4pvuWa.s:1984   .text.USBH_ReEnumerate:0000000000000000 $t
-     /tmp/cc4pvuWa.s:1991   .text.USBH_ReEnumerate:0000000000000000 USBH_ReEnumerate
-     /tmp/cc4pvuWa.s:2046   .text.USBH_LL_Connect:0000000000000000 $t
-     /tmp/cc4pvuWa.s:2053   .text.USBH_LL_Connect:0000000000000000 USBH_LL_Connect
-     /tmp/cc4pvuWa.s:2096   .text.USBH_LL_Disconnect:0000000000000000 $t
-     /tmp/cc4pvuWa.s:2103   .text.USBH_LL_Disconnect:0000000000000000 USBH_LL_Disconnect
-     /tmp/cc4pvuWa.s:2162   .text.USBH_LL_NotifyURBChange:0000000000000000 $t
-     /tmp/cc4pvuWa.s:2169   .text.USBH_LL_NotifyURBChange:0000000000000000 USBH_LL_NotifyURBChange
-     /tmp/cc4pvuWa.s:2202   .rodata:0000000000000000 $d
+     /tmp/ccASFHXt.s:13     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccASFHXt.s:20     .text.DeInitStateMachine:0000000000000000 $t
+     /tmp/ccASFHXt.s:27     .text.DeInitStateMachine:0000000000000000 DeInitStateMachine
+     /tmp/ccASFHXt.s:132    .text.USBH_HandleSof:0000000000000000 $t
+     /tmp/ccASFHXt.s:138    .text.USBH_HandleSof:0000000000000000 USBH_HandleSof
+     /tmp/ccASFHXt.s:181    .text.USBH_HandleEnum:0000000000000000 $t
+     /tmp/ccASFHXt.s:187    .text.USBH_HandleEnum:0000000000000000 USBH_HandleEnum
+     /tmp/ccASFHXt.s:215    .text.USBH_HandleEnum:0000000000000012 $d
+     /tmp/ccASFHXt.s:223    .text.USBH_HandleEnum:000000000000001a $t
+     /tmp/ccASFHXt.s:566    .text.USBH_Init:0000000000000000 $t
+     /tmp/ccASFHXt.s:573    .text.USBH_Init:0000000000000000 USBH_Init
+     /tmp/ccASFHXt.s:687    .text.USBH_Init:0000000000000078 $d
+     /tmp/ccASFHXt.s:692    .text.USBH_DeInit:0000000000000000 $t
+     /tmp/ccASFHXt.s:699    .text.USBH_DeInit:0000000000000000 USBH_DeInit
+     /tmp/ccASFHXt.s:748    .text.USBH_RegisterClass:0000000000000000 $t
+     /tmp/ccASFHXt.s:755    .text.USBH_RegisterClass:0000000000000000 USBH_RegisterClass
+     /tmp/ccASFHXt.s:808    .text.USBH_SelectInterface:0000000000000000 $t
+     /tmp/ccASFHXt.s:815    .text.USBH_SelectInterface:0000000000000000 USBH_SelectInterface
+     /tmp/ccASFHXt.s:862    .text.USBH_GetActiveClass:0000000000000000 $t
+     /tmp/ccASFHXt.s:869    .text.USBH_GetActiveClass:0000000000000000 USBH_GetActiveClass
+     /tmp/ccASFHXt.s:887    .text.USBH_FindInterface:0000000000000000 $t
+     /tmp/ccASFHXt.s:894    .text.USBH_FindInterface:0000000000000000 USBH_FindInterface
+     /tmp/ccASFHXt.s:993    .text.USBH_FindInterfaceIndex:0000000000000000 $t
+     /tmp/ccASFHXt.s:1000   .text.USBH_FindInterfaceIndex:0000000000000000 USBH_FindInterfaceIndex
+     /tmp/ccASFHXt.s:1075   .text.USBH_Start:0000000000000000 $t
+     /tmp/ccASFHXt.s:1082   .text.USBH_Start:0000000000000000 USBH_Start
+     /tmp/ccASFHXt.s:1113   .text.USBH_Stop:0000000000000000 $t
+     /tmp/ccASFHXt.s:1120   .text.USBH_Stop:0000000000000000 USBH_Stop
+     /tmp/ccASFHXt.s:1161   .text.USBH_Process:0000000000000000 $t
+     /tmp/ccASFHXt.s:1168   .text.USBH_Process:0000000000000000 USBH_Process
+     /tmp/ccASFHXt.s:1208   .text.USBH_Process:0000000000000022 $d
+     /tmp/ccASFHXt.s:1220   .text.USBH_Process:000000000000003a $t
+     /tmp/ccASFHXt.s:1781   .text.USBH_Process_OS:0000000000000000 $t
+     /tmp/ccASFHXt.s:1787   .text.USBH_Process_OS:0000000000000000 USBH_Process_OS
+     /tmp/ccASFHXt.s:1832   .text.USBH_LL_SetTimer:0000000000000000 $t
+     /tmp/ccASFHXt.s:1839   .text.USBH_LL_SetTimer:0000000000000000 USBH_LL_SetTimer
+     /tmp/ccASFHXt.s:1856   .text.USBH_LL_IncTimer:0000000000000000 $t
+     /tmp/ccASFHXt.s:1863   .text.USBH_LL_IncTimer:0000000000000000 USBH_LL_IncTimer
+     /tmp/ccASFHXt.s:1891   .text.USBH_LL_PortEnabled:0000000000000000 $t
+     /tmp/ccASFHXt.s:1898   .text.USBH_LL_PortEnabled:0000000000000000 USBH_LL_PortEnabled
+     /tmp/ccASFHXt.s:1933   .text.USBH_LL_PortDisabled:0000000000000000 $t
+     /tmp/ccASFHXt.s:1940   .text.USBH_LL_PortDisabled:0000000000000000 USBH_LL_PortDisabled
+     /tmp/ccASFHXt.s:1959   .text.USBH_IsPortEnabled:0000000000000000 $t
+     /tmp/ccASFHXt.s:1966   .text.USBH_IsPortEnabled:0000000000000000 USBH_IsPortEnabled
+     /tmp/ccASFHXt.s:1984   .text.USBH_ReEnumerate:0000000000000000 $t
+     /tmp/ccASFHXt.s:1991   .text.USBH_ReEnumerate:0000000000000000 USBH_ReEnumerate
+     /tmp/ccASFHXt.s:2046   .text.USBH_LL_Connect:0000000000000000 $t
+     /tmp/ccASFHXt.s:2053   .text.USBH_LL_Connect:0000000000000000 USBH_LL_Connect
+     /tmp/ccASFHXt.s:2096   .text.USBH_LL_Disconnect:0000000000000000 $t
+     /tmp/ccASFHXt.s:2103   .text.USBH_LL_Disconnect:0000000000000000 USBH_LL_Disconnect
+     /tmp/ccASFHXt.s:2162   .text.USBH_LL_NotifyURBChange:0000000000000000 $t
+     /tmp/ccASFHXt.s:2169   .text.USBH_LL_NotifyURBChange:0000000000000000 USBH_LL_NotifyURBChange
+     /tmp/ccASFHXt.s:2202   .rodata:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-ARM GAS  /tmp/cc4pvuWa.s 			page 73
+ARM GAS  /tmp/ccASFHXt.s 			page 73
 
 
 USBH_Get_DevDesc

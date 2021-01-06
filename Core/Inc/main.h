@@ -96,14 +96,14 @@ void Error_Handler(void);
 #define DB15_GPIO_Port GPIOE
 #define Key_Pin GPIO_PIN_10
 #define Key_GPIO_Port GPIOB
-#define SD_CD_Pin GPIO_PIN_14
-#define SD_CD_GPIO_Port GPIOB
+#define LCD_WR_Pin GPIO_PIN_14
+#define LCD_WR_GPIO_Port GPIOB
 #define SD_CS_Pin GPIO_PIN_11
 #define SD_CS_GPIO_Port GPIOD
 #define LCD_RS_Pin GPIO_PIN_13
 #define LCD_RS_GPIO_Port GPIOD
-#define LCD_WR_Pin GPIO_PIN_14
-#define LCD_WR_GPIO_Port GPIOD
+#define LCD_WRError_Pin GPIO_PIN_14
+#define LCD_WRError_GPIO_Port GPIOD
 #define LCD_RD_Pin GPIO_PIN_15
 #define LCD_RD_GPIO_Port GPIOD
 #define LCD_CS_Pin GPIO_PIN_8
@@ -136,8 +136,8 @@ void Error_Handler(void);
 #define Clr_Cs  HAL_GPIO_WritePin(LCD_CS_GPIO_Port, LCD_CS_Pin, GPIO_PIN_RESET);
  
 
-#define Set_nWr  HAL_GPIO_WritePin(SD_CD_GPIO_Port, SD_CD_Pin, GPIO_PIN_SET);
-#define Clr_nWr  HAL_GPIO_WritePin(SD_CD_GPIO_Port, SD_CD_Pin, GPIO_PIN_RESET);
+#define Set_nWr  HAL_GPIO_WritePin(LCD_WR_GPIO_Port, LCD_WR_Pin, GPIO_PIN_SET);
+#define Clr_nWr  HAL_GPIO_WritePin(LCD_WR_GPIO_Port, LCD_WR_Pin, GPIO_PIN_RESET);
 
 #define Set_Rs   HAL_GPIO_WritePin(LCD_RS_GPIO_Port, LCD_RS_Pin, GPIO_PIN_SET);
 #define Clr_Rs   HAL_GPIO_WritePin(LCD_RS_GPIO_Port, LCD_RS_Pin, GPIO_PIN_RESET);
@@ -147,6 +147,9 @@ void Error_Handler(void);
 
 #define LCD_Write(LCD_DATA)  DB07_GPIO_Port->ODR = LCD_DATA;
 #define LCD_Read()           DB07_GPIO_Port->IDR;
+
+#define TP_CS()   HAL_GPIO_WritePin(TP_CS_GPIO_Port, TP_CS_Pin, GPIO_PIN_RESET)
+#define TP_DCS()  HAL_GPIO_WritePin(TP_CS_GPIO_Port, TP_CS_Pin, GPIO_PIN_SET)
 
 
 /* USER CODE END Private defines */

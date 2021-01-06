@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUkANMp.s 			page 1
+ARM GAS  /tmp/ccfSKnbk.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
   29:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** #include "usbh_msc_scsi.h"
   30:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** #include "usbh_msc_bot.h"
   31:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
-ARM GAS  /tmp/ccUkANMp.s 			page 2
+ARM GAS  /tmp/ccfSKnbk.s 			page 2
 
 
   32:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
   86:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** /**
   87:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   * @}
   88:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   */
-ARM GAS  /tmp/ccUkANMp.s 			page 3
+ARM GAS  /tmp/ccfSKnbk.s 			page 3
 
 
   89:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  112:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  113:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       /*Prepare the CBW and relevent field*/
  114:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.DataTransferLength = DATA_LEN_MODE_TEST_UNIT_READY;
-ARM GAS  /tmp/ccUkANMp.s 			page 4
+ARM GAS  /tmp/ccfSKnbk.s 			page 4
 
 
  115:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.Flags = USB_EP_DIR_OUT;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
   83 0034 C3F86F20 		str	r2, [r3, #111]	@ unaligned
  119:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
   84              		.loc 1 119 7 view .LVU20
-ARM GAS  /tmp/ccUkANMp.s 			page 5
+ARM GAS  /tmp/ccfSKnbk.s 			page 5
 
 
  119:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  145:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** USBH_StatusTypeDef USBH_MSC_SCSI_ReadCapacity(USBH_HandleTypeDef *phost,
  146:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                                               uint8_t lun,
  147:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                                               SCSI_CapacityTypeDef *capacity)
-ARM GAS  /tmp/ccUkANMp.s 			page 6
+ARM GAS  /tmp/ccfSKnbk.s 			page 6
 
 
  148:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** {
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  168:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       error = USBH_BUSY;
  169:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       break;
  170:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
-ARM GAS  /tmp/ccUkANMp.s 			page 7
+ARM GAS  /tmp/ccfSKnbk.s 			page 7
 
 
  171:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****     case BOT_CMD_WAIT:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  162:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  181              		.loc 1 162 7 view .LVU50
  162:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
-ARM GAS  /tmp/ccUkANMp.s 			page 8
+ARM GAS  /tmp/ccfSKnbk.s 			page 8
 
 
  182              		.loc 1 162 41 is_stmt 0 view .LVU51
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  178:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                               ((uint32_t)MSC_Handle->hbot.pbuf[1] << 16U) | ((uint32_t)MSC_Handle->
  219              		.loc 1 178 56 view .LVU69
  220 006c 43EA0123 		orr	r3, r3, r1, lsl #8
-ARM GAS  /tmp/ccUkANMp.s 			page 9
+ARM GAS  /tmp/ccfSKnbk.s 			page 9
 
 
  179:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  201:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** USBH_StatusTypeDef USBH_MSC_SCSI_Inquiry(USBH_HandleTypeDef *phost, uint8_t lun,
  202:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                                          SCSI_StdInquiryDataTypeDef *inquiry)
  203:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** {
-ARM GAS  /tmp/ccUkANMp.s 			page 10
+ARM GAS  /tmp/ccfSKnbk.s 			page 10
 
 
  257              		.loc 1 203 1 is_stmt 1 view -0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  226:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cmd_state = BOT_CMD_WAIT;
  227:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.pbuf = (uint8_t *)(void *)MSC_Handle->hbot.data;
  228:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       error = USBH_BUSY;
-ARM GAS  /tmp/ccUkANMp.s 			page 11
+ARM GAS  /tmp/ccfSKnbk.s 			page 11
 
 
  229:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       break;
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  304 0022 84F86030 		strb	r3, [r4, #96]
  214:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  305              		.loc 1 214 7 is_stmt 1 view .LVU97
-ARM GAS  /tmp/ccUkANMp.s 			page 12
+ARM GAS  /tmp/ccfSKnbk.s 			page 12
 
 
  214:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  226:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.pbuf = (uint8_t *)(void *)MSC_Handle->hbot.data;
  341              		.loc 1 226 34 is_stmt 0 view .LVU117
  342 0054 0223     		movs	r3, #2
-ARM GAS  /tmp/ccUkANMp.s 			page 13
+ARM GAS  /tmp/ccfSKnbk.s 			page 13
 
 
  343 0056 84F85230 		strb	r3, [r4, #82]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  240:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  381              		.loc 1 240 9 is_stmt 1 view .LVU134
  240:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
-ARM GAS  /tmp/ccUkANMp.s 			page 14
+ARM GAS  /tmp/ccfSKnbk.s 			page 14
 
 
  382              		.loc 1 240 56 is_stmt 0 view .LVU135
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  253:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       }
  422              		.loc 1 253 9 is_stmt 1 view .LVU150
  253:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       }
-ARM GAS  /tmp/ccUkANMp.s 			page 15
+ARM GAS  /tmp/ccfSKnbk.s 			page 15
 
 
  423              		.loc 1 253 60 is_stmt 0 view .LVU151
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  462              		.loc 1 276 3 is_stmt 1 view .LVU157
  463              	.LVL34:
  277:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   MSC_HandleTypeDef *MSC_Handle = (MSC_HandleTypeDef *) phost->pActiveClass->pData;
-ARM GAS  /tmp/ccUkANMp.s 			page 16
+ARM GAS  /tmp/ccfSKnbk.s 			page 16
 
 
  464              		.loc 1 277 3 view .LVU158
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  313:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  314:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****     default:
  315:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       break;
-ARM GAS  /tmp/ccUkANMp.s 			page 17
+ARM GAS  /tmp/ccfSKnbk.s 			page 17
 
 
  316:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   }
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  291:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[3]  = 0U;
  519              		.loc 1 291 7 is_stmt 1 view .LVU180
  291:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[3]  = 0U;
-ARM GAS  /tmp/ccUkANMp.s 			page 18
+ARM GAS  /tmp/ccfSKnbk.s 			page 18
 
 
  520              		.loc 1 291 41 is_stmt 0 view .LVU181
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  306:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       {
  556              		.loc 1 306 10 is_stmt 0 view .LVU200
  557 0072 0028     		cmp	r0, #0
-ARM GAS  /tmp/ccUkANMp.s 			page 19
+ARM GAS  /tmp/ccfSKnbk.s 			page 19
 
 
  558 0074 D1D1     		bne	.L22
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  328:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   * @param  length: number of sector to write
  329:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   * @retval USBH Status
  330:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****   */
-ARM GAS  /tmp/ccUkANMp.s 			page 20
+ARM GAS  /tmp/ccfSKnbk.s 			page 20
 
 
  331:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** USBH_StatusTypeDef USBH_MSC_SCSI_Write(USBH_HandleTypeDef *phost,
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  352:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  353:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       /*logical block address*/
  354:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[2]  = (((uint8_t *)(void *)&address)[3]);
-ARM GAS  /tmp/ccUkANMp.s 			page 21
+ARM GAS  /tmp/ccfSKnbk.s 			page 21
 
 
  355:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[3]  = (((uint8_t *)(void *)&address)[2]);
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  648              		.loc 1 348 7 is_stmt 1 view .LVU230
  348:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
  649              		.loc 1 348 43 is_stmt 0 view .LVU231
-ARM GAS  /tmp/ccUkANMp.s 			page 22
+ARM GAS  /tmp/ccfSKnbk.s 			page 22
 
 
  650 002c 0A25     		movs	r5, #10
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  687              		.loc 1 365 7 is_stmt 1 view .LVU248
  365:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cmd_state = BOT_CMD_WAIT;
  688              		.loc 1 365 30 is_stmt 0 view .LVU249
-ARM GAS  /tmp/ccUkANMp.s 			page 23
+ARM GAS  /tmp/ccfSKnbk.s 			page 23
 
 
  689 0074 0122     		movs	r2, #1
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  392:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** USBH_StatusTypeDef USBH_MSC_SCSI_Read(USBH_HandleTypeDef *phost,
  393:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                                       uint8_t lun,
  394:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                                       uint32_t address,
-ARM GAS  /tmp/ccUkANMp.s 			page 24
+ARM GAS  /tmp/ccfSKnbk.s 			page 24
 
 
  395:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****                                       uint8_t *pbuf,
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  416:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[4]  = (((uint8_t *)(void *)&address)[1]);
  417:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[5]  = (((uint8_t *)(void *)&address)[0]);
  418:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
-ARM GAS  /tmp/ccUkANMp.s 			page 25
+ARM GAS  /tmp/ccfSKnbk.s 			page 25
 
 
  419:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  781 002e 84F86210 		strb	r1, [r4, #98]
  410:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.cbw.field.CB[0]  = OPCODE_READ10;
  782              		.loc 1 410 7 is_stmt 1 view .LVU279
-ARM GAS  /tmp/ccUkANMp.s 			page 26
+ARM GAS  /tmp/ccfSKnbk.s 			page 26
 
 
  783 0032 0021     		movs	r1, #0
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  426:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.pbuf = pbuf;
  820              		.loc 1 426 7 is_stmt 1 view .LVU297
  426:Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Src/usbh_msc_scsi.c ****       MSC_Handle->hbot.pbuf = pbuf;
-ARM GAS  /tmp/ccUkANMp.s 			page 27
+ARM GAS  /tmp/ccfSKnbk.s 			page 27
 
 
  821              		.loc 1 426 34 is_stmt 0 view .LVU298
@@ -1610,23 +1610,23 @@ ARM GAS  /tmp/ccUkANMp.s 			page 1
  861              		.file 18 "Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Inc/usbh_msc_scsi.h"
  862              		.file 19 "Middlewares/ST/STM32_USB_Host_Library/Class/MSC/Inc/usbh_msc.h"
  863              		.file 20 "<built-in>"
-ARM GAS  /tmp/ccUkANMp.s 			page 28
+ARM GAS  /tmp/ccfSKnbk.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbh_msc_scsi.c
-     /tmp/ccUkANMp.s:16     .text.USBH_MSC_SCSI_TestUnitReady:0000000000000000 $t
-     /tmp/ccUkANMp.s:24     .text.USBH_MSC_SCSI_TestUnitReady:0000000000000000 USBH_MSC_SCSI_TestUnitReady
-     /tmp/ccUkANMp.s:112    .text.USBH_MSC_SCSI_ReadCapacity:0000000000000000 $t
-     /tmp/ccUkANMp.s:119    .text.USBH_MSC_SCSI_ReadCapacity:0000000000000000 USBH_MSC_SCSI_ReadCapacity
-     /tmp/ccUkANMp.s:247    .text.USBH_MSC_SCSI_Inquiry:0000000000000000 $t
-     /tmp/ccUkANMp.s:254    .text.USBH_MSC_SCSI_Inquiry:0000000000000000 USBH_MSC_SCSI_Inquiry
-     /tmp/ccUkANMp.s:439    .text.USBH_MSC_SCSI_RequestSense:0000000000000000 $t
-     /tmp/ccUkANMp.s:446    .text.USBH_MSC_SCSI_RequestSense:0000000000000000 USBH_MSC_SCSI_RequestSense
-     /tmp/ccUkANMp.s:585    .text.USBH_MSC_SCSI_Write:0000000000000000 $t
-     /tmp/ccUkANMp.s:592    .text.USBH_MSC_SCSI_Write:0000000000000000 USBH_MSC_SCSI_Write
-     /tmp/ccUkANMp.s:715    .text.USBH_MSC_SCSI_Read:0000000000000000 $t
-     /tmp/ccUkANMp.s:722    .text.USBH_MSC_SCSI_Read:0000000000000000 USBH_MSC_SCSI_Read
+     /tmp/ccfSKnbk.s:16     .text.USBH_MSC_SCSI_TestUnitReady:0000000000000000 $t
+     /tmp/ccfSKnbk.s:24     .text.USBH_MSC_SCSI_TestUnitReady:0000000000000000 USBH_MSC_SCSI_TestUnitReady
+     /tmp/ccfSKnbk.s:112    .text.USBH_MSC_SCSI_ReadCapacity:0000000000000000 $t
+     /tmp/ccfSKnbk.s:119    .text.USBH_MSC_SCSI_ReadCapacity:0000000000000000 USBH_MSC_SCSI_ReadCapacity
+     /tmp/ccfSKnbk.s:247    .text.USBH_MSC_SCSI_Inquiry:0000000000000000 $t
+     /tmp/ccfSKnbk.s:254    .text.USBH_MSC_SCSI_Inquiry:0000000000000000 USBH_MSC_SCSI_Inquiry
+     /tmp/ccfSKnbk.s:439    .text.USBH_MSC_SCSI_RequestSense:0000000000000000 $t
+     /tmp/ccfSKnbk.s:446    .text.USBH_MSC_SCSI_RequestSense:0000000000000000 USBH_MSC_SCSI_RequestSense
+     /tmp/ccfSKnbk.s:585    .text.USBH_MSC_SCSI_Write:0000000000000000 $t
+     /tmp/ccfSKnbk.s:592    .text.USBH_MSC_SCSI_Write:0000000000000000 USBH_MSC_SCSI_Write
+     /tmp/ccfSKnbk.s:715    .text.USBH_MSC_SCSI_Read:0000000000000000 $t
+     /tmp/ccfSKnbk.s:722    .text.USBH_MSC_SCSI_Read:0000000000000000 USBH_MSC_SCSI_Read
 
 UNDEFINED SYMBOLS
 USBH_MSC_BOT_Process

@@ -90,6 +90,13 @@ Purpose     : Display controller configuration (single layer)
   #error No display driver defined!
 #endif
 
+#define TOUCH_AD_LEFT 	3720 		//触摸左上角x轴的AD值(注意是AD值，也叫物理坐标)
+#define TOUCH_AD_RIGHT 	300			//触摸屏幕右下角边x轴的AD值
+#define TOUCH_AD_TOP 	3850  		//触摸左上角y轴的AD值
+#define TOUCH_AD_BOTTOM 280			//触摸右上角y轴的AD值
+
+
+
 /*********************************************************************
 *
 *       Local functions
@@ -191,10 +198,10 @@ void LCD_X_Config(void) {
   //
   ///Config.Orientation = GUI_SWAP_XY | GUI_MIRROR_Y;
 
-   Config.FirstCOM = 0; //modify by fire
-   Config.FirstSEG = 0; //modify by fire
-   ///Config.Orientation = GUI_MIRROR_Y|GUI_MIRROR_X;//modify by fire 
-   Config.NumDummyReads = 2; //modify by fire 
+   Config.FirstCOM = 0; 
+   Config.FirstSEG = 0; 
+   ///Config.Orientation = GUI_MIRROR_Y|GUI_MIRROR_X;/
+   Config.NumDummyReads = 2; 
 
 
   GUIDRV_FlexColor_Config(pDevice, &Config);
@@ -206,6 +213,9 @@ void LCD_X_Config(void) {
   PortAPI.pfWriteM16_A1 = LcdWriteDataMultiple;
   PortAPI.pfReadM16_A1  = LcdReadDataMultiple;
   GUIDRV_FlexColor_SetFunc(pDevice, &PortAPI, GUIDRV_FLEXCOLOR_F66708, GUIDRV_FLEXCOLOR_M16C0B16); //16bpp, no cache, 16 bit bus
+
+  GUI_TOUCH_Calibrate(GUI_COORD_X, 0, 240-1, TOUCH_AD_LEFT, TOUCH_AD_RIGHT);
+  GUI_TOUCH_Calibrate(GUI_COORD_Y, 0, 320-1, TOUCH_AD_TOP, TOUCH_AD_BOTTOM);
 }
 
 /*********************************************************************
