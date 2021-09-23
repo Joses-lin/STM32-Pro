@@ -626,7 +626,8 @@ void StartDefaultTask(void const * argument)
     yPhys = GUI_TOUCH_GetyPhys(); /* Get the A/D mesurement result in y */
     /* Display the measurement result */
     GUI_SetColor(GUI_BLUE);
-    GUI_DispStringAt("Analog input:\n", 10, 30);
+    GUI_DispStringAt("Analog input(test):\n", 10, 30);
+     GUI_DispStringAt("Analog input(test123):\n", 10, 30);
     GUI_GotoY(GUI_GetDispPosY() + 2);
     GUI_DispString("x:");
     GUI_DispDec(xPhys, 4);
